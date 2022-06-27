@@ -68,17 +68,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BD.sql" />
+    <Content Include="frmLogin.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\CSS\login.css" />
+    <Content Include="Resources\Imagenes\loginBackground.jpg" />
     <Content Include="Resources\user.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dsSCIA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSCIA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dsSCIA.xsc">
+      <DependentUpon>dsSCIA.xsd</DependentUpon>
+    </Content>
+    <None Include="dsSCIA.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSCIA.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="dsSCIA.xss">
+      <DependentUpon>dsSCIA.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
