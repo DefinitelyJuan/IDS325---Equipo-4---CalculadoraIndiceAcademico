@@ -53,7 +53,7 @@ CREATE TABLE [tblDocentes] (
       REFERENCES [tblUsuarios]([IDUsuario])
 );
 CREATE NONCLUSTERED INDEX IX_IDUsuario   
-    ON tblUsuarios(IDUsuario); 
+    ON tblDocentes(IDUsuario); 
 
 --Tabla Areas Académicas
 CREATE TABLE [tblAreasAcademicas] (
@@ -69,27 +69,26 @@ CREATE TABLE [tblAsignaturas] (
   [IDAsignatura] int identity(1,1),
   [Codigo] char(6),
   [IDAreaAcademica] int,
-  [Nombre] varchar(),
+  [Nombre] varchar(70),
   [NumCreditos] tinyint,
   [FechaCreacion] datetime,
   [FechaModificacion] datetime,
-  [Estado] bit,
   PRIMARY KEY ([IDAsignatura]),
-  CONSTRAINT [FK_tblAsignaturas.IDAsignatura]
-    FOREIGN KEY ([IDAsignatura])
+  CONSTRAINT [FK_tblAsignaturas.IDAreaAcademica]
+    FOREIGN KEY ([IDAreaAcademica])
       REFERENCES [tblAreasAcademicas]([IDArea])
 );
 CREATE NONCLUSTERED INDEX IX_IDAsignatura  
-    ON tblUsuarios (IDAsignatura); 
-CREATE INDEX [unique] ON  [tblAsignaturas] ([Codigo]);
+    ON tblAsignaturas (IDAreaAcademica); 
 
 --Tabla Docentes_Asignaturas
 CREATE TABLE [tblDocentes_Asignaturas] (
   [IDAsignatura] int,
   [IDDocente] int,
-  [Trimestre] varchar (?),
-  PRIMARY KEY ([IDAsignatur], [IDDeoente])?,et
-  CONST_RAINT [FK_tblDocentes_Asignaturas.IDAsignatura]
+  [Trimestre] varchar (7),
+  PRIMARY KEY ([IDAsignatura], [IDDocente]),
+
+  CONSTRAINT [FK_tblDocentes_Asignaturas.IDAsignatura]
     FOREIGN KEY ([IDAsignatura])
       REFERENCES [tblAsignaturas]([IDAsignatura]),
   CONSTRAINT [FK_tblDocentes_Asignaturas.IDDocente]
@@ -101,10 +100,10 @@ CREATE TABLE [tblDocentes_Asignaturas] (
 CREATE TABLE [tblEstudiantes] (
   [IDEstudiante] int identity(1,1),
   [IDUsuario] int,
-  [Nombre] varchar (?),
-  [Apellido] varchar (?),
-  [Correo] varchar (?),
-  [Trimestre] varchar(?),
+  [Nombre] varchar (25),
+  [Apellido] varchar (25),
+  [Correo] varchar (150),
+  [Trimestre] varchar(7),
   [FechaCreacion] datetime,
   [FechaModificacion] datetime,
   [Estado] bit,
@@ -124,7 +123,7 @@ CREATE TABLE [tblCalificaciones] (
   [CalificacionLiteral] char(2),
   [FechaCreacion] datetime,
   [FechaModificacion] datetime,
-  [Trimestre] varchar(?),
+  [Trimestre] varchar(7),
   PRIMARY KEY ([IDAsignatura], [IDEstudiante]),
   CONSTRAINT [FK_tblCalificaciones.IDEstudiante]
     FOREIGN KEY ([IDEstudiante])
@@ -151,9 +150,9 @@ CREATE TABLE [tblEstudiantes_Programas] (
 CREATE TABLE [tblAdministradores] (
   [IDAdministrador] int,
   [IDUsuario] int,
-  [Nombre] nvarchar(?),
-  [Apellido] nvarchar(?),
-  [Correo] nvarchar(?),
+  [Nombre] nvarchar(25),
+  [Apellido] nvarchar(25),
+  [Correo] nvarchar(150),
   [FechaCreacion] datetime,
   [FechaModificacion] datetime,
   PRIMARY KEY ([IDAdministrador]),
@@ -161,5 +160,5 @@ CREATE TABLE [tblAdministradores] (
     FOREIGN KEY ([IDUsuario])
       REFERENCES [tblUsuarios]([IDUsuario])
 );
-CREATE NONCLUSTERED INDEX IX_IDAdministrador
-    ON tblAdministradores(IDAdministrador); 
+CREATE NONCLUSTERED INDEX IX_IDUsuario
+    ON tblAdministradores(IDUsuario); 
