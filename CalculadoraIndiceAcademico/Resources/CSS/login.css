@@ -1,9 +1,10 @@
 ﻿body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Imagenes/loginBackground.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.container {  display: grid;
+/*.container {  display: grid;
   grid-template-columns: 1.3fr 0.7fr 1fr;
   grid-template-rows: 0.8fr 1fr 1.2fr;
   gap: 0px 0px;
@@ -15,12 +16,12 @@
   font-family:Montserrat;
   font-weight:500;
 }
-
+*/
 .LOGO {
     grid-area: LOGO;
-    background: #FCFCD4
+    background: #FCFCD4;
 }
-
+/*
 .LoginPanel {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -35,8 +36,8 @@
     background: #00ACCE;
     padding:20%;
 }
-
-.Labels {
+*/
+/*.Labels {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -49,13 +50,13 @@
     grid-area: Labels;
     text-align: right;
     margin: 0px 10px 0px 0px;
-}
-
+}*/
+/*
 .Usuario { grid-area: Usuario; }
 
 .Contraseña { grid-area: Contraseña; }
-
-.Controllers {  display: grid;
+*/
+/*.Controllers {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -71,7 +72,7 @@
 
 .txtContraseña { grid-area: txtContraseña; }
 
-.txtUsuario { grid-area: txtUsuario; }
+.txtUsuario { grid-area: txtUsuario; }*/
 
 
 .txtBox {
@@ -87,3 +88,35 @@
     margin:10px;
 }
 
+.centrarContenedor{
+    height: 100vh;
+    width: 100vw;
+}
+
+.btnLogin {
+    border-radius: 48px;
+    padding: 8px 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #00acce;
+}
+
+.LoginPanel{
+    background: #00acce;
+    height: 100%;
+}
+
+.loginRow{
+    height: 50vh;
+}
+
+.containerLogin {
+    height: 100%;
+}
+
+.txtBox {
+    margin: 10px 0px;
+}
+
+.title{
+    color: #FCFCD4;
+}
