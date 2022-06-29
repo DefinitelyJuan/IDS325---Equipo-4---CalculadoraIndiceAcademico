@@ -13,5 +13,15 @@ namespace CalculadoraIndiceAcademico
         {
 
         }
+        protected void Create(object sender, EventArgs e)
+        {
+        }        
+        protected void Update(object sender, EventArgs e)
+        {
+        }        
+        protected void Delete(object sender, EventArgs e)
+        {
+        }
+
     }
 }

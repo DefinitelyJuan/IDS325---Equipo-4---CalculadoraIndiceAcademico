@@ -47,3 +47,11 @@ body{
     height: 100vh;
     background-color: var(--defaultBlue);
 }
+
+.adminText{
+    text-align:right !important;
+}
+
+.hAdministrador{
+   padding-left:5px !important; 
+}
