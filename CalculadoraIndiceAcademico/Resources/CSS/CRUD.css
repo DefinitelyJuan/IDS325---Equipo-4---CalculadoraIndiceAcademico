@@ -1,0 +1,43 @@
+﻿:root {
+    --defaultBlue: #00acce;
+    --defaultYellow: #fcfcd4;
+    --defaultWhite:#f0f0f0;
+}
+
+body{
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.btnCerrarSesion {
+    width:100%;
+    margin-top: 40%;
+}
+
+.panelContainer{
+    padding: 0px !important;
+    height:100vh;
+    background-color: var(--defaultBlue);
+}
+
+.selectedButton {
+    background: var(--defaultYellow) !important;
+    border-radius: 0px !important;
+}
+
+.secondaryButton {
+    border: none !important;
+    color: var(--defaultWhite) !important;
+    border-radius: 0px !important;
+}
+
+.secondaryButton:hover {
+    color: #000 !important;
+    background-color: var(--defaultYellow) !important;
+    border-radius: 0px !important;
+}

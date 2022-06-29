@@ -85,8 +85,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="frmLogin.aspx" />
+    <Content Include="frmMantenimientoAdministrador.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\login.css" />
+    <Content Include="Resources\CSS\CRUD.css" />
     <Content Include="Resources\Imagenes\loginBackground.jpg" />
     <Content Include="Resources\user.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -109,6 +111,13 @@
     </Compile>
     <Compile Include="frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoAdministrador.aspx.cs">
+      <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoAdministrador.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
