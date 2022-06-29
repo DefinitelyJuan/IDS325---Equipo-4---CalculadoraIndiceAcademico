@@ -19,9 +19,9 @@ body{
     margin-top: 40%;
 }
 
-.panelContainer{
+.panelContainer {
     padding: 0px !important;
-    height:100vh;
+    height: 100vh;
     background-color: var(--defaultBlue);
 }
 
@@ -40,4 +40,10 @@ body{
     color: #000 !important;
     background-color: var(--defaultYellow) !important;
     border-radius: 0px !important;
+}
+
+.panelContainerRight {
+    padding: 0px !important;
+    height: 100vh;
+    background-color: var(--defaultBlue);
 }
