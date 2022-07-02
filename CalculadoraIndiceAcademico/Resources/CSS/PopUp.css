@@ -1,0 +1,46 @@
+﻿:root {
+    --defaultBlue: #00acce;
+    --defaultYellow: #fcfcd4;
+    --defaultWhite: #f0f0f0;
+}
+
+.container{
+    background: var(--defaultBlue);
+    border-radius: 25px;
+    margin-top: 25px;
+}
+
+.btnGuardar {
+    background: var(--defaultYellow);
+    border-radius: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 8px 28px;
+    margin-top: 10px;
+    border-style: none;
+    margin-bottom: 20px;
+}
+
+.lbl {
+    color: var(--defaultWhite);
+    font-family: Montserrat;
+}
+
+.txt {
+    border-radius: 3px;
+    width: 100%;
+    border-style: none;
+    font-family: Montserrat;
+}
+
+.mainHeading {
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.cmb {
+    width: 100%;
+    background: var(--defaultWhite);
+    border-radius: 3px;
+    border-style: none;
+    height: 28px;
+}

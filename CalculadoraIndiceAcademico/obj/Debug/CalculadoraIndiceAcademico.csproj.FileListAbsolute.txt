@@ -177,3 +177,4 @@ C:\Users\Deivy\Source\Repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\Calcu
 C:\Users\Deivy\Source\Repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.dll
 C:\Users\Deivy\Source\Repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.pdb
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\FontAwesome.dll
+C:\Users\Leslie\Documents\GitHub\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\FontAwesome.dll
