@@ -96,6 +96,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
+    <Content Include="frmMantenimientoUsuarios.aspx" />
     <Content Include="frmMantenimientoAdministrador.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\login.css" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoUsuarios.aspx.cs">
+      <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoUsuarios.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmMantenimientoAdministrador.aspx.cs">
       <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
