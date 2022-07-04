@@ -21,7 +21,7 @@
 
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
+                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" onServerClick = "cancel" OnClick="btnCancel_Click">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
                 <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     

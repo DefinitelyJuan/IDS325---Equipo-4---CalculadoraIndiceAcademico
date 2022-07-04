@@ -28,5 +28,10 @@ namespace CalculadoraIndiceAcademico
         {
             Response.Redirect("frmMantenimientoAdministrador.aspx");
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            frmPopUp.Hide();
+        }
     }
 }

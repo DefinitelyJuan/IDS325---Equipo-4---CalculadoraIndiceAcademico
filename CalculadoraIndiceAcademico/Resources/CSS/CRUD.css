@@ -82,7 +82,6 @@ body{
 .formFrame {
     width: 500px;
     height: 670px;
-    transition-delay:1s;
 }
 
 .btnCancel {

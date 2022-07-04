@@ -25,7 +25,7 @@
                 <h4 class="mainHeading">INGRESAR ESTUDIANTE</h4>
 
                 <h5 class="mt-4 lbl d-flex-column align-self-start">ID:</h5>
-                <asp:TextBox ID="txtID" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtID" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombres:</h5>
                 <asp:TextBox ID="txtNombres" runat="server" CssClass="txt"></asp:TextBox>
@@ -40,12 +40,35 @@
                 <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt"></asp:TextBox>
             
                 <h5 class="mt-4  lbl  d-flex-column align-self-start">Programa de estudio:</h5>
-                <asp:DropDownList ID="ddlProgramaEstudio" runat="server" CssClass="cmb">
+                <asp:DropDownList ID="ddlProgramaEstudio" runat="server" CssClass="cmb" DataSourceID="dllPrograma" DataTextField="Nombre" DataValueField="IDPrograma">
                     <asp:ListItem CssClass="dropdown-item"></asp:ListItem>
                     <asp:ListItem CssClass="dropdown-item">Ingeniería de Software (IDS 2020)</asp:ListItem>
                     <asp:ListItem CssClass="dropdown-item">Ingeniería de Sistemas (SIS 2020)</asp:ListItem>
                     <asp:ListItem CssClass="dropdown-item">Ingeniería de Ciberseguridad (ICS 2020)</asp:ListItem>
                 </asp:DropDownList>
+
+                <asp:ObjectDataSource ID="dllPrograma" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblProgramasAcademicosTableAdapter" UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="Nombre" Type="String" />
+                        <asp:Parameter Name="Version" Type="String" />
+                        <asp:Parameter Name="Creditos" Type="Int32" />
+                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                        <asp:Parameter Name="Estado" Type="Boolean" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="Nombre" Type="String" />
+                        <asp:Parameter Name="Version" Type="String" />
+                        <asp:Parameter Name="Creditos" Type="Int32" />
+                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                        <asp:Parameter Name="Estado" Type="Boolean" />
+                        <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
 
             </div>
             
