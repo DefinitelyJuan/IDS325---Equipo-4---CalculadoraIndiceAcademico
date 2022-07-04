@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmMantenimientoAdministrador.aspx.cs" Inherits="CalculadoraIndiceAcademico.frmMantenimientoAdministrador" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,6 +18,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" CancelControlID="btnCancel" ID="frmPopUp" BackgroundCssClass="puBackground">
+                    </cc1:ModalPopupExtender>
+
+                <asp:Panel ID="Panel1" runat="server">
+                <asp:LinkButton 
+                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
+                    <i class="fa fa-thin fa-cancel"></i>
+                </asp:LinkButton>
+                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
+
+            </asp:Panel>  
+
+
         <div class="row m-0">
 
            <%-- <%-- Columna izquiera --%>
@@ -77,7 +92,7 @@
                         </div>
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
-                            <button runat="server" onserverclick="Create" id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
+                            <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
                             <button runat="server" onserverclick="Update" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
                             <button runat="server" onserverclick="Delete" id="btnDelete" class="fa btn btn-outline-secondary"><i class="fa-light fa-trash-can fa-lg"></i></button>
                         </div>
@@ -86,15 +101,30 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource1" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
                             <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
-                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" SortExpression="Usuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" SortExpression="IDRol" />
                             <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                         </Columns>
                     </asp:GridView>
+                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter" UpdateMethod="Update">
+                        <DeleteParameters>
+                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="Contraseña" Type="String" />
+                            <asp:Parameter Name="IDRol" Type="Byte" />
+                            <asp:Parameter Name="Estado" Type="Boolean" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="Contraseña" Type="String" />
+                            <asp:Parameter Name="IDRol" Type="Byte" />
+                            <asp:Parameter Name="Estado" Type="Boolean" />
+                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
+                        </UpdateParameters>
+                    </asp:ObjectDataSource>
                     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter"></asp:ObjectDataSource>
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>

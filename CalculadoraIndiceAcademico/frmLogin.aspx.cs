@@ -22,7 +22,16 @@ namespace CalculadoraIndiceAcademico
             DataTable ds = usuario.GetDataByLogin(txtUsuario.Text, txtContraseña.Text);
             if (ds.Rows.Count == 1)
             {
-                Response.Write("Válido");
+                switch (ds.Rows[0][2].ToString())
+                {
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        Response.Redirect("/frmMantenimientoAdministrador.aspx");
+                        break;
+                }
             }
             else
             {

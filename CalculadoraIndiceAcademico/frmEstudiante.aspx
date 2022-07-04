@@ -51,7 +51,7 @@
             
             <%-- Botón guardar --%>
             <div class="d-flex justify-content-center">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" />
             </div>
 
         </div>

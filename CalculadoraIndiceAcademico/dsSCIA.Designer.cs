@@ -46,27 +46,27 @@ namespace CalculadoraIndiceAcademico {
         
         private tblUsuariosDataTable tabletblUsuarios;
         
-        private global::System.Data.DataRelation _relationFK_tblAdministradores_IDUsuario;
-        
         private global::System.Data.DataRelation _relationFK_tblAsignaturas_IDAreaAcademica;
         
         private global::System.Data.DataRelation _relationFK_tblCalificaciones_IDAsignatura;
         
         private global::System.Data.DataRelation _relationFK_tblCalificaciones_IDEstudiante;
         
-        private global::System.Data.DataRelation _relationFK_tblDocentes_IDUsuario;
-        
         private global::System.Data.DataRelation _relationFK_tblDocentes_Asignaturas_IDAsignatura;
         
         private global::System.Data.DataRelation _relationFK_tblDocentes_Asignaturas_IDDocente;
-        
-        private global::System.Data.DataRelation _relationFK_tblEstudiantes_IDUsuario;
         
         private global::System.Data.DataRelation _relationFK_tblEstudiantes_Programas_IDEstudiante;
         
         private global::System.Data.DataRelation _relationFK_tblEstudiantes_Programas_IDPrograma;
         
-        private global::System.Data.DataRelation _relationFK_tblUsuarios_IDRol;
+        private global::System.Data.DataRelation _relationFK_tblAdministradores_IDUsuario1;
+        
+        private global::System.Data.DataRelation _relationFK_tblDocentes_IDUsuario1;
+        
+        private global::System.Data.DataRelation _relationFK_tblEstudiantes_IDUsuario1;
+        
+        private global::System.Data.DataRelation _relationFK_tblUsuarios_IDRol1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -456,17 +456,17 @@ namespace CalculadoraIndiceAcademico {
                     this.tabletblUsuarios.InitVars();
                 }
             }
-            this._relationFK_tblAdministradores_IDUsuario = this.Relations["FK_tblAdministradores.IDUsuario"];
             this._relationFK_tblAsignaturas_IDAreaAcademica = this.Relations["FK_tblAsignaturas.IDAreaAcademica"];
             this._relationFK_tblCalificaciones_IDAsignatura = this.Relations["FK_tblCalificaciones.IDAsignatura"];
             this._relationFK_tblCalificaciones_IDEstudiante = this.Relations["FK_tblCalificaciones.IDEstudiante"];
-            this._relationFK_tblDocentes_IDUsuario = this.Relations["FK_tblDocentes.IDUsuario"];
             this._relationFK_tblDocentes_Asignaturas_IDAsignatura = this.Relations["FK_tblDocentes_Asignaturas.IDAsignatura"];
             this._relationFK_tblDocentes_Asignaturas_IDDocente = this.Relations["FK_tblDocentes_Asignaturas.IDDocente"];
-            this._relationFK_tblEstudiantes_IDUsuario = this.Relations["FK_tblEstudiantes.IDUsuario"];
             this._relationFK_tblEstudiantes_Programas_IDEstudiante = this.Relations["FK_tblEstudiantes_Programas.IDEstudiante"];
             this._relationFK_tblEstudiantes_Programas_IDPrograma = this.Relations["FK_tblEstudiantes_Programas.IDPrograma"];
-            this._relationFK_tblUsuarios_IDRol = this.Relations["FK_tblUsuarios.IDRol"];
+            this._relationFK_tblAdministradores_IDUsuario1 = this.Relations["FK_tblAdministradores.IDUsuario1"];
+            this._relationFK_tblDocentes_IDUsuario1 = this.Relations["FK_tblDocentes.IDUsuario1"];
+            this._relationFK_tblEstudiantes_IDUsuario1 = this.Relations["FK_tblEstudiantes.IDUsuario1"];
+            this._relationFK_tblUsuarios_IDRol1 = this.Relations["FK_tblUsuarios.IDRol1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -499,10 +499,6 @@ namespace CalculadoraIndiceAcademico {
             base.Tables.Add(this.tabletblRoles);
             this.tabletblUsuarios = new tblUsuariosDataTable();
             base.Tables.Add(this.tabletblUsuarios);
-            this._relationFK_tblAdministradores_IDUsuario = new global::System.Data.DataRelation("FK_tblAdministradores.IDUsuario", new global::System.Data.DataColumn[] {
-                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletblAdministradores.IDUsuarioColumn}, false);
-            this.Relations.Add(this._relationFK_tblAdministradores_IDUsuario);
             this._relationFK_tblAsignaturas_IDAreaAcademica = new global::System.Data.DataRelation("FK_tblAsignaturas.IDAreaAcademica", new global::System.Data.DataColumn[] {
                         this.tabletblAreasAcademicas.IDAreaColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblAsignaturas.IDAreaAcademicaColumn}, false);
@@ -515,10 +511,6 @@ namespace CalculadoraIndiceAcademico {
                         this.tabletblEstudiantes.IDEstudianteColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblCalificaciones.IDEstudianteColumn}, false);
             this.Relations.Add(this._relationFK_tblCalificaciones_IDEstudiante);
-            this._relationFK_tblDocentes_IDUsuario = new global::System.Data.DataRelation("FK_tblDocentes.IDUsuario", new global::System.Data.DataColumn[] {
-                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletblDocentes.IDUsuarioColumn}, false);
-            this.Relations.Add(this._relationFK_tblDocentes_IDUsuario);
             this._relationFK_tblDocentes_Asignaturas_IDAsignatura = new global::System.Data.DataRelation("FK_tblDocentes_Asignaturas.IDAsignatura", new global::System.Data.DataColumn[] {
                         this.tabletblAsignaturas.IDAsignaturaColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblDocentes_Asignaturas.IDAsignaturaColumn}, false);
@@ -527,10 +519,6 @@ namespace CalculadoraIndiceAcademico {
                         this.tabletblDocentes.IDDocenteColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblDocentes_Asignaturas.IDDocenteColumn}, false);
             this.Relations.Add(this._relationFK_tblDocentes_Asignaturas_IDDocente);
-            this._relationFK_tblEstudiantes_IDUsuario = new global::System.Data.DataRelation("FK_tblEstudiantes.IDUsuario", new global::System.Data.DataColumn[] {
-                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletblEstudiantes.IDUsuarioColumn}, false);
-            this.Relations.Add(this._relationFK_tblEstudiantes_IDUsuario);
             this._relationFK_tblEstudiantes_Programas_IDEstudiante = new global::System.Data.DataRelation("FK_tblEstudiantes_Programas.IDEstudiante", new global::System.Data.DataColumn[] {
                         this.tabletblEstudiantes.IDEstudianteColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblEstudiantes_Programas.IDEstudianteColumn}, false);
@@ -539,10 +527,22 @@ namespace CalculadoraIndiceAcademico {
                         this.tabletblProgramasAcademicos.IDProgramaColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblEstudiantes_Programas.IDProgramaColumn}, false);
             this.Relations.Add(this._relationFK_tblEstudiantes_Programas_IDPrograma);
-            this._relationFK_tblUsuarios_IDRol = new global::System.Data.DataRelation("FK_tblUsuarios.IDRol", new global::System.Data.DataColumn[] {
+            this._relationFK_tblAdministradores_IDUsuario1 = new global::System.Data.DataRelation("FK_tblAdministradores.IDUsuario1", new global::System.Data.DataColumn[] {
+                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblAdministradores.IDUsuarioColumn}, false);
+            this.Relations.Add(this._relationFK_tblAdministradores_IDUsuario1);
+            this._relationFK_tblDocentes_IDUsuario1 = new global::System.Data.DataRelation("FK_tblDocentes.IDUsuario1", new global::System.Data.DataColumn[] {
+                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblDocentes.IDUsuarioColumn}, false);
+            this.Relations.Add(this._relationFK_tblDocentes_IDUsuario1);
+            this._relationFK_tblEstudiantes_IDUsuario1 = new global::System.Data.DataRelation("FK_tblEstudiantes.IDUsuario1", new global::System.Data.DataColumn[] {
+                        this.tabletblUsuarios.IDUsuarioColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblEstudiantes.IDUsuarioColumn}, false);
+            this.Relations.Add(this._relationFK_tblEstudiantes_IDUsuario1);
+            this._relationFK_tblUsuarios_IDRol1 = new global::System.Data.DataRelation("FK_tblUsuarios.IDRol1", new global::System.Data.DataColumn[] {
                         this.tabletblRoles.IDRolColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblUsuarios.IDRolColumn}, false);
-            this.Relations.Add(this._relationFK_tblUsuarios_IDRol);
+            this.Relations.Add(this._relationFK_tblUsuarios_IDRol1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -846,7 +846,7 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tblAdministradoresRow AddtblAdministradoresRow(int IDAdministrador, tblUsuariosRow _parenttblUsuariosRowByFK_tblAdministradores_IDUsuario, string Nombre, string Apellido, string Correo, System.DateTime FechaCreacion, System.DateTime FechaModificacion) {
+            public tblAdministradoresRow AddtblAdministradoresRow(int IDAdministrador, tblUsuariosRow _parenttblUsuariosRowByFK_tblAdministradores_IDUsuario1, string Nombre, string Apellido, string Correo, System.DateTime FechaCreacion, System.DateTime FechaModificacion) {
                 tblAdministradoresRow rowtblAdministradoresRow = ((tblAdministradoresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDAdministrador,
@@ -856,8 +856,8 @@ namespace CalculadoraIndiceAcademico {
                         Correo,
                         FechaCreacion,
                         FechaModificacion};
-                if ((_parenttblUsuariosRowByFK_tblAdministradores_IDUsuario != null)) {
-                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblAdministradores_IDUsuario[0];
+                if ((_parenttblUsuariosRowByFK_tblAdministradores_IDUsuario1 != null)) {
+                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblAdministradores_IDUsuario1[0];
                 }
                 rowtblAdministradoresRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblAdministradoresRow);
@@ -2213,7 +2213,7 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tblDocentesRow AddtblDocentesRow(tblUsuariosRow _parenttblUsuariosRowByFK_tblDocentes_IDUsuario, string Nombre, string Apellido, string Correo, System.DateTime FechaCreacion, System.DateTime FechaModificacion, bool Estado) {
+            public tblDocentesRow AddtblDocentesRow(tblUsuariosRow _parenttblUsuariosRowByFK_tblDocentes_IDUsuario1, string Nombre, string Apellido, string Correo, System.DateTime FechaCreacion, System.DateTime FechaModificacion, bool Estado) {
                 tblDocentesRow rowtblDocentesRow = ((tblDocentesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2224,8 +2224,8 @@ namespace CalculadoraIndiceAcademico {
                         FechaCreacion,
                         FechaModificacion,
                         Estado};
-                if ((_parenttblUsuariosRowByFK_tblDocentes_IDUsuario != null)) {
-                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblDocentes_IDUsuario[0];
+                if ((_parenttblUsuariosRowByFK_tblDocentes_IDUsuario1 != null)) {
+                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblDocentes_IDUsuario1[0];
                 }
                 rowtblDocentesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblDocentesRow);
@@ -2884,7 +2884,7 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tblEstudiantesRow AddtblEstudiantesRow(tblUsuariosRow _parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario, string Nombre, string Apellido, string Correo, string Trimestre, System.DateTime FechaCreacion, System.DateTime FechaModificacion, bool Estado) {
+            public tblEstudiantesRow AddtblEstudiantesRow(tblUsuariosRow _parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario1, string Nombre, string Apellido, string Correo, string Trimestre, System.DateTime FechaCreacion, System.DateTime FechaModificacion, bool Estado) {
                 tblEstudiantesRow rowtblEstudiantesRow = ((tblEstudiantesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2896,8 +2896,8 @@ namespace CalculadoraIndiceAcademico {
                         FechaCreacion,
                         FechaModificacion,
                         Estado};
-                if ((_parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario != null)) {
-                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario[0];
+                if ((_parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario1 != null)) {
+                    columnValuesArray[1] = _parenttblUsuariosRowByFK_tblEstudiantes_IDUsuario1[0];
                 }
                 rowtblEstudiantesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblEstudiantesRow);
@@ -4009,8 +4009,6 @@ namespace CalculadoraIndiceAcademico {
             
             private global::System.Data.DataColumn columnIDUsuario;
             
-            private global::System.Data.DataColumn columnUsuario;
-            
             private global::System.Data.DataColumn columnContraseña;
             
             private global::System.Data.DataColumn columnIDRol;
@@ -4055,14 +4053,6 @@ namespace CalculadoraIndiceAcademico {
             public global::System.Data.DataColumn IDUsuarioColumn {
                 get {
                     return this.columnIDUsuario;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UsuarioColumn {
-                get {
-                    return this.columnUsuario;
                 }
             }
             
@@ -4127,16 +4117,15 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tblUsuariosRow AddtblUsuariosRow(string Usuario, string Contraseña, tblRolesRow _parenttblRolesRowByFK_tblUsuarios_IDRol, bool Estado) {
+            public tblUsuariosRow AddtblUsuariosRow(string Contraseña, tblRolesRow _parenttblRolesRowByFK_tblUsuarios_IDRol1, bool Estado) {
                 tblUsuariosRow rowtblUsuariosRow = ((tblUsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Usuario,
                         Contraseña,
                         null,
                         Estado};
-                if ((_parenttblRolesRowByFK_tblUsuarios_IDRol != null)) {
-                    columnValuesArray[3] = _parenttblRolesRowByFK_tblUsuarios_IDRol[0];
+                if ((_parenttblRolesRowByFK_tblUsuarios_IDRol1 != null)) {
+                    columnValuesArray[2] = _parenttblRolesRowByFK_tblUsuarios_IDRol1[0];
                 }
                 rowtblUsuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblUsuariosRow);
@@ -4168,7 +4157,6 @@ namespace CalculadoraIndiceAcademico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnIDUsuario = base.Columns["IDUsuario"];
-                this.columnUsuario = base.Columns["Usuario"];
                 this.columnContraseña = base.Columns["Contraseña"];
                 this.columnIDRol = base.Columns["IDRol"];
                 this.columnEstado = base.Columns["Estado"];
@@ -4179,8 +4167,6 @@ namespace CalculadoraIndiceAcademico {
             private void InitClass() {
                 this.columnIDUsuario = new global::System.Data.DataColumn("IDUsuario", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUsuario);
-                this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsuario);
                 this.columnContraseña = new global::System.Data.DataColumn("Contraseña", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContraseña);
                 this.columnIDRol = new global::System.Data.DataColumn("IDRol", typeof(byte), null, global::System.Data.MappingType.Element);
@@ -4195,7 +4181,6 @@ namespace CalculadoraIndiceAcademico {
                 this.columnIDUsuario.AllowDBNull = false;
                 this.columnIDUsuario.ReadOnly = true;
                 this.columnIDUsuario.Unique = true;
-                this.columnUsuario.MaxLength = 7;
                 this.columnContraseña.MaxLength = 16;
             }
             
@@ -4450,10 +4435,10 @@ namespace CalculadoraIndiceAcademico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblUsuariosRow tblUsuariosRow {
                 get {
-                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblAdministradores.IDUsuario"])));
+                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblAdministradores.IDUsuario1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblAdministradores.IDUsuario"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblAdministradores.IDUsuario1"]);
                 }
             }
             
@@ -5225,10 +5210,10 @@ namespace CalculadoraIndiceAcademico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblUsuariosRow tblUsuariosRow {
                 get {
-                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDocentes.IDUsuario"])));
+                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDocentes.IDUsuario1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDocentes.IDUsuario"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDocentes.IDUsuario1"]);
                 }
             }
             
@@ -5574,10 +5559,10 @@ namespace CalculadoraIndiceAcademico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblUsuariosRow tblUsuariosRow {
                 get {
-                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblEstudiantes.IDUsuario"])));
+                    return ((tblUsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblEstudiantes.IDUsuario1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblEstudiantes.IDUsuario"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblEstudiantes.IDUsuario1"]);
                 }
             }
             
@@ -6023,11 +6008,11 @@ namespace CalculadoraIndiceAcademico {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblUsuariosRow[] GettblUsuariosRows() {
-                if ((this.Table.ChildRelations["FK_tblUsuarios.IDRol"] == null)) {
+                if ((this.Table.ChildRelations["FK_tblUsuarios.IDRol1"] == null)) {
                     return new tblUsuariosRow[0];
                 }
                 else {
-                    return ((tblUsuariosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblUsuarios.IDRol"])));
+                    return ((tblUsuariosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblUsuarios.IDRol1"])));
                 }
             }
         }
@@ -6054,22 +6039,6 @@ namespace CalculadoraIndiceAcademico {
                 }
                 set {
                     this[this.tabletblUsuarios.IDUsuarioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Usuario {
-                get {
-                    try {
-                        return ((string)(this[this.tabletblUsuarios.UsuarioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Usuario\' de la tabla \'tblUsuarios\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletblUsuarios.UsuarioColumn] = value;
                 }
             }
             
@@ -6125,23 +6094,11 @@ namespace CalculadoraIndiceAcademico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblRolesRow tblRolesRow {
                 get {
-                    return ((tblRolesRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblUsuarios.IDRol"])));
+                    return ((tblRolesRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblUsuarios.IDRol1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblUsuarios.IDRol"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblUsuarios.IDRol1"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUsuarioNull() {
-                return this.IsNull(this.tabletblUsuarios.UsuarioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUsuarioNull() {
-                this[this.tabletblUsuarios.UsuarioColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6183,33 +6140,33 @@ namespace CalculadoraIndiceAcademico {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblAdministradoresRow[] GettblAdministradoresRows() {
-                if ((this.Table.ChildRelations["FK_tblAdministradores.IDUsuario"] == null)) {
+                if ((this.Table.ChildRelations["FK_tblAdministradores.IDUsuario1"] == null)) {
                     return new tblAdministradoresRow[0];
                 }
                 else {
-                    return ((tblAdministradoresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblAdministradores.IDUsuario"])));
+                    return ((tblAdministradoresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblAdministradores.IDUsuario1"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblDocentesRow[] GettblDocentesRows() {
-                if ((this.Table.ChildRelations["FK_tblDocentes.IDUsuario"] == null)) {
+                if ((this.Table.ChildRelations["FK_tblDocentes.IDUsuario1"] == null)) {
                     return new tblDocentesRow[0];
                 }
                 else {
-                    return ((tblDocentesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDocentes.IDUsuario"])));
+                    return ((tblDocentesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDocentes.IDUsuario1"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblEstudiantesRow[] GettblEstudiantesRows() {
-                if ((this.Table.ChildRelations["FK_tblEstudiantes.IDUsuario"] == null)) {
+                if ((this.Table.ChildRelations["FK_tblEstudiantes.IDUsuario1"] == null)) {
                     return new tblEstudiantesRow[0];
                 }
                 else {
-                    return ((tblEstudiantesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblEstudiantes.IDUsuario"])));
+                    return ((tblEstudiantesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblEstudiantes.IDUsuario1"])));
                 }
             }
         }
@@ -10219,7 +10176,6 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "tblUsuarios";
             tableMapping.ColumnMappings.Add("IDUsuario", "IDUsuario");
-            tableMapping.ColumnMappings.Add("Usuario", "Usuario");
             tableMapping.ColumnMappings.Add("Contraseña", "Contraseña");
             tableMapping.ColumnMappings.Add("IDRol", "IDRol");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
@@ -10231,20 +10187,17 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblUsuarios] ([Usuario], [Contraseña], [IDRol], [Estado]) VALU" +
-                "ES (@Usuario, @Contraseña, @IDRol, @Estado)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblUsuarios] ([Contraseña], [IDRol], [Estado]) VALUES (@Contra" +
+                "seña, @IDRol, @Estado)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contraseña", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contraseña", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRol", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblUsuarios] SET [Usuario] = @Usuario, [Contraseña] = @Contraseña, " +
-                "[IDRol] = @IDRol, [Estado] = @Estado WHERE (([IDUsuario] = @Original_IDUsuario))" +
-                "";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblUsuarios] SET [Contraseña] = @Contraseña, [IDRol] = @IDRol, [Est" +
+                "ado] = @Estado WHERE (([IDUsuario] = @Original_IDUsuario))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contraseña", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contraseña", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRol", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10264,14 +10217,14 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDUsuario, Usuario, Contraseña, IDRol, Estado FROM dbo.tblUsuarios";
+            this._commandCollection[0].CommandText = "SELECT IDUsuario, Contraseña, IDRol, Estado FROM dbo.tblUsuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "dbo.ppLogin";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 7, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDUsuario", global::System.Data.SqlDbType.VarChar, 7, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contraseña", global::System.Data.SqlDbType.VarChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -10303,13 +10256,13 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLogin(dsSCIA.tblUsuariosDataTable dataTable, string Usuario, string Contraseña) {
+        public virtual int FillByLogin(dsSCIA.tblUsuariosDataTable dataTable, string IDUsuario, string Contraseña) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((Usuario == null)) {
+            if ((IDUsuario == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Usuario));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(IDUsuario));
             }
             if ((Contraseña == null)) {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -10328,13 +10281,13 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsSCIA.tblUsuariosDataTable GetDataByLogin(string Usuario, string Contraseña) {
+        public virtual dsSCIA.tblUsuariosDataTable GetDataByLogin(string IDUsuario, string Contraseña) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((Usuario == null)) {
+            if ((IDUsuario == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Usuario));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(IDUsuario));
             }
             if ((Contraseña == null)) {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -10402,30 +10355,24 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Usuario, string Contraseña, global::System.Nullable<byte> IDRol, global::System.Nullable<bool> Estado) {
-            if ((Usuario == null)) {
+        public virtual int Insert(string Contraseña, global::System.Nullable<byte> IDRol, global::System.Nullable<bool> Estado) {
+            if ((Contraseña == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Usuario));
-            }
-            if ((Contraseña == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Contraseña));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Contraseña));
             }
             if ((IDRol.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((byte)(IDRol.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(IDRol.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Estado.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Estado.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Estado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Estado.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10447,32 +10394,26 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Usuario, string Contraseña, global::System.Nullable<byte> IDRol, global::System.Nullable<bool> Estado, int Original_IDUsuario) {
-            if ((Usuario == null)) {
+        public virtual int Update(string Contraseña, global::System.Nullable<byte> IDRol, global::System.Nullable<bool> Estado, int Original_IDUsuario) {
+            if ((Contraseña == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Usuario));
-            }
-            if ((Contraseña == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Contraseña));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Contraseña));
             }
             if ((IDRol.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(IDRol.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(IDRol.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Estado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Estado.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Estado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Estado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_IDUsuario));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_IDUsuario));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

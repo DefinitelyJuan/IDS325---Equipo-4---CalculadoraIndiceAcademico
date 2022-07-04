@@ -15,6 +15,7 @@ namespace CalculadoraIndiceAcademico
         }
         protected void Create(object sender, EventArgs e)
         {
+            //frmPopUp.Show();
         }        
         protected void Update(object sender, EventArgs e)
         {
