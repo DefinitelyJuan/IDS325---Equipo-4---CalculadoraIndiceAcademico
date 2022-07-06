@@ -83,6 +83,11 @@
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
                             <h3>Usuarios:</h3>
+                            <asp:DropDownList ID="ddlTipoUsuario" runat="server" CssClass="cmb" AutoPostBack="True" OnTextChanged="ddlTipoUsuario_TextChanged">
+                                <asp:ListItem Selected="True">Estudiante</asp:ListItem>
+                                <asp:ListItem>Docente</asp:ListItem>
+                                <asp:ListItem>Administrador</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">

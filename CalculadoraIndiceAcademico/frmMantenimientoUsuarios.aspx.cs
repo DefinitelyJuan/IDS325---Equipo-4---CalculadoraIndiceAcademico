@@ -33,5 +33,22 @@ namespace CalculadoraIndiceAcademico
         {
             frmPopUp.Hide();
         }
+
+        protected void ddlTipoUsuario_TextChanged(object sender, EventArgs e)
+        {
+            string rol = ddlTipoUsuario.SelectedValue.ToString();
+            switch(rol)
+            {
+                case "Estudiante":
+                    iframe1.Src = "frmEstudiante.aspx";
+                    break;
+                case "Docente":
+                    iframe1.Src = "frmCrearDocente.aspx";
+                    break;
+                case "Administrador":
+                    iframe1.Src = "frmCrearAdministrador.aspx";
+                    break;
+            }
+        }
     }
 }
