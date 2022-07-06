@@ -7,9 +7,9 @@ namespace CalculadoraIndiceAcademico.Models
 {
     public class userData
     {
-        public string ID { get; set;}
-        public string Rol { get; set;}
+        public int IDUsuario { get; set;}
+        public int IDEntidad { get; set;}
         public string  Nombre { get; set;}
-        public string AreaAcademica { get; set;}
+        public string Programa { get; set;}
     }
 }

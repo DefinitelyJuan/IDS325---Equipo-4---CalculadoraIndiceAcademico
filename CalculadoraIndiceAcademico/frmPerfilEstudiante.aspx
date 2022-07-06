@@ -53,19 +53,19 @@
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-10 mt-3">
                             <div class="row">
-                            <asp:Label ID="LabelID" runat="server" Text="ID:"></asp:Label>
+                            <asp:Label ID="LabelID" runat="server" Text="ID: "></asp:Label>
 
                             </div>
                             <div class="row">
-                            <asp:Label ID="LabelNombre" runat="server" Text="Nombre:"></asp:Label>
+                            <asp:Label ID="LabelNombre" runat="server" Text="Nombre: "></asp:Label>
 
                             </div>
                             <div class="row">
-                            <asp:Label ID="LabelRol" runat="server" Text="Rol:"></asp:Label>
+                            <asp:Label ID="LabelRol" runat="server" Text="Rol: "></asp:Label>
 
                             </div>
                             <div class="row">
-                            <asp:Label ID="LabelPrograma" runat="server" Text="Programa Académico:"></asp:Label>
+                            <asp:Label ID="LabelPrograma" runat="server" Text="Programa Académico: "></asp:Label>
 
                             </div>
                         </div>
@@ -74,7 +74,7 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMaterias" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
                             <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />

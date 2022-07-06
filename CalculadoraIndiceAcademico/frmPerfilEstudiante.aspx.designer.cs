@@ -96,13 +96,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.Label LabelPrograma;
 
         /// <summary>
-        /// Control gridMantenimiento.
+        /// Control gridMaterias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMantenimiento;
+        protected global::System.Web.UI.WebControls.GridView gridMaterias;
 
         /// <summary>
         /// Control ObjectDataSource2.

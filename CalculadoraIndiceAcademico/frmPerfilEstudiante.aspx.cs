@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CalculadoraIndiceAcademico.dsSCIATableAdapters;
+using CalculadoraIndiceAcademico.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +14,16 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelID.Text = LabelID.Text + "userfromDB"; //y asi sucesivamente
+            tblUsuariosTableAdapter estudiante = new tblUsuariosTableAdapter();
+            userData data = (userData)Session["userData"];
+            LabelID.Text = $"ID: {data.IDUsuario}";
+            LabelNombre.Text = $"Nombre: {data.Nombre}";
+            LabelPrograma.Text = $"Programa: {data.Programa}";
+            LabelRol.Text = "Rol: Estudiante";
+            DataTable materias = new DataTable();
+            //estudiante.fillMaterias(materias); //Reemplazar con el pp que se cree
+            gridMaterias.DataSource = materias;
+            
         }
 
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)

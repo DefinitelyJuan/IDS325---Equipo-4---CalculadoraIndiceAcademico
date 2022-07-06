@@ -19,21 +19,30 @@ namespace CalculadoraIndiceAcademico
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             tblUsuariosTableAdapter usuario = new tblUsuariosTableAdapter();
+            ppGetUserDataTableAdapter ppgetdata = new ppGetUserDataTableAdapter();
             DataTable ds = usuario.GetDataByLogin(txtUsuario.Text, txtContraseña.Text);
-            
-            
+            string rol = ds.Rows[0][2].ToString();
+            string id = ds.Rows[0][0].ToString();
+            DataTable usrData = ppgetdata.GetData(int.Parse(rol), int.Parse(id));
             userData data = new userData();
-            data.ID = ds.Rows[0][0].ToString();
-            data.Rol = ds.Rows[0][2].ToString();
 
             if (ds.Rows.Count == 1)
             {
-                switch (ds.Rows[0][2].ToString())
+                switch (rol)
                 {
                     case "1":
+                        data.IDUsuario = int.Parse(id);
+                        data.IDEntidad = int.Parse(usrData.Rows[0][1].ToString());
+                        data.Nombre = usrData.Rows[0][2].ToString();
+                        data.Programa = usrData.Rows[0][3].ToString();
+                        Session["userData"] = data;
                         Response.Redirect("/frmPerfilEstudiante.aspx");
                         break;
                     case "2":
+                        data.IDUsuario = int.Parse(id);
+                        data.IDEntidad = int.Parse(usrData.Rows[0][1].ToString());
+                        data.Nombre = usrData.Rows[0][2].ToString();
+                        Session["userData"] = data;
                         break;
                     case "3":
                         Response.Redirect("/frmMantenimientoAdministrador.aspx");
