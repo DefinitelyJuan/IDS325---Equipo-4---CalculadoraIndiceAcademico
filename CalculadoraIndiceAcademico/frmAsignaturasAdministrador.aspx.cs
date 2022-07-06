@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CalculadoraIndiceAcademico
 {
-    public partial class frmMantenimientoAdministrador : System.Web.UI.Page
+    public partial class frmAsignaturas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,10 +16,10 @@ namespace CalculadoraIndiceAcademico
         protected void Create(object sender, EventArgs e)
         {
             //frmPopUp.Show();
-        }        
+        }
         protected void Update(object sender, EventArgs e)
         {
-        }        
+        }
         protected void Delete(object sender, EventArgs e)
         {
         }
@@ -29,9 +29,10 @@ namespace CalculadoraIndiceAcademico
             Response.Redirect("frmMantenimientoUsuarios.aspx");
         }
 
-        protected void lbtnAsignaturas_Click(object sender, EventArgs e)
+        protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmAsignaturasAdministrador.aspx");
+            frmPopUp.Hide();
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
         }
     }
 }

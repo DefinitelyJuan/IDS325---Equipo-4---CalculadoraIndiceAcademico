@@ -52,7 +52,7 @@
                 </asp:LinkButton>
                 <%--<asp:button id="asignaturas" runat="server" text="Asignaturas" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignaturas_Click">
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
                 <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>

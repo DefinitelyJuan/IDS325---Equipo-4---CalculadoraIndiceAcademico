@@ -1,5 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmMantenimientoUsuarios.aspx.cs" Inherits="CalculadoraIndiceAcademico.frmMantemientoUsuarios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmAsignaturasAdministrador.aspx.cs" Inherits="CalculadoraIndiceAcademico.frmAsignaturas" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,10 +23,10 @@
 
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" onServerClick = "cancel" OnClick="btnCancel_Click" >
+                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click" onserverClick="cancel">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
+                <iframe id="iframe1" src="frmCrearAsignatura.aspx" runat="server" class="formFrame"></iframe>     
 
             </asp:Panel>  
 
@@ -35,12 +37,12 @@
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
                 <%--<asp:button id="btnHome" runat="server" text="Inicio" cssclass="btn mt-auto selectedButton" />--%>
                 <asp:LinkButton 
-                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click">
+                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
                 <%--<asp:button id="btnmantenimiento" runat="server" text="Mantenimiento" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
-                    ID="lbtnMantenimiento" runat="server" CssClass="btn selectedButton">
+                    ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click">
                     <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento
                 </asp:LinkButton>
                 <%--<asp:button id="btncalificaciones" runat="server" text="Calificaciones" cssclass="btn btn-outline-primary secondaryButton"/>--%>
@@ -50,7 +52,7 @@
                 </asp:LinkButton>
                 <%--<asp:button id="asignaturas" runat="server" text="Asignaturas" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton">
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
                 <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>
@@ -82,12 +84,21 @@
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
-                            <h3>Usuarios:</h3>
-                            <asp:DropDownList ID="ddlTipoUsuario" runat="server" CssClass="cmb" AutoPostBack="True" OnTextChanged="ddlTipoUsuario_TextChanged">
-                                <asp:ListItem Selected="True">Estudiante</asp:ListItem>
-                                <asp:ListItem>Docente</asp:ListItem>
-                                <asp:ListItem>Administrador</asp:ListItem>
-                            </asp:DropDownList>
+                            <h3>Mantenimiento:</h3>
+                            <div class="row">
+                                <div class="col-md-3">
+                                  <asp:DropDownList ID="ddlAsignaturas" runat="server" CssClass="cmb">
+                                    <asp:ListItem CssClass="dropdown-item">Asignatura</asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                                <div class="col-md-3 ms-3">
+                                     <asp:DropDownList ID="ddlSeccion" runat="server" CssClass="cmb">
+                                    <asp:ListItem CssClass="dropdown-item">Seccion</asp:ListItem>
+                                </asp:DropDownList>
+
+                                </div>
+                            </div>
+
                         </div>
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
@@ -100,31 +111,39 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDAsignatura" DataSourceID="dsAsignaturas" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
-                            <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
-                            <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
-                            <asp:BoundField DataField="IDRol" HeaderText="IDRol" SortExpression="IDRol" />
-                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                            <asp:BoundField DataField="IDAsignatura" HeaderText="IDAsignatura" ReadOnly="True" SortExpression="IDAsignatura" InsertVisible="False" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
+                            <asp:BoundField DataField="IDAreaAcademica" HeaderText="IDAreaAcademica" SortExpression="IDAreaAcademica" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="NumCreditos" HeaderText="NumCreditos" SortExpression="NumCreditos" />
+                            <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />
+                            <asp:BoundField DataField="FechaModificacion" HeaderText="FechaModificacion" SortExpression="FechaModificacion" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter" UpdateMethod="Update">
+                    <asp:ObjectDataSource ID="dsAsignaturas" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblAsignaturasTableAdapter" UpdateMethod="Update">
                         <DeleteParameters>
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
+                            <asp:Parameter Name="Original_IDAsignatura" Type="Int32" />
                         </DeleteParameters>
                         <InsertParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
+                            <asp:Parameter Name="Codigo" Type="String" />
+                            <asp:Parameter Name="IDAreaAcademica" Type="Int32" />
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="NumCreditos" Type="Byte" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
                         </InsertParameters>
                         <UpdateParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
+                            <asp:Parameter Name="Codigo" Type="String" />
+                            <asp:Parameter Name="IDAreaAcademica" Type="Int32" />
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="NumCreditos" Type="Byte" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                            <asp:Parameter Name="Original_IDAsignatura" Type="Int32" />
                         </UpdateParameters>
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter"></asp:ObjectDataSource>
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </div>

@@ -94,6 +94,8 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="frmAsignaturasAdministrador.aspx" />
+    <Content Include="frmCrearAsignatura.aspx" />
     <Content Include="frmCrearDocente.aspx" />
     <Content Include="frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
@@ -119,6 +121,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSCIA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignaturasAdministrador.aspx.cs">
+      <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAsignaturasAdministrador.aspx.designer.cs">
+      <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCrearAsignatura.aspx.cs">
+      <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCrearAsignatura.aspx.designer.cs">
+      <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmCrearDocente.aspx.cs">
       <DependentUpon>frmCrearDocente.aspx</DependentUpon>
