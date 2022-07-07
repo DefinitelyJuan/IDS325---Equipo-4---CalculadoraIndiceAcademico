@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculadoraIndiceAcademico.dsSCIATableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            gridMantenimientoArea.Visible = false;
+            gridMantenimientoPrograma.Visible = false;
+            gridMantenimiento.Visible = true;
         }
         protected void Create(object sender, EventArgs e)
         {
@@ -32,6 +35,36 @@ namespace CalculadoraIndiceAcademico
         protected void lbtnAsignaturas_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmAsignaturasAdministrador.aspx");
+        }
+
+        protected void ddlTipoMantenimiento_TextChanged(object sender, EventArgs e)
+        {
+            tblAreasAcademicasTableAdapter adapter = new tblAreasAcademicasTableAdapter();
+
+            string tipoMantenimiento = ddlTipoMantenimiento.SelectedValue.ToString();
+            switch (tipoMantenimiento)
+            {
+                case "Roles":
+                    iframe1.Src = "frmCrearRoles.aspx";
+                    gridMantenimientoArea.Visible = false;
+                    gridMantenimientoPrograma.Visible = false;
+                    gridMantenimiento.Visible = true;
+
+                    break;
+                case "Programa Académico":
+                    iframe1.Src = "frmCrearPrograma.aspx";
+                    gridMantenimientoArea.Visible = false;
+                    gridMantenimientoPrograma.Visible = true;
+                    gridMantenimiento.Visible = false;
+                    break;
+                case "Area Académica":
+                    iframe1.Src = "frmCrearArea.aspx";
+                    gridMantenimientoArea.Visible = true;
+                    gridMantenimientoPrograma.Visible = false;
+                    gridMantenimiento.Visible = false;
+
+                    break;
+            }
         }
     }
 }

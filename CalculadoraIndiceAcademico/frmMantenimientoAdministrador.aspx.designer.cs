@@ -114,13 +114,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnCerrarSesion;
 
         /// <summary>
-        /// Control DropDownList1.
+        /// Control ddlTipoMantenimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoMantenimiento;
 
         /// <summary>
         /// Control btnCreate.
@@ -159,13 +159,49 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.GridView gridMantenimiento;
 
         /// <summary>
-        /// Control rolesSource.
+        /// Control ObjectDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource rolesSource;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+
+        /// <summary>
+        /// Control gridMantenimientoPrograma.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridMantenimientoPrograma;
+
+        /// <summary>
+        /// Control programaSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource programaSource;
+
+        /// <summary>
+        /// Control gridMantenimientoArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridMantenimientoArea;
+
+        /// <summary>
+        /// Control areaSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource areaSource;
 
         /// <summary>
         /// Control ScriptManager1.

@@ -22,7 +22,7 @@ namespace CalculadoraIndiceAcademico
             LabelRol.Text = "Rol: Estudiante";
             DataTable materias = new DataTable();
             //estudiante.fillMaterias(materias); //Reemplazar con el pp que se cree
-            gridMaterias.DataSource = materias;
+            //gridMaterias.DataSource = materias;
             
         }
 

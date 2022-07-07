@@ -76,18 +76,17 @@
                         <h3 class="m-0 hAdministrador">Administrador&nbsp</h3>
                         <i class="fa fa-light fa-circle-user fa-2x"></i>
                     </div>
-                    <%-- Row text --%>
-                    <%--<div class="row" style="padding-bottom: 0%">
+                    <%-- Row text --%>                    <%--<div class="row" style="padding-bottom: 0%">
                         <h3>MANTENIMIENTO</h3>
-                    </div>--%>
-                    <%-- Row controls --%>
+                    </div>--%>                    <%-- Row controls --%>
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
                             <h3>Mantenimiento:</h3>
-                            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="cmb">
+                            <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="cmb" AutoPostBack="true" OnTextChanged="ddlTipoMantenimiento_TextChanged" >
                                 <asp:ListItem CssClass="dropdown-item">Roles</asp:ListItem>
                                 <asp:ListItem CssClass="dropdown-item">Programa Académico</asp:ListItem>
+                                <asp:ListItem CssClass="dropdown-item">Area Académica</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <%-- Columna botones CRUD --%>
@@ -101,13 +100,13 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDRol" DataSourceID="rolesSource" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1">
                         <Columns>
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" ReadOnly="True" SortExpression="IDRol" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="rolesSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblRolesTableAdapter" UpdateMethod="Update">
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblRolesTableAdapter" UpdateMethod="Update">
                         <DeleteParameters>
                             <asp:Parameter Name="Original_IDRol" Type="Byte" />
                         </DeleteParameters>
@@ -117,6 +116,63 @@
                         <UpdateParameters>
                             <asp:Parameter Name="Nombre" Type="String" />
                             <asp:Parameter Name="Original_IDRol" Type="Byte" />
+                        </UpdateParameters>
+                    </asp:ObjectDataSource>
+                    <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma">
+                        <Columns>
+                            <asp:BoundField DataField="IDPrograma" HeaderText="IDPrograma" InsertVisible="False" ReadOnly="True" SortExpression="IDPrograma" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
+                            <asp:BoundField DataField="Creditos" HeaderText="Creditos" SortExpression="Creditos" />
+                            <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />
+                            <asp:BoundField DataField="FechaModificacion" HeaderText="FechaModificacion" SortExpression="FechaModificacion" />
+                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:ObjectDataSource ID="programaSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblProgramasAcademicosTableAdapter" UpdateMethod="Update">
+                        <DeleteParameters>
+                            <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="Version" Type="String" />
+                            <asp:Parameter Name="Creditos" Type="Int32" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                            <asp:Parameter Name="Estado" Type="Boolean" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="Version" Type="String" />
+                            <asp:Parameter Name="Creditos" Type="Int32" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                            <asp:Parameter Name="Estado" Type="Boolean" />
+                            <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
+                        </UpdateParameters>
+                    </asp:ObjectDataSource>
+                    <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea">
+                        <Columns>
+                            <asp:BoundField DataField="IDArea" HeaderText="IDArea" InsertVisible="False" ReadOnly="True" SortExpression="IDArea" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />
+                            <asp:BoundField DataField="FechaModificacion" HeaderText="FechaModificacion" SortExpression="FechaModificacion" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:ObjectDataSource ID="areaSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblAreasAcademicasTableAdapter" UpdateMethod="Update">
+                        <DeleteParameters>
+                            <asp:Parameter Name="Original_IDArea" Type="Int32" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="Nombre" Type="String" />
+                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                            <asp:Parameter Name="Original_IDArea" Type="Int32" />
                         </UpdateParameters>
                     </asp:ObjectDataSource>
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
