@@ -45,12 +45,12 @@
                 </asp:LinkButton>
                 <%--<asp:button id="btncalificaciones" runat="server" text="Calificaciones" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
                 <%--<asp:button id="asignaturas" runat="server" text="Asignaturas" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignaturas_Click">
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
                 <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>
@@ -100,32 +100,30 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="ID de Usuario" DataSourceID="ObjectDataSource1" CssClass="table">
+                        <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
+                            <asp:BoundField DataField="ID de Usuario" HeaderText="ID de Usuario" InsertVisible="False" ReadOnly="True" SortExpression="ID de Usuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
-                            <asp:BoundField DataField="IDRol" HeaderText="IDRol" SortExpression="IDRol" />
-                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                            <asp:BoundField DataField="ID de Rol" HeaderText="ID de Rol" SortExpression="ID de Rol" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter" UpdateMethod="Update">
-                        <DeleteParameters>
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
-                        </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
-                        </UpdateParameters>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="1" Name="IDRol" Type="Int32" />
+                        </SelectParameters>
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter"></asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="2" Name="IDRol" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="3" Name="IDRol" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </div>
