@@ -52,7 +52,6 @@ C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndi
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.AssemblyReference.cache
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.CoreCompileInputs.cache
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.CopyComplete
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.dll

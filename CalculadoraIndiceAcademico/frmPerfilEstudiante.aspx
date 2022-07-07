@@ -74,31 +74,17 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMaterias" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario" DataSourceID="ObjectDataSource2" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMaterias" runat="server" AutoGenerateColumns="False" CssClass="table">
                         <Columns>
-                            <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
-                            <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
-                            <asp:BoundField DataField="IDRol" HeaderText="IDRol" SortExpression="IDRol" />
-                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                            <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="Créditos" HeaderText="Créditos" SortExpression="Créditos" />
+                            <asp:BoundField DataField="Docente" HeaderText="Docente" ReadOnly="True" SortExpression="Docente" />
+                            <asp:BoundField DataField="Calificación literal" HeaderText="Calificación literal" SortExpression="Calificación literal" />
+                            <asp:BoundField DataField="Calificación numérica" HeaderText="Calificación numérica" SortExpression="Calificación numérica" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter" UpdateMethod="Update">
-                        <DeleteParameters>
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
-                        </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Contraseña" Type="String" />
-                            <asp:Parameter Name="IDRol" Type="Byte" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                            <asp:Parameter Name="Original_IDUsuario" Type="Int32" />
-                        </UpdateParameters>
-                    </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblUsuariosTableAdapter"></asp:ObjectDataSource>
+                    <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </div>

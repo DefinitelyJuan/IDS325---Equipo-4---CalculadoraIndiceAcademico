@@ -95,7 +95,9 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="frmAsignaturasAdministrador.aspx" />
+    <Content Include="frmCalificación.aspx" />
     <Content Include="frmCrearAsignatura.aspx" />
+    <Content Include="frmCrearCalificación.aspx" />
     <Content Include="frmCrearDocente.aspx" />
     <Content Include="frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
@@ -129,12 +131,26 @@
     <Compile Include="frmAsignaturasAdministrador.aspx.designer.cs">
       <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmCalificación.aspx.cs">
+      <DependentUpon>frmCalificación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCalificación.aspx.designer.cs">
+      <DependentUpon>frmCalificación.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmCrearAsignatura.aspx.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmCrearAsignatura.aspx.designer.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCrearCalificación.aspx.cs">
+      <DependentUpon>frmCrearCalificación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCrearCalificación.aspx.designer.cs">
+      <DependentUpon>frmCrearCalificación.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmCrearDocente.aspx.cs">
       <DependentUpon>frmCrearDocente.aspx</DependentUpon>
@@ -181,6 +197,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\calificacionData.cs" />
     <Compile Include="Models\userData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

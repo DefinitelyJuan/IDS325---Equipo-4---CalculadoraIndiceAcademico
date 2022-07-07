@@ -34,5 +34,10 @@ namespace CalculadoraIndiceAcademico
             frmPopUp.Hide();
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
         }
+
+        protected void lbtnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmMantenimientoAdministrador.aspx");
+        }
     }
 }

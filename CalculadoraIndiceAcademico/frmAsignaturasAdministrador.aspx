@@ -37,7 +37,7 @@
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
                 <%--<asp:button id="btnHome" runat="server" text="Inicio" cssclass="btn mt-auto selectedButton" />--%>
                 <asp:LinkButton 
-                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton">
+                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
                 <%--<asp:button id="btnmantenimiento" runat="server" text="Mantenimiento" cssclass="btn btn-outline-primary secondaryButton"/>--%>

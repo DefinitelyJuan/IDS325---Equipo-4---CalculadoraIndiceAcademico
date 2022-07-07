@@ -11,7 +11,7 @@ namespace CalculadoraIndiceAcademico
 {
 
 
-    public partial class frmPerfilEstudiante
+    public partial class frmCrearCalificación
     {
 
         /// <summary>
@@ -24,93 +24,57 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lbtnHome.
+        /// Control txtCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnHome;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
-        /// Control lbtnCalificaciones.
+        /// Control txtNombreAsignatura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnCalificaciones;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreAsignatura;
 
         /// <summary>
-        /// Control lbtnGenerarIndice.
+        /// Control txtCalificacionNumerica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnGenerarIndice;
+        protected global::System.Web.UI.WebControls.TextBox txtCalificacionNumerica;
 
         /// <summary>
-        /// Control lbtnCerrarSesion.
+        /// Control txtIDEstudiante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnCerrarSesion;
+        protected global::System.Web.UI.WebControls.TextBox txtIDEstudiante;
 
         /// <summary>
-        /// Control LabelID.
+        /// Control txtEstudiante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelID;
+        protected global::System.Web.UI.WebControls.TextBox txtEstudiante;
 
         /// <summary>
-        /// Control LabelNombre.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNombre;
-
-        /// <summary>
-        /// Control LabelRol.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelRol;
-
-        /// <summary>
-        /// Control LabelPrograma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPrograma;
-
-        /// <summary>
-        /// Control gridMaterias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMaterias;
-
-        /// <summary>
-        /// Control ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }

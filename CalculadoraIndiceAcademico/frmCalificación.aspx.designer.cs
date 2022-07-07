@@ -11,7 +11,7 @@ namespace CalculadoraIndiceAcademico
 {
 
 
-    public partial class frmPerfilEstudiante
+    public partial class frmCalificación
     {
 
         /// <summary>
@@ -22,6 +22,42 @@ namespace CalculadoraIndiceAcademico
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control frmPopUp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender frmPopUp;
+
+        /// <summary>
+        /// Control Panel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+
+        /// <summary>
+        /// Control btnCancel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
+
+        /// <summary>
+        /// Control iframe1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe iframe1;
 
         /// <summary>
         /// Control lbtnHome.
@@ -60,49 +96,67 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnCerrarSesion;
 
         /// <summary>
-        /// Control LabelID.
+        /// Control ddlCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCodigo;
 
         /// <summary>
-        /// Control LabelNombre.
+        /// Control ObjectDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNombre;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
 
         /// <summary>
-        /// Control LabelRol.
+        /// Control btnCreate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelRol;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnCreate;
 
         /// <summary>
-        /// Control LabelPrograma.
+        /// Control btnUpdate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPrograma;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnUpdate;
 
         /// <summary>
-        /// Control gridMaterias.
+        /// Control btnDelete.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMaterias;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnDelete;
+
+        /// <summary>
+        /// Control gridMantenimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridMantenimiento;
+
+        /// <summary>
+        /// Control ObjectDataSource2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
 
         /// <summary>
         /// Control ScriptManager1.

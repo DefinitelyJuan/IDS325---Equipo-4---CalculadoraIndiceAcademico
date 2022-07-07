@@ -14,13 +14,16 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            tblUsuariosTableAdapter estudiante = new tblUsuariosTableAdapter();
+            MostrarAsignaturasActualesTableAdapter asignaturas= new MostrarAsignaturasActualesTableAdapter();
             userData data = (userData)Session["userData"];
             LabelID.Text = $"ID: {data.IDUsuario}";
             LabelNombre.Text = $"Nombre: {data.Nombre}";
             LabelPrograma.Text = $"Programa: {data.Programa}";
             LabelRol.Text = "Rol: Estudiante";
             DataTable materias = new DataTable();
+            materias = asignaturas.GetData(data.IDEntidad);
+            gridMaterias.DataSource = materias;
+            gridMaterias.DataBind();
             //estudiante.fillMaterias(materias); //Reemplazar con el pp que se cree
             //gridMaterias.DataSource = materias;
             
