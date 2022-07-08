@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head runat="server">
 <link rel="stylesheet" href="./Resources/CSS/CRUD.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -17,9 +17,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" CancelControlID="btnCancel" ID="frmPopUp" BackgroundCssClass="puBackground">
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground" OnUnload="frmPopUp_Unload">
                     </cc1:ModalPopupExtender>
-
+        
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" onServerClick = "cancel" OnClick="btnCancel_Click" >

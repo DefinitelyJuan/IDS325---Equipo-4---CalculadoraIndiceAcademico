@@ -17,7 +17,8 @@ namespace CalculadoraIndiceAcademico
             ppEstudiantesxDocenteTableAdapter ppEstudiantesxDocente = new ppEstudiantesxDocenteTableAdapter();
             userData data = (userData)Session["userData"];
             int idDocente= (int)Session["idDocente"];
-            gridMantenimiento.DataSource = ppEstudiantesxDocente.GetData(idDocente,"CBM101");
+            ddlCodigo.DataBind();
+            gridMantenimiento.DataSource = ppEstudiantesxDocente.GetData(idDocente, ddlCodigo.Text);
             gridMantenimiento.DataBind();
             calificacionData calData = new calificacionData();
             
@@ -66,6 +67,11 @@ namespace CalculadoraIndiceAcademico
             calData.CalificacionNum = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[6].Text);
             calData.CalificacionLiteral = gridMantenimiento.Rows[selectedIndex].Cells[7].Text;
             Session["dataCalificacion"] = calData;
+        }
+
+        protected void frmPopUp_Unload(object sender, EventArgs e)
+        {
+            //Response.Redirect("frmCalificación.aspx");
         }
     }
 }

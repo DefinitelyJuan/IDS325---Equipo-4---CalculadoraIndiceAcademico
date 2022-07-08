@@ -12,9 +12,34 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            gridMantenimientoArea.Visible = false;
-            gridMantenimientoPrograma.Visible = false;
-            gridMantenimiento.Visible = true;
+            ddlTipoMantenimiento.DataBind();
+            string tipoMantenimiento = ddlTipoMantenimiento.SelectedValue.ToString();
+            switch (tipoMantenimiento)
+            {
+                case "Roles":
+                    gridMantenimiento.DataBind();
+                    iframe1.Src = "frmCrearRoles.aspx";
+                    gridMantenimientoArea.Visible = false;
+                    gridMantenimientoPrograma.Visible = false;
+                    gridMantenimiento.Visible = true;
+
+                    break;
+                case "Programa Académico":
+                    gridMantenimientoPrograma.DataBind();
+                    iframe1.Src = "frmCrearPrograma.aspx";
+                    gridMantenimientoArea.Visible = false;
+                    gridMantenimientoPrograma.Visible = true;
+                    gridMantenimiento.Visible = false;
+                    break;
+                case "Area Académica":
+                    gridMantenimientoArea.DataBind();
+                    iframe1.Src = "frmCrearArea.aspx";
+                    gridMantenimientoArea.Visible = true;
+                    gridMantenimientoPrograma.Visible = false;
+                    gridMantenimiento.Visible = false;
+
+                    break;
+            }
         }
         protected void Create(object sender, EventArgs e)
         {
@@ -39,8 +64,6 @@ namespace CalculadoraIndiceAcademico
 
         protected void ddlTipoMantenimiento_TextChanged(object sender, EventArgs e)
         {
-            tblAreasAcademicasTableAdapter adapter = new tblAreasAcademicasTableAdapter();
-
             string tipoMantenimiento = ddlTipoMantenimiento.SelectedValue.ToString();
             switch (tipoMantenimiento)
             {
@@ -66,5 +89,6 @@ namespace CalculadoraIndiceAcademico
                     break;
             }
         }
+
     }
 }

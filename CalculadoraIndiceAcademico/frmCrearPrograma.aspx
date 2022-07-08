@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCrearCalificación.aspx.cs" Inherits="CalculadoraIndiceAcademico.frmCrearCalificación" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCrearPrograma.aspx.cs" Inherits="CalculadoraIndiceAcademico.frmCrearPrograma" %>
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="./Resources/CSS/PopUp.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -12,7 +12,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Ingresar Calificación</title>
+    <title>Ingresar Asignatura</title>
 
 
 </head>
@@ -22,21 +22,16 @@
         <div class="container py-0 px-0">
 
             <div class="d-flex align-items-center flex-column p-3">
-                <h4 class="mainHeading">INGRESAR CALIFICACIÓN</h4>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Código:</h5>
-                <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Asignatura:</h5>
-                <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Calificación Numérica:</h5>
-                <asp:TextBox ID="txtCalificacionNumerica" runat="server" CssClass="txt"></asp:TextBox>
+                <h4 class="mainHeading">INGRESAR PROGRAMA ACADÉMICO</h4>
             
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">ID Estudiante:</h5>
-                <asp:TextBox ID="txtIDEstudiante" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-            
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Estudiante:</h5>
-                <asp:TextBox ID="txtEstudiante" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-                            
+                <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt"></asp:TextBox>
+                
+                <h5 class="mt-3 lbl  d-flex-column align-self-start">Versión:</h5>
+                <asp:TextBox ID="txtVersion" runat="server" CssClass="txt"></asp:TextBox>
 
+                <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
+                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>

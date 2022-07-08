@@ -18,7 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" CancelControlID="btnCancel" ID="frmPopUp" BackgroundCssClass="puBackground">
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground">
                     </cc1:ModalPopupExtender>
 
                 <asp:Panel ID="Panel1" runat="server">
@@ -102,6 +102,7 @@
                 <div class="row h-75 <%--bg-success--%> m-0">
                     <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1">
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" ReadOnly="True" SortExpression="IDRol" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                         </Columns>
@@ -120,6 +121,7 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma">
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDPrograma" HeaderText="IDPrograma" InsertVisible="False" ReadOnly="True" SortExpression="IDPrograma" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                             <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
@@ -153,6 +155,7 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea">
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDArea" HeaderText="IDArea" InsertVisible="False" ReadOnly="True" SortExpression="IDArea" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                             <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />

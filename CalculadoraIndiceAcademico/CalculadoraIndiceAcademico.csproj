@@ -96,9 +96,11 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="frmAsignaturasAdministrador.aspx" />
     <Content Include="frmCalificación.aspx" />
+    <Content Include="frmCrearArea.aspx" />
     <Content Include="frmCrearAsignatura.aspx" />
     <Content Include="frmCrearCalificación.aspx" />
     <Content Include="frmCrearDocente.aspx" />
+    <Content Include="frmCrearPrograma.aspx" />
     <Content Include="frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="frmMantenimientoUsuarios.aspx" />
@@ -138,6 +140,13 @@
     <Compile Include="frmCalificación.aspx.designer.cs">
       <DependentUpon>frmCalificación.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmCrearArea.aspx.cs">
+      <DependentUpon>frmCrearArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCrearArea.aspx.designer.cs">
+      <DependentUpon>frmCrearArea.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmCrearAsignatura.aspx.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,6 +167,13 @@
     </Compile>
     <Compile Include="frmCrearDocente.aspx.designer.cs">
       <DependentUpon>frmCrearDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCrearPrograma.aspx.cs">
+      <DependentUpon>frmCrearPrograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCrearPrograma.aspx.designer.cs">
+      <DependentUpon>frmCrearPrograma.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmEstudiante.aspx.cs">
       <DependentUpon>frmEstudiante.aspx</DependentUpon>

@@ -26,6 +26,7 @@ namespace CalculadoraIndiceAcademico
             calificacionData data = (calificacionData)Session["dataCalificacion"];
             tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
             calificaciones.ppAsignarCalificacion(data.IDAsignatura, double.Parse(txtCalificacionNumerica.Text),int.Parse(txtIDEstudiante.Text));
+            Response.Redirect("frmCalificación.aspx");
         }
     }
 }

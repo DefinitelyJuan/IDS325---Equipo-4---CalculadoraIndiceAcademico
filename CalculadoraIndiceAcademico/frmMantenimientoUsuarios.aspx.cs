@@ -19,14 +19,14 @@ namespace CalculadoraIndiceAcademico
         protected void Create(object sender, EventArgs e)
         {
         }
+        
         protected void Update(object sender, EventArgs e)
         {
             int selectedIndex = gridMantenimiento.SelectedIndex;
             string a = gridMantenimiento.Rows[0].Cells[1].Text;
             Response.Write($"<script>alert('{a}');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
-
-
         }
+
         protected void Delete(object sender, EventArgs e)
         {
         }
