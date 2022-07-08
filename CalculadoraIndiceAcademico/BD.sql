@@ -1,164 +1,305 @@
-﻿CREATE DATABASE SCIA
-USE SCIA
+﻿
+-- Procedimientos almacenados
+create or alter proc ppGetUserData
+@IDRol int,
+@IDUsuario int
+as
+if @IDRol = 1
+begin
+	select top 1 est.IDUsuario as Id_Usuario, est.IDEstudiante as ID_Estudiante, est.Nombre + ' ' + est.Apellido as NombreCompleto,
+	pa.Nombre + ' ' + pa.Version Programa_Academico
+	from tblEstudiantes as est 
+	inner join  tblEstudiantes_Programas as esp on est.IDEstudiante = esp.IDEstudiante 
+	inner join tblProgramasAcademicos as pa on esp.IDPrograma = pa.IDPrograma
+	where est.IDUsuario = @IDUsuario and est.Estado = 1
+	order by pa.FechaCreacion
+end
+if @IDRol = 2
+begin
+	select IDUsuario, IDDocente, Nombre + ' ' + Apellido as NombreCompleto from tblDocentes
+	where IDUsuario = @IDUsuario and Estado = 1
+	order by FechaCreacion
+end
+
+go
+
+create or alter proc ppInsertarDocente
+@Nombre varchar(25),
+@Apellido varchar(25),
+@Correo varchar(150),
+@Contra varchar(16)
+as
+insert into tblUsuarios (IDRol, Contraseña) values (2, @Contra)
+Declare @CurrIDUser int = (select IDENT_CURRENT('tblUsuarios'))
+insert into tblDocentes (IDUsuario, Nombre, Apellido, Correo, FechaModificacion)
+				values  (@CurrIDUser, @Nombre, @Apellido, @Contra, GETDATE())
 
 
---Tabla Programas Academicos
-CREATE TABLE [tblProgramasAcademicos] (
-  [IDPrograma] int identity(1,1),
-  [Nombre] varchar (70),
-  [Version] varchar (15),
-  [Creditos] int,
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  [Estado] bit,
-  PRIMARY KEY ([IDPrograma])
-);
 
---Tabla Roles
-CREATE TABLE [tblRoles] (
-  [IDRol] tinyint identity(1,1),
-  [Nombre] nvarchar(25),
-  PRIMARY KEY ([IDRol])
-);
-
---Tabla Usuarios
-CREATE TABLE [tblUsuarios] (
-  [IDUsuario] int identity(1,1),
-  [Usuario] varchar(7),
-  [Contraseña] varchar(16),
-  [IDRol] tinyint,
-  [Estado] bit,
-  PRIMARY KEY ([IDUsuario]),
-  CONSTRAINT [FK_tblUsuarios.IDRol]
-    FOREIGN KEY ([IDRol])
-      REFERENCES [tblRoles]([IDRol])
-);
-CREATE NONCLUSTERED INDEX IX_IDRol   
-    ON tblUsuarios (IDRol); 
+go
+create or alter proc ppInsertarAreaAcademica
+@Nombre varchar(40)
+as
+insert into tblAreasAcademicas (Nombre, FechaModificacion) values (@Nombre, GETDATE())
 
 
---Tabla Docentes
-CREATE TABLE [tblDocentes] (
-  [IDDocente] int identity(1,1),
-  [IDUsuario] int,
-  [Nombre] varchar(25),
-  [Apellido] varchar(25),
-  [Correo] varchar(150),
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  [Estado] bit,
-  PRIMARY KEY ([IDDocente]),
-  CONSTRAINT [FK_tblDocentes.IDUsuario]
-    FOREIGN KEY ([IDUsuario])
-      REFERENCES [tblUsuarios]([IDUsuario])
-);
-CREATE NONCLUSTERED INDEX IX_IDUsuario   
-    ON tblDocentes(IDUsuario); 
+go
 
---Tabla Areas Académicas
-CREATE TABLE [tblAreasAcademicas] (
-  [IDArea] int identity(1,1),
-  [Nombre] varchar(40),
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  PRIMARY KEY ([IDArea])
-);
 
---Tabla Asignaturas
-CREATE TABLE [tblAsignaturas] (
-  [IDAsignatura] int identity(1,1),
-  [Codigo] char(6),
-  [IDAreaAcademica] int,
-  [Nombre] varchar(70),
-  [NumCreditos] tinyint,
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  PRIMARY KEY ([IDAsignatura]),
-  CONSTRAINT [FK_tblAsignaturas.IDAreaAcademica]
-    FOREIGN KEY ([IDAreaAcademica])
-      REFERENCES [tblAreasAcademicas]([IDArea])
-);
-CREATE NONCLUSTERED INDEX IX_IDAsignatura  
-    ON tblAsignaturas (IDAreaAcademica); 
+create or alter proc ppInsertarAsignatura
+@Codigo varchar(7),
+@IDAreaAcademica int,
+@Nombre varchar(70),
+@NumCreditos tinyint
+as
+insert into tblAsignaturas (Codigo, IDAreaAcademica, Nombre, NumCreditos, FechaModificacion)
+					 values(@Codigo, @IDAreaAcademica, @Nombre, @NumCreditos, GETDATE())
 
---Tabla Docentes_Asignaturas
-CREATE TABLE [tblDocentes_Asignaturas] (
-  [IDAsignatura] int,
-  [IDDocente] int,
-  [Trimestre] varchar (7),
-  PRIMARY KEY ([IDAsignatura], [IDDocente]),
+go
 
-  CONSTRAINT [FK_tblDocentes_Asignaturas.IDAsignatura]
-    FOREIGN KEY ([IDAsignatura])
-      REFERENCES [tblAsignaturas]([IDAsignatura]),
-  CONSTRAINT [FK_tblDocentes_Asignaturas.IDDocente]
-    FOREIGN KEY ([IDDocente])
-      REFERENCES [tblDocentes]([IDDocente])
-);
+create or alter proc ppAsignarAsignatura
+@IDAsignatura int,
+@IDEstudiante int
+as
+declare @year varchar (4) = (select YEAR(GETDATE()))
+declare @month varchar(2) = (select MONTH(GETDATE()))
+declare @Trimestre varchar(7)
 
---Tabla Estudiantes
-CREATE TABLE [tblEstudiantes] (
-  [IDEstudiante] int identity(1,1),
-  [IDUsuario] int,
-  [Nombre] varchar (25),
-  [Apellido] varchar (25),
-  [Correo] varchar (150),
-  [Trimestre] varchar(7),
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  [Estado] bit,
-  PRIMARY KEY ([IDEstudiante]),
-  CONSTRAINT [FK_tblEstudiantes.IDUsuario]
-    FOREIGN KEY ([IDUsuario])
-      REFERENCES [tblUsuarios]([IDUsuario])
-);
-CREATE NONCLUSTERED INDEX IX_IDUsuario
-    ON tblEstudiantes(IDUsuario); 
+if(@month in (2,3,4))
+begin
+	set @Trimestre = @year + '-' + '01'
+end
 
---Tabla Calificaciones
-CREATE TABLE [tblCalificaciones] (
-  [IDAsignatura] int identity(1,1),
-  [IDEstudiante] int,
-  [CalificacionNumerica] float,
-  [CalificacionLiteral] char(2),
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  [Trimestre] varchar(7),
-  PRIMARY KEY ([IDAsignatura], [IDEstudiante]),
-  CONSTRAINT [FK_tblCalificaciones.IDEstudiante]
-    FOREIGN KEY ([IDEstudiante])
-      REFERENCES [tblEstudiantes]([IDEstudiante]),
-  CONSTRAINT [FK_tblCalificaciones.IDAsignatura]
-    FOREIGN KEY ([IDAsignatura])
-      REFERENCES [tblAsignaturas]([IDAsignatura])
-);
+else if(@month in (5,6,7))
+begin
+	set @Trimestre = @year + '-' + '02'
+end
 
---Tabla Estudiantes_Programas
-CREATE TABLE [tblEstudiantes_Programas] (
-  [IDEstudiante] int,
-  [IDPrograma] int,
-  PRIMARY KEY ([IDEstudiante], [IDPrograma]),
-  CONSTRAINT [FK_tblEstudiantes_Programas.IDEstudiante]
-    FOREIGN KEY ([IDEstudiante])
-      REFERENCES [tblEstudiantes]([IDEstudiante]),
-  CONSTRAINT [FK_tblEstudiantes_Programas.IDPrograma]
-    FOREIGN KEY ([IDPrograma])
-      REFERENCES [tblProgramasAcademicos]([IDPrograma])
-);
+else if(@month in (8,9,10))
+begin
+	set @Trimestre = @year + '-' + '03'
+end
 
---Tabla Administradores
-CREATE TABLE [tblAdministradores] (
-  [IDAdministrador] int,
-  [IDUsuario] int,
-  [Nombre] nvarchar(25),
-  [Apellido] nvarchar(25),
-  [Correo] nvarchar(150),
-  [FechaCreacion] datetime,
-  [FechaModificacion] datetime,
-  PRIMARY KEY ([IDAdministrador]),
-  CONSTRAINT [FK_tblAdministradores.IDUsuario]
-    FOREIGN KEY ([IDUsuario])
-      REFERENCES [tblUsuarios]([IDUsuario])
-);
-CREATE NONCLUSTERED INDEX IX_IDUsuario
-    ON tblAdministradores(IDUsuario); 
+else
+begin
+	set @Trimestre = @year + '-' + '03'
+end
+
+insert into tblCalificaciones (IDAsignatura, IDEstudiante, Trimestre, CalificacionLiteral, CalificacionNumerica, FechaModificacion)
+					    values(@IDAsignatura, @IDEstudiante, @Trimestre, ' ', 0, GETDATE())
+
+go
+
+create or alter proc ppAsignarCalificacion
+@IDAsignatura int,
+@CalificacionNumerica float,
+@IDEstudiante int
+as
+declare @CalificacionLiteral varchar(2) = ''
+
+if @CalificacionNumerica >= 90
+begin
+	set @CalificacionLiteral = 'A'
+end
+
+else if @CalificacionNumerica >= 80
+begin
+	set @CalificacionLiteral = 'B'
+end
+
+else if @CalificacionNumerica >= 70
+begin
+	set @CalificacionLiteral = 'C'
+end
+
+else if @CalificacionNumerica >= 65
+begin
+	set @CalificacionLiteral = 'D'
+end
+
+else
+begin
+	set @CalificacionLiteral = 'F'
+end
+
+update tblCalificaciones set CalificacionNumerica = @CalificacionNumerica, CalificacionLiteral = @CalificacionLiteral, FechaModificacion = GETDATE()
+where IDEstudiante = @IDEstudiante and IDAsignatura = @IDAsignatura
+
+go
+
+create or alter proc ppEliminarAsignatura
+@IDAsignatura int
+as
+update tblAsignaturas set Estado = 0 where IDAsignatura = @IDAsignatura
+delete tblDocentes_Asignaturas where IDAsignatura = @IDAsignatura
+go
+
+create or alter proc ppEliminarDocente
+@IDDocente int
+as
+update tblDocentes set Estado = 0 where IDDocente = @IDDocente
+delete tblDocentes_Asignaturas where IDDocente = @IDDocente
+
+go
+
+create or alter proc ppMostrarUsuarios
+@IDRol int
+as
+if @IDRol = 1
+begin
+	select 
+	IDUsuario 'ID de Usuario' ,
+	Contraseña,
+	IDRol 'ID de Rol'
+	from tblUsuarios where IDRol = @IDRol
+end
+
+else if @IDRol = 2
+begin
+	select 
+	IDUsuario 'ID de Usuario' ,
+	Contraseña,
+	IDRol 'ID de Rol'
+	from tblUsuarios where IDRol = @IDRol
+end
+
+else
+begin
+	select 
+	IDUsuario 'ID de Usuario' ,
+	Contraseña,
+	IDRol 'ID de Rol'
+	from tblUsuarios where IDRol = @IDRol
+end
+go
+
+
+
+go
+create or alter function ObtenerTrimestreActual
+(
+)
+returns varchar(7)
+as
+begin
+	declare @year varchar (4) = (select YEAR(GETDATE()))
+	declare @month varchar(2) = (select MONTH(GETDATE()))
+	declare @Trimestre varchar(7)
+
+	if(@month in (2,3,4))
+	begin
+		set @Trimestre = @year + '-' + '01'
+	end
+
+	else if(@month in (5,6,7))
+	begin
+		set @Trimestre = @year + '-' + '02'
+	end
+
+	else if(@month in (8,9,10))
+	begin
+		set @Trimestre = @year + '-' + '03'
+	end
+
+	else
+	begin
+		set @Trimestre = @year + '-' + '03'
+	end
+	return @Trimestre
+end
+go
+
+create or alter proc MostrarAsignaturasActuales
+@IDEstudiante int
+as
+declare @TrimestreActual varchar(7) = (select dbo.ObtenerTrimestreActual())
+declare @Docente varchar(50) =
+(select doc.Nombre + ' ' + doc.Apellido from tblDocentes doc 
+inner join tblDocentes_Asignaturas da on doc.IDDocente = da.IDDocente
+inner join tblCalificaciones ca on ca.IDAsignatura = da.IDAsignatura
+inner join tblEstudiantes est on est.IDEstudiante = ca.IDEstudiante
+where ca.IDEstudiante = @IDEstudiante)
+select 
+asig.Codigo 'Clave',
+asig.Nombre 'Nombre',
+asig.NumCreditos 'Créditos',
+(select @Docente) 'Docente', 
+cl.CalificacionLiteral 'Calificación literal',
+cl.CalificacionNumerica 'Calificación numérica'
+from tblAsignaturas asig
+inner join tblCalificaciones cl on cl.IDAsignatura = cl.IDAsignatura
+inner join tblDocentes_Asignaturas da on asig.IDAsignatura = da.IDAsignatura
+inner join tblDocentes doc on doc.IDDocente = da.IDDocente
+inner join tblEstudiantes est on est.IDEstudiante = cl.IDEstudiante
+where cl.Trimestre = @TrimestreActual and cl.IDEstudiante = @IDEstudiante
+go
+
+
+
+create or alter proc ppEstudiantesxDocente
+@IDDocente int,
+@CodigoAsignatura varchar(7)
+as
+select 
+asig.IDAsignatura 'ID Asignatura',
+ca.IDEstudiante 'IDEstudiante',
+est.Nombre + ' ' + est.Apellido 'Nombre completo',
+asig.Codigo 'Código',
+asig.Nombre 'Asignatura',
+ca.CalificacionNumerica 'Calificación numérica',
+ca.CalificacionLiteral 'Calificación literal'
+from tblCalificaciones ca 
+inner join tblAsignaturas asig on asig.IDAsignatura = ca.IDAsignatura 
+inner join tblDocentes_Asignaturas da on da.IDAsignatura = asig.IDAsignatura
+inner join tblDocentes doc on doc.IDDocente = da.IDDocente
+inner join tblEstudiantes est on est.IDEstudiante = ca.IDEstudiante
+where da.IDDocente = @IDDocente and asig.Codigo = @CodigoAsignatura
+
+go
+create or alter proc ppObtenerDataDocente
+@IDUsuario int
+as
+select IDUsuario ID_Usuario, 
+IDDocente ID_Docente,
+Nombre + ' ' + Apellido 'Nombre Completo'
+from tblDocentes where IDUsuario = @IDUsuario
+go
+
+
+create or alter proc ppObtenerAsignaturasDocentes
+@IDDocente int
+as
+select a.Codigo from tblDocentes_Asignaturas da
+inner join tblAsignaturas a on da.IDAsignatura = a.IDAsignatura
+where da.IDDocente = @IDDocente
+
+go
+
+create or alter proc [dbo].[ppObtenerPrograma]
+@Nombre varchar(100)
+as
+select top 1 IDPrograma from tblProgramasAcademicos where Nombre = @Nombre order by FechaCreacion
+
+go
+
+create or alter proc [dbo].[ppCrearEstudiante]
+@Nombre varchar(25),
+@Apellido varchar(25),
+@Correo varchar(25),
+@IDPrograma int,
+@Contra varchar(7),
+@NumTelefonico varchar(12)
+
+as
+	insert into tblUsuarios(Contraseña, IDRol)
+	values (@Contra, 1)
+
+	declare @Curr_UserID int = (select IDENT_CURRENT('tblUsuarios'))
+
+	insert into tblEstudiantes(Nombre, IDUsuario, Apellido, Correo, Trimestre, FechaModificacion, NumTelefonico)
+						values(@Nombre, @Curr_UserID, @Apellido, @Correo, '1', GETDATE(), @NumTelefonico)
+	
+	declare @Curr_EstID int  = (select IDENT_CURRENT('tblEstudiantes'))
+
+	insert into tblEstudiantes_Programas(IDEstudiante, IDPrograma)
+								values (@Curr_EstID, @IDPrograma)
