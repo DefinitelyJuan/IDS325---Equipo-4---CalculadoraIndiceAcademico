@@ -96,3 +96,8 @@ body{
 .puBackground {
 
 }
+
+.btnGenerarReporte {
+    border: none !important;
+    color: var(--defaultWhite) !important;
+}
