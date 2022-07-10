@@ -47,7 +47,7 @@ namespace CalculadoraIndiceAcademico
                         uData.Nombre = docData.Rows[0][2].ToString();
                         Session["userData"] = uData;
                         Session["idDocente"] = uData.IDEntidad;
-                        Response.Redirect("/frmCalificación.aspx");
+                        Response.Redirect("/frmPerfilDocente.aspx");
 
                         break;
                     case "3":

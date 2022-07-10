@@ -28,9 +28,9 @@
                   <div class="container d-flex justify-content-center flex-column h-100">
                        <h1 class="text-center mb-5 title">Inicio de sesión</h1>
                       <%-- Txt user --%>
-                      <div class="txtUsuario"><asp:TextBox ID="txtUsuario"  runat="server" cssClass="form-control txtBox">Usuario...</asp:TextBox></div>
+                      <div class="txtUsuario"><asp:TextBox ID="txtUsuario"  runat="server" cssClass="form-control txtBox" placeholder ="Usuario..."></asp:TextBox></div>
                       <%-- Txt pass --%>
-                      <div class="txtContraseña"><asp:TextBox ID="txtContraseña" runat="server" cssClass="form-control txtBox">Contraseña...</asp:TextBox></div>
+                      <div class="txtContraseña"><asp:TextBox ID="txtContraseña" runat="server" cssClass="form-control txtBox" placeholder ="Contraseña..." TextMode = "Password"></asp:TextBox></div>
                       <%-- Boton iniciar sesion --%>
                       <div class="btnIniciarSesión d-flex justify-content-center mt-4">
                           <asp:Button ID="btnIniciarSesion" runat="server" OnClick="btnIniciarSesion_Click" Text="Iniciar Sesión" cssClass=" btnLogin" BackColor="#8EF0FD" BorderColor="#FCFCD4" BorderStyle="Solid"/>

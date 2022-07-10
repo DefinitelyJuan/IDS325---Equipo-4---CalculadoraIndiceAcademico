@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head runat="server">
+    <meta charset="utf-8"/>
     <link rel="stylesheet" href="./Resources/CSS/PopUp.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>

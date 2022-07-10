@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CalculadoraIndiceAcademico.dsSCIATableAdapters;
 using CalculadoraIndiceAcademico.Models;
+using System.Text;
+
 namespace CalculadoraIndiceAcademico
 {
     public partial class frmCalificación : System.Web.UI.Page
@@ -47,7 +49,7 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmDocentePerfil.aspx");
+            Response.Redirect("frmPerfilDocente.aspx");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -61,9 +63,9 @@ namespace CalculadoraIndiceAcademico
             calificacionData calData = new calificacionData();
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[2].Text);
-            calData.Nombre = gridMantenimiento.Rows[selectedIndex].Cells[3].Text;
+            calData.Nombre = HttpUtility.HtmlDecode(gridMantenimiento.Rows[selectedIndex].Cells[3].Text);
             calData.codigoAsignatura = gridMantenimiento.Rows[selectedIndex].Cells[4].Text;
-            calData.NombreAsignatura = gridMantenimiento.Rows[selectedIndex].Cells[5].Text;
+            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[selectedIndex].Cells[5].Text);
             calData.CalificacionNum = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[6].Text);
             calData.CalificacionLiteral = gridMantenimiento.Rows[selectedIndex].Cells[7].Text;
             Session["dataCalificacion"] = calData;

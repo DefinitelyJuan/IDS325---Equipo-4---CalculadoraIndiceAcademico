@@ -105,6 +105,7 @@
     <Content Include="frmLogin.aspx" />
     <Content Include="frmMantenimientoUsuarios.aspx" />
     <Content Include="frmMantenimientoAdministrador.aspx" />
+    <Content Include="frmPerfilDocente.aspx" />
     <Content Include="frmPerfilEstudiante.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\login.css" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="frmMantenimientoAdministrador.aspx.designer.cs">
       <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerfilDocente.aspx.cs">
+      <DependentUpon>frmPerfilDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPerfilDocente.aspx.designer.cs">
+      <DependentUpon>frmPerfilDocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmPerfilEstudiante.aspx.cs">
       <DependentUpon>frmPerfilEstudiante.aspx</DependentUpon>
