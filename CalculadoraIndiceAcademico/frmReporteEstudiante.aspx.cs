@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using Microsoft.Reporting.WebForms;
 
 namespace CalculadoraIndiceAcademico
 {
@@ -14,6 +15,7 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ppGenerarIndiceEstudianteTableAdapter reporteEst = new ppGenerarIndiceEstudianteTableAdapter();
             ppObtenerProgramaEstudianteTableAdapter programasEst = new ppObtenerProgramaEstudianteTableAdapter();
             if (ddlTipoIndice.SelectedItem.ToString() == "General")
                 ddlTrimestre.Visible = false;
@@ -22,6 +24,15 @@ namespace CalculadoraIndiceAcademico
             DataTable dt = programasEst.GetData((int)Session["idEstudiante"]);
             ddlPrograma.DataSource = dt;
             ddlPrograma.DataBind();
+
+            if(!this.IsPostBack)
+            {
+                DataTable dtReporte = reporteEst.GetData(ddlTipoIndice.SelectedItem.Text, (int)Session["idEstudiante"]);
+                ReportDataSource dataSource = new ReportDataSource("dsReporteEstudiante", dtReporte);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(dataSource);
+                ReportViewer1.LocalReport.Refresh();
+            }
         }
 
         protected void lbtnHome_Click(object sender, EventArgs e)
