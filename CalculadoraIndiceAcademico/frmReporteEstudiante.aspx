@@ -27,11 +27,11 @@
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton" OnClick="lbtnCalificaciones_Click">
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
                 <asp:LinkButton
-                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
+                    ID="lbtnGenerarIndice" runat="server" CssClass="btn selectedButton">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
                 </asp:LinkButton> 
                 <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
@@ -47,19 +47,31 @@
                 <div class="row h-25 <%--bg-danger--%> m-0">
                     <%-- Row admin --%>
                     <div class="mt-3 d-flex flex-row justify-content-end align-items-center">
-                        <h3 class="m-0 hAdministrador">Docente&nbsp</h3>
+                        <h3 class="m-0 hAdministrador">Estudiante&nbsp</h3>
                         <i class="fa fa-light fa-circle-user fa-2x"></i>
                     </div>                  
                     <%-- Row controls --%>
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
-                        <div class="col-md-10">
-                            <h3>Calificaciones:</h3>
-                            <asp:DropDownList ID="ddlCodigo" runat="server" CssClass="cmb" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="Codigo" DataValueField="Codigo">
+                        <h3>CALCULAR ÍNDICE ACADÉMICO:</h3>
+                        <div class="col-md-10 d-flex flex-row">
+                            <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="col-md-4 cmb" DataTextField="Programa" DataValueField="Programa">
+                                <asp:ListItem Selected="True" Hidden="True">Programa</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppObtenerAsignaturasDocentesTableAdapter">
+                            <asp:DropDownList ID="ddlTipoIndice" runat="server" CssClass="col-md-4 cmb" OnSelectedIndexChanged="ddlTipoIndice_SelectedIndexChanged" AutoPostBack="True">
+                                <asp:ListItem Text="General" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="Trimestral" Value="2"></asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlTrimestre" runat="server" cssClass="col-md-4 cmb" DataSourceID="ObjectDataSource2" DataTextField="Trimestre" DataValueField="Trimestre" AutoPostBack="True">
+                            </asp:DropDownList>
+                            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppObtenerTrimestresEstudianteTableAdapter">
                                 <SelectParameters>
-                                    <asp:SessionParameter Name="IDDocente" SessionField="idDocente" Type="Int32" />
+                                    <asp:SessionParameter Name="IDEstudiante" SessionField="idEstudiante" Type="Int32" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppObtenerProgramaEstudianteTableAdapter">
+                                <SelectParameters>
+                                    <asp:Parameter Name="IDEstudiante" Type="Int32" />
                                 </SelectParameters>
                             </asp:ObjectDataSource>
                         </div>
@@ -67,8 +79,8 @@
                 </div>
 
                 <%-- Row 2 --%>
-                <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table">
+                <div class="row h-55 <%--bg-success--%> m-0">
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" InsertVisible="False" ReadOnly="True" SortExpression="ID Asignatura" />
@@ -80,16 +92,12 @@
                             <asp:BoundField DataField="Calificación literal" HeaderText="Calificación literal" SortExpression="Calificación literal" />
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnGenerarReporte" runat="server" Text="Generar Reporte" class="d-flex align-item-end btnGenerarReporte"/>
-                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppEstudiantesxDocenteTableAdapter">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="IDDocente" SessionField="idDocente" Type="Int32" />
-                            <asp:ControlParameter ControlID="ddlCodigo" Name="CodigoAsignatura" PropertyName="SelectedValue" Type="String" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
+                </div>
+                <div class="row h-20 m-0 d-flex align-items-end">
+                    <asp:Button ID="btnGenerarReporte" runat="server" Text="Generar Reporte" cssClass ="btn selectedButton"/>
                 </div>
             </div>
         </div>

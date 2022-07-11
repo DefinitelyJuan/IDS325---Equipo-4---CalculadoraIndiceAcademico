@@ -60,13 +60,40 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnCerrarSesion;
 
         /// <summary>
-        /// ddlCodigo control.
+        /// ddlPrograma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCodigo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPrograma;
+
+        /// <summary>
+        /// ddlTipoIndice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoIndice;
+
+        /// <summary>
+        /// ddlTrimestre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTrimestre;
+
+        /// <summary>
+        /// ObjectDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
 
         /// <summary>
         /// ObjectDataSource1 control.
@@ -87,24 +114,6 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.GridView gridMantenimiento;
 
         /// <summary>
-        /// btnGenerarReporte control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerarReporte;
-
-        /// <summary>
-        /// ObjectDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
-
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -112,5 +121,14 @@ namespace CalculadoraIndiceAcademico
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// btnGenerarReporte control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarReporte;
     }
 }

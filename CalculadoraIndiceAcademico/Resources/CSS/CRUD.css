@@ -92,12 +92,3 @@ body{
     right: 2%;
     top: 1.9%;
 }
-
-.puBackground {
-
-}
-
-.btnGenerarReporte {
-    border: none !important;
-    color: var(--defaultWhite) !important;
-}

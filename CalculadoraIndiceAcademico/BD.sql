@@ -224,6 +224,7 @@ asig.Codigo 'Clave',
 asig.Nombre 'Nombre',
 asig.NumCreditos 'Créditos',
 (select @Docente) 'Docente', 
+
 cl.CalificacionLiteral 'Calificación literal',
 cl.CalificacionNumerica 'Calificación numérica'
 from tblAsignaturas asig
@@ -303,3 +304,73 @@ as
 
 	insert into tblEstudiantes_Programas(IDEstudiante, IDPrograma)
 								values (@Curr_EstID, @IDPrograma)
+
+go
+
+-- Mostrar asignaturas docente
+create or alter proc ppMostrarAsignaturasDocente
+@IdDocente int
+as
+	declare @actualTrimester as varchar(7)
+	set @actualTrimester = (select dbo.ObtenerTrimestreActual())
+
+	select a.Codigo, a.Nombre, a.Numcreditos from tblAsignaturas a inner join tblDocentes_Asignaturas da on a.IDAsignatura = da.IDAsignatura
+	where da.IDDocente = @IdDocente and @actualTrimester = da.Trimestre
+go
+
+-- Generar indice estudiante
+create or alter proc ppGenerarIndiceEstudiante
+@tipoIndice varchar(15),
+@IdEstudiante int
+as
+
+declare @actualTrimester as varchar(7)
+set @actualTrimester = (select dbo.ObtenerTrimestreActual())
+
+-- Indice general
+if @tipoIndice = 'General'
+begin
+	select a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
+	where IDEstudiante = @IdEstudiante
+end
+
+-- Indice trimestral
+if @tipoIndice = 'Trimestral'
+begin
+	select a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
+	where IDEstudiante = @IdEstudiante and c.Trimestre=@actualTrimester
+end
+
+go
+
+-- Mostrar calificaciones admin
+create or alter proc ppMostrarCalificacionesAdmin
+@CodigoAsignatura varchar (7)
+as
+	select e.IDEstudiante, CONCAT(e.Nombre, ' ', e.Apellido) 'Nombre completo', a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
+	inner join tblEstudiantes e on c.IDEstudiante = e.IDEstudiante
+	where a.Codigo = @CodigoAsignatura
+go
+
+
+create or alter proc ppObtenerProgramaEstudiante
+@IDEstudiante int
+as
+select p.Nombre + ' ' + p.[Version] 'Programa'
+from tblEstudiantes_Programas ep 
+inner join tblProgramasAcademicos p on ep.IDPrograma = p.IDPrograma
+where ep.IDEstudiante = @IDEstudiante
+
+go
+
+create or alter proc ppObtenerTrimestresEstudiante
+@IDEstudiante int
+as
+select Trimestre from tblCalificaciones
+where IDEstudiante = @IDEstudiante
+
+select * from tblUsuarios
+

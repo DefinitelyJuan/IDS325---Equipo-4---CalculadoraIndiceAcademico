@@ -85,7 +85,6 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoArea.Visible = true;
                     gridMantenimientoPrograma.Visible = false;
                     gridMantenimiento.Visible = false;
-
                     break;
             }
         }

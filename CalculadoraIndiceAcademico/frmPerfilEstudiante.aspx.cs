@@ -26,7 +26,6 @@ namespace CalculadoraIndiceAcademico
             gridMaterias.DataBind();
             //estudiante.fillMaterias(materias); //Reemplazar con el pp que se cree
             //gridMaterias.DataSource = materias;
-            
         }
 
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
@@ -36,7 +35,7 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("frmEstudianteGenerarIndice");
+            Response.Redirect("frmReporteEstudiante.aspx");
         }
     }
 }
