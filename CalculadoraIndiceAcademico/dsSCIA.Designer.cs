@@ -7318,9 +7318,13 @@ namespace CalculadoraIndiceAcademico {
             
             private global::System.Data.DataColumn columnNombre;
             
+            private global::System.Data.DataColumn columnNumCreditos;
+            
             private global::System.Data.DataColumn columnCalificacionLiteral;
             
             private global::System.Data.DataColumn columnTrimestre;
+            
+            private global::System.Data.DataColumn columnPuntos;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -7373,6 +7377,14 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NumCreditosColumn {
+                get {
+                    return this.columnNumCreditos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CalificacionLiteralColumn {
                 get {
                     return this.columnCalificacionLiteral;
@@ -7384,6 +7396,14 @@ namespace CalculadoraIndiceAcademico {
             public global::System.Data.DataColumn TrimestreColumn {
                 get {
                     return this.columnTrimestre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PuntosColumn {
+                get {
+                    return this.columnPuntos;
                 }
             }
             
@@ -7424,13 +7444,15 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ppGenerarIndiceEstudianteRow AddppGenerarIndiceEstudianteRow(string Codigo, string Nombre, string CalificacionLiteral, string Trimestre) {
+            public ppGenerarIndiceEstudianteRow AddppGenerarIndiceEstudianteRow(string Codigo, string Nombre, byte NumCreditos, string CalificacionLiteral, string Trimestre, int Puntos) {
                 ppGenerarIndiceEstudianteRow rowppGenerarIndiceEstudianteRow = ((ppGenerarIndiceEstudianteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
                         Nombre,
+                        NumCreditos,
                         CalificacionLiteral,
-                        Trimestre};
+                        Trimestre,
+                        Puntos};
                 rowppGenerarIndiceEstudianteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowppGenerarIndiceEstudianteRow);
                 return rowppGenerarIndiceEstudianteRow;
@@ -7455,8 +7477,10 @@ namespace CalculadoraIndiceAcademico {
             internal void InitVars() {
                 this.columnCodigo = base.Columns["Codigo"];
                 this.columnNombre = base.Columns["Nombre"];
+                this.columnNumCreditos = base.Columns["NumCreditos"];
                 this.columnCalificacionLiteral = base.Columns["CalificacionLiteral"];
                 this.columnTrimestre = base.Columns["Trimestre"];
+                this.columnPuntos = base.Columns["Puntos"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7466,18 +7490,24 @@ namespace CalculadoraIndiceAcademico {
                 base.Columns.Add(this.columnCodigo);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
+                this.columnNumCreditos = new global::System.Data.DataColumn("NumCreditos", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumCreditos);
                 this.columnCalificacionLiteral = new global::System.Data.DataColumn("CalificacionLiteral", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCalificacionLiteral);
                 this.columnTrimestre = new global::System.Data.DataColumn("Trimestre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrimestre);
+                this.columnPuntos = new global::System.Data.DataColumn("Puntos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPuntos);
                 this.columnCodigo.AllowDBNull = false;
                 this.columnCodigo.MaxLength = 7;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 70;
+                this.columnNumCreditos.AllowDBNull = false;
                 this.columnCalificacionLiteral.AllowDBNull = false;
                 this.columnCalificacionLiteral.MaxLength = 2;
                 this.columnTrimestre.AllowDBNull = false;
                 this.columnTrimestre.MaxLength = 7;
+                this.columnPuntos.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9279,6 +9309,17 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte NumCreditos {
+                get {
+                    return ((byte)(this[this.tableppGenerarIndiceEstudiante.NumCreditosColumn]));
+                }
+                set {
+                    this[this.tableppGenerarIndiceEstudiante.NumCreditosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string CalificacionLiteral {
                 get {
                     return ((string)(this[this.tableppGenerarIndiceEstudiante.CalificacionLiteralColumn]));
@@ -9297,6 +9338,34 @@ namespace CalculadoraIndiceAcademico {
                 set {
                     this[this.tableppGenerarIndiceEstudiante.TrimestreColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Puntos {
+                get {
+                    try {
+                        return ((int)(this[this.tableppGenerarIndiceEstudiante.PuntosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Puntos\' in table \'ppGenerarIndiceEstudiante\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableppGenerarIndiceEstudiante.PuntosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPuntosNull() {
+                return this.IsNull(this.tableppGenerarIndiceEstudiante.PuntosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPuntosNull() {
+                this[this.tableppGenerarIndiceEstudiante.PuntosColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -15841,8 +15910,10 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             tableMapping.DataSetTable = "ppGenerarIndiceEstudiante";
             tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
+            tableMapping.ColumnMappings.Add("NumCreditos", "NumCreditos");
             tableMapping.ColumnMappings.Add("CalificacionLiteral", "CalificacionLiteral");
             tableMapping.ColumnMappings.Add("Trimestre", "Trimestre");
+            tableMapping.ColumnMappings.Add("Puntos", "Puntos");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

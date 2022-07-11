@@ -931,8 +931,10 @@
             <Mappings>
               <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="NumCreditos" DataSetColumn="NumCreditos" />
               <Mapping SourceColumn="CalificacionLiteral" DataSetColumn="CalificacionLiteral" />
               <Mapping SourceColumn="Trimestre" DataSetColumn="Trimestre" />
+              <Mapping SourceColumn="Puntos" DataSetColumn="Puntos" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1399,6 +1401,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="NumCreditos" msprop:Generator_ColumnPropNameInRow="NumCreditos" msprop:Generator_ColumnPropNameInTable="NumCreditosColumn" msprop:Generator_ColumnVarNameInTable="columnNumCreditos" msprop:Generator_UserColumnName="NumCreditos" type="xs:unsignedByte" />
               <xs:element name="CalificacionLiteral" msprop:Generator_ColumnPropNameInRow="CalificacionLiteral" msprop:Generator_ColumnPropNameInTable="CalificacionLiteralColumn" msprop:Generator_ColumnVarNameInTable="columnCalificacionLiteral" msprop:Generator_UserColumnName="CalificacionLiteral">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1413,6 +1416,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Puntos" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Puntos" msprop:Generator_ColumnPropNameInTable="PuntosColumn" msprop:Generator_ColumnVarNameInTable="columnPuntos" msprop:Generator_UserColumnName="Puntos" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -329,7 +329,16 @@ set @actualTrimester = (select dbo.ObtenerTrimestreActual())
 -- Indice general
 if @tipoIndice = 'General'
 begin
-	select a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
+	select a.Codigo, a.Nombre, a.NumCreditos, 
+	c.CalificacionLiteral, c.Trimestre,
+	case
+		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
+		when c.CalificacionLiteral = 'B' then 3 * a.NumCreditos
+		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
+		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
+		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
+	end 'Puntos'
+	from tblCalificaciones c
 	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
 	where IDEstudiante = @IdEstudiante
 end
@@ -337,7 +346,16 @@ end
 -- Indice trimestral
 if @tipoIndice = 'Trimestral'
 begin
-	select a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
+	select a.Codigo, a.Nombre, a.NumCreditos, 
+	c.CalificacionLiteral, c.Trimestre,
+	case
+		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
+		when c.CalificacionLiteral = 'B' then 3 * a.NumCreditos
+		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
+		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
+		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
+	end 'Puntos'
+	from tblCalificaciones c
 	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
 	where IDEstudiante = @IdEstudiante and c.Trimestre=@actualTrimester
 end
