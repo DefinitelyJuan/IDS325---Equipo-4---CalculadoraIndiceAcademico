@@ -476,8 +476,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsReporteEstudiante</DataSetName>
-            <Top>0.71333in</Top>
-            <Left>0.76333in</Left>
+            <Top>0.48833in</Top>
+            <Left>0.64666in</Left>
             <Height>0.5in</Height>
             <Width>6.325in</Width>
             <Style>
@@ -501,8 +501,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Indice</rd:DefaultName>
-            <Top>1.68in</Top>
-            <Left>0.855in</Left>
+            <Top>1.32167in</Top>
+            <Left>0.64666in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>

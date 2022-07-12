@@ -55,22 +55,28 @@ namespace CalculadoraIndiceAcademico
             {
                 ddlTrimestre.Visible = true;
                 ddlTrimestre.DataBind();
-                
-                    ppGenerarIndiceEstudianteTableAdapter reporteEst = new ppGenerarIndiceEstudianteTableAdapter();
-                    DataTable dtReporte = reporteEst.GetData(ddlTipoIndice.SelectedItem.Text, (int)Session["idEstudiante"], ddlTrimestre.SelectedItem.Text);
-                    ReportDataSource dataSource = new ReportDataSource("dsReporteEstudiante", dtReporte);
-                    ReportViewer1.LocalReport.DataSources.Clear();
-                    ReportViewer1.LocalReport.DataSources.Add(dataSource);
-                    ReportViewer1.LocalReport.Refresh(); 
-                
-
+                ppGenerarIndiceEstudianteTableAdapter reporteEst = new ppGenerarIndiceEstudianteTableAdapter();
+                DataTable dtReporte = reporteEst.GetData(ddlTipoIndice.SelectedItem.Text, (int)Session["idEstudiante"], ddlTrimestre.SelectedItem.Text);
+                ReportDataSource dataSource = new ReportDataSource("dsReporteEstudiante", dtReporte);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(dataSource);
+                ReportViewer1.LocalReport.Refresh(); 
+            }
+            else if (ddlTipoIndice.SelectedItem.ToString() == "General")
+            {
+                ddlTrimestre.Visible = false;
+                ddlTrimestre.DataBind();
+                ppGenerarIndiceEstudianteTableAdapter reporteEst = new ppGenerarIndiceEstudianteTableAdapter();
+                DataTable dtReporte = reporteEst.GetData(ddlTipoIndice.SelectedItem.Text, (int)Session["idEstudiante"], " ");
+                ReportDataSource dataSource = new ReportDataSource("dsReporteEstudiante", dtReporte);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(dataSource);
+                ReportViewer1.LocalReport.Refresh();
             }
         }
 
         protected void ddlTrimestre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-
             ppGenerarIndiceEstudianteTableAdapter reporteEst = new ppGenerarIndiceEstudianteTableAdapter();
             DataTable dtReporte = reporteEst.GetData(ddlTipoIndice.SelectedItem.Text, (int)Session["idEstudiante"], ddlTrimestre.SelectedItem.Text);
             ReportDataSource dataSource = new ReportDataSource("dsReporteEstudiante", dtReporte);

@@ -320,16 +320,18 @@ go
 -- Generar indice estudiante
 create or alter proc ppGenerarIndiceEstudiante
 @tipoIndice varchar(15),
-@IdEstudiante int
+@IdEstudiante int,
+@Trimestre varchar(7)
 as
 
 declare @actualTrimester as varchar(7)
 set @actualTrimester = (select dbo.ObtenerTrimestreActual())
+declare @Indice as decimal(2,1)
 
 -- Indice general
 if @tipoIndice = 'General'
 begin
-	select a.Codigo, a.Nombre, a.NumCreditos, 
+	with CalculoIndice as (select a.Codigo, a.Nombre, a.NumCreditos, 
 	c.CalificacionLiteral, c.Trimestre,
 	case
 		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
@@ -337,16 +339,21 @@ begin
 		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
 		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
 		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
-	end 'Puntos'
+	end Puntos
 	from tblCalificaciones c
 	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
-	where IDEstudiante = @IdEstudiante
+	where IDEstudiante = @IdEstudiante)
+
+	select Codigo, Nombre, NumCreditos, CalificacionLiteral, Trimestre, Puntos, (select ROUND(sum(convert(float, Puntos))/SUM(convert(float, NumCreditos)),2) from CalculoIndice) Indice
+	from CalculoIndice
+	group by Codigo, Nombre, NumCreditos, CalificacionLiteral, Trimestre, Puntos
 end
 
 -- Indice trimestral
 if @tipoIndice = 'Trimestral'
 begin
-	select a.Codigo, a.Nombre, a.NumCreditos, 
+	
+	with CalculoIndice as (select a.Codigo, a.Nombre, a.NumCreditos, 
 	c.CalificacionLiteral, c.Trimestre,
 	case
 		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
@@ -354,19 +361,81 @@ begin
 		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
 		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
 		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
-	end 'Puntos'
+	end Puntos
 	from tblCalificaciones c
 	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
-	where IDEstudiante = @IdEstudiante and c.Trimestre=@actualTrimester
+	where IDEstudiante = @IdEstudiante and c.Trimestre=@Trimestre) 
+
+	select Codigo, Nombre, NumCreditos, CalificacionLiteral, Trimestre, Puntos, (select ROUND(sum(convert(float, Puntos))/SUM(convert(float, NumCreditos)),2) from CalculoIndice where Trimestre = @Trimestre) Indice
+	from CalculoIndice
+	group by Codigo, Nombre, NumCreditos, CalificacionLiteral, Trimestre, Puntos
 end
 
 go
 
--- Mostrar calificaciones admin
 create or alter proc ppMostrarCalificacionesAdmin
-@CodigoAsignatura varchar (7)
+@Top int
 as
-	select e.IDEstudiante, CONCAT(e.Nombre, ' ', e.Apellido) 'Nombre completo', a.Codigo, a.Nombre, c.CalificacionLiteral, c.Trimestre from tblCalificaciones c
-	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura
+if @Top = 5
+begin
+	with CalculoIndice as (select e.IDEstudiante, e.Nombre + ' ' + e.Apellido NombreCompleto,  a.NumCreditos, 
+	c.CalificacionLiteral,
+	case
+		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
+		when c.CalificacionLiteral = 'B' then 3 * a.NumCreditos
+		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
+		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
+		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
+	end Puntos
+	from tblCalificaciones c 
 	inner join tblEstudiantes e on c.IDEstudiante = e.IDEstudiante
-	where a.Codigo = @CodigoAsignatura
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura)
+	
+	select distinct top 5 CalculoIndice.IDEstudiante, CalculoIndice.NombreCompleto,
+	(select ROUND(sum(convert(float, Puntos))/SUM(convert(float, NumCreditos)),2) from CalculoIndice ci where ci.IDEstudiante = CalculoIndice.IDEstudiante) Indice
+	from CalculoIndice
+end
+
+else if @Top = 10
+begin
+	with CalculoIndice as (select e.IDEstudiante, e.Nombre + ' ' + e.Apellido NombreCompleto,  a.NumCreditos, 
+	c.CalificacionLiteral,
+	case
+		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
+		when c.CalificacionLiteral = 'B' then 3 * a.NumCreditos
+		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
+		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
+		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
+	end Puntos
+	from tblCalificaciones c 
+	inner join tblEstudiantes e on c.IDEstudiante = e.IDEstudiante
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura)
+	
+	select distinct top 10 CalculoIndice.IDEstudiante, CalculoIndice.NombreCompleto,
+	(select ROUND(sum(convert(float, Puntos))/SUM(convert(float, NumCreditos)),2) from CalculoIndice ci where ci.IDEstudiante = CalculoIndice.IDEstudiante) Indice
+	from CalculoIndice
+end
+
+else if @Top = 15
+begin
+	with CalculoIndice as (select e.IDEstudiante, e.Nombre + ' ' + e.Apellido NombreCompleto,  a.NumCreditos, 
+	c.CalificacionLiteral,
+	case
+		when c.CalificacionLiteral = 'A' then 4 * a.NumCreditos
+		when c.CalificacionLiteral = 'B' then 3 * a.NumCreditos
+		when c.CalificacionLiteral = 'C' then 2 * a.NumCreditos
+		when c.CalificacionLiteral = 'D' then 1 * a.NumCreditos
+		when c.CalificacionLiteral = 'F' then 0 * a.NumCreditos
+	end Puntos
+	from tblCalificaciones c 
+	inner join tblEstudiantes e on c.IDEstudiante = e.IDEstudiante
+	inner join tblAsignaturas a on c.IDAsignatura = a.IDAsignatura)
+	
+	select distinct top 15 CalculoIndice.IDEstudiante, CalculoIndice.NombreCompleto,
+	(select ROUND(sum(convert(float, Puntos))/SUM(convert(float, NumCreditos)),2) from CalculoIndice ci where ci.IDEstudiante = CalculoIndice.IDEstudiante) Indice
+	from CalculoIndice
+end
+
+
+
+select * from tblUsuarios

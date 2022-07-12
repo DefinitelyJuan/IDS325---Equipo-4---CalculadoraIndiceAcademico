@@ -89,5 +89,14 @@ namespace CalculadoraIndiceAcademico
             }
         }
 
+        protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmReporteAdministrador.aspx");
+        }
     }
 }

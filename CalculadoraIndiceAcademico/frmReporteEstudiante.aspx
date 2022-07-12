@@ -85,6 +85,7 @@
                         <LocalReport ReportPath="ReporteCalificaciones.rdlc">
                         </LocalReport>
                     </rsweb:ReportViewer>
+                    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarCalificacionesAdminTableAdapter"></asp:ObjectDataSource>
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>

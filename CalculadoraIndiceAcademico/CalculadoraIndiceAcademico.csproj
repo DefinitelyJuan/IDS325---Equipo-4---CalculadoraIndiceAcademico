@@ -128,6 +128,7 @@
     <Content Include="frmMantenimientoAdministrador.aspx" />
     <Content Include="frmPerfilDocente.aspx" />
     <Content Include="frmPerfilEstudiante.aspx" />
+    <Content Include="frmReporteAdministrador.aspx" />
     <Content Include="frmReporteEstudiante.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\login.css" />
@@ -253,6 +254,13 @@
     <Compile Include="frmPerfilEstudiante.aspx.designer.cs">
       <DependentUpon>frmPerfilEstudiante.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteAdministrador.aspx.cs">
+      <DependentUpon>frmReporteAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteAdministrador.aspx.designer.cs">
+      <DependentUpon>frmReporteAdministrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteEstudiante.aspx.cs">
       <DependentUpon>frmReporteEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ReporteCalificaciones.rdlc" />
+    <EmbeddedResource Include="rptRanking.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
