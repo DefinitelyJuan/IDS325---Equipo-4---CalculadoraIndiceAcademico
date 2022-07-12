@@ -64,7 +64,7 @@
                                 <asp:ListItem Text="General" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="Trimestral" Value="2"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:DropDownList ID="ddlTrimestre" runat="server" cssClass="col-md-4 cmb" DataSourceID="ObjectDataSource2" DataTextField="Trimestre" DataValueField="Trimestre" AutoPostBack="True">
+                            <asp:DropDownList ID="ddlTrimestre" runat="server" cssClass="col-md-4 cmb" DataSourceID="ObjectDataSource2" DataTextField="Trimestre" DataValueField="Trimestre" AutoPostBack="True" OnSelectedIndexChanged="ddlTrimestre_SelectedIndexChanged">
                             </asp:DropDownList>
                             <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppObtenerTrimestresEstudianteTableAdapter">
                                 <SelectParameters>

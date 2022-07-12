@@ -41,10 +41,14 @@
           <DataField>Puntos</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Indice">
+          <DataField>Indice</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsSCIA</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Deivy\Source\Repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\dsSCIA.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\dsSCIA.xsd</rd:SchemaPath>
         <rd:TableName>ppGenerarIndiceEstudiante</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -482,6 +486,36 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Indice">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Last(Fields!Indice.Value, "dsReporteEstudiante")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Indice</rd:DefaultName>
+            <Top>1.68in</Top>
+            <Left>0.855in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>1.99167in</Height>
         <Style />
