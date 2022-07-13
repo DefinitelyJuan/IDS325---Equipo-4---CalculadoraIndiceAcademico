@@ -105,7 +105,7 @@
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
-                            <button runat="server" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
+                            <button runat="server" type="button" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
                             <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="btnDelete" runat="server" cssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"><i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged">
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" ReadOnly="True" SortExpression="IDRol" />

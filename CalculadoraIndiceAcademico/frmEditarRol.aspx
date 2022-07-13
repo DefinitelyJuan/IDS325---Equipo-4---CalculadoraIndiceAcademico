@@ -23,7 +23,7 @@
         <div class="container py-0 px-0">
 
             <div class="d-flex align-items-center flex-column p-3">
-                <h4 class="mainHeading">EDTAR ROL</h4>
+                <h4 class="mainHeading">EDITAR ROL</h4>
                 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
                 <asp:TextBox ID="txtRol" runat="server" CssClass="txt" Enabled="True"></asp:TextBox>
@@ -31,7 +31,7 @@
             
             <%-- Botón guardar --%>
             <div class="d-flex justify-content-center">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return confirm('¿Está seguro de que quiere editar el registro?');" />
             </div>
 
         </div>
