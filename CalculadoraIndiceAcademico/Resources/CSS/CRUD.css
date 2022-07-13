@@ -97,3 +97,8 @@ body{
     height: 100%;
     width: 100%;
 }
+
+.btnSeleccionar {
+    background-color: var(--defaultBlue) !important;
+    color: var(--defaultWhite) !important;
+}

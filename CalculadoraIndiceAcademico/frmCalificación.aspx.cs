@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using CalculadoraIndiceAcademico.dsSCIATableAdapters;
 using CalculadoraIndiceAcademico.Models;
 using System.Text;
+using System.Drawing;
 
 namespace CalculadoraIndiceAcademico
 {
@@ -60,6 +61,7 @@ namespace CalculadoraIndiceAcademico
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = gridMantenimiento.SelectedIndex;
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
             calificacionData calData = new calificacionData();
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[2].Text);

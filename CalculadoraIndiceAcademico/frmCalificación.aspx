@@ -90,7 +90,9 @@
                 <div class="row h-75 <%--bg-success--%> m-0">
                     <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle  CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" InsertVisible="False" ReadOnly="True" SortExpression="ID Asignatura" />
                             <asp:BoundField DataField="IDEstudiante" HeaderText="IDEstudiante" SortExpression="IDEstudiante" />
                             <asp:BoundField DataField="Nombre completo" HeaderText="Nombre completo" SortExpression="Nombre completo" ReadOnly="True" />
