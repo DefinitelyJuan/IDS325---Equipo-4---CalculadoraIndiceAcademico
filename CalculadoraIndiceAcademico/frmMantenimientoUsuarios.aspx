@@ -15,18 +15,31 @@
     <title>SCIA | Mantenimiento administrador</title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" CancelControlID="btnCancel" ID="frmPopUp" BackgroundCssClass="puBackground">
-                    </cc1:ModalPopupExtender>
 
-                <asp:Panel ID="Panel1" runat="server">
+    <form id="form1" runat="server">
+        <%--frame ingresar--%>
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground">
+        </cc1:ModalPopupExtender>
+            <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" onServerClick = "cancel" OnClick="btnCancel_Click" >
+                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
+                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame" style="height: 85vh"></iframe>     
 
-            </asp:Panel>  
+            </asp:Panel>
+
+        <%--Modal editar--%>
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel2" TargetControlID="btnUpdate" ID="frmPopUp1" BackgroundCssClass="puBackground">
+        </cc1:ModalPopupExtender>
+            <asp:Panel ID="Panel2" runat="server">
+                <asp:LinkButton 
+                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
+                    <i class="fa fa-thin fa-cancel"></i>
+                </asp:LinkButton>
+                <iframe id="iframe2" src="frmEstudiante.aspx" runat="server" class="formFrame" style="height: 85vh"></iframe>     
+
+            </asp:Panel>
 
 
         <div class="row m-0">
@@ -74,11 +87,9 @@
                         <h3 class="m-0 hAdministrador">Administrador&nbsp</h3>
                         <i class="fa fa-light fa-circle-user fa-2x"></i>
                     </div>
-                    <%-- Row text --%>
-                    <%--<div class="row" style="padding-bottom: 0%">
+                    <%-- Row text --%><%--<div class="row" style="padding-bottom: 0%">
                         <h3>MANTENIMIENTO</h3>
-                    </div>--%>
-                    <%-- Row controls --%>
+                    </div>--%><%-- Row controls --%>
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
@@ -92,37 +103,56 @@
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
-                            <button runat="server" onserverclick="Update" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
-                            <button runat="server" onserverclick="Delete" id="btnDelete" class="fa btn btn-outline-secondary"><i class="fa-light fa-trash-can fa-lg"></i></button>
+                            <button runat="server" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
+                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="btnDelete" runat="server" CssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"> <i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="ID de Usuario" DataSourceID="ObjectDataSource1" CssClass="table">
+                    <asp:GridView ID="gridMantenimientoEst" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CssClass="table" OnSelectedIndexChanged="gridMantenimientoEst_SelectedIndexChanged" SelectedIndex="0">
                         <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
-                            <asp:BoundField DataField="ID de Usuario" HeaderText="ID de Usuario" InsertVisible="False" ReadOnly="True" SortExpression="ID de Usuario" />
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" InsertVisible="False" ReadOnly="True" SortExpression="Usuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
-                            <asp:BoundField DataField="ID de Rol" HeaderText="ID de Rol" SortExpression="ID de Rol" />
+                            <asp:BoundField DataField="IDEstudiante" HeaderText="IDEstudiante" SortExpression="IDEstudiante" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Nombre Estudiante" HeaderText="Nombre Estudiante" SortExpression="Nombre Estudiante" />
+                            <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
+                            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+                            <asp:BoundField DataField="Teléfono" HeaderText="Teléfono" SortExpression="Teléfono" />
+                            <asp:BoundField DataField="Programa" HeaderText="Programa" SortExpression="Programa" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
-                        <SelectParameters>
-                            <asp:Parameter DefaultValue="1" Name="IDRol" Type="Int32" />
-                        </SelectParameters>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuarioEstudianteTableAdapter">
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
-                        <SelectParameters>
-                            <asp:Parameter DefaultValue="2" Name="IDRol" Type="Int32" />
-                        </SelectParameters>
+                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuarioDocenteTableAdapter">
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuariosTableAdapter">
-                        <SelectParameters>
-                            <asp:Parameter DefaultValue="3" Name="IDRol" Type="Int32" />
-                        </SelectParameters>
+                    <asp:GridView ID="gridMantenimientoDoc" runat="server" AutoGenerateColumns="False" DataKeyNames="Usuario,IDDocente" DataSourceID="ObjectDataSource2" CssClass="table" OnSelectedIndexChanged="gridMantenimientoDoc_SelectedIndexChanged" SelectedIndex="0">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" InsertVisible="False" ReadOnly="True" SortExpression="Usuario" />
+                            <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
+                            <asp:BoundField DataField="IDDocente" HeaderText="IDDocente" SortExpression="IDDocente" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
+                            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarUsuarioAdminTableAdapter">
                     </asp:ObjectDataSource>
+                    <asp:GridView ID="gridMantenimientoAdmin" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario,IDAdministrador" DataSourceID="ObjectDataSource3" CssClass="table" OnSelectedIndexChanged="gridMantenimientoAdmin_SelectedIndexChanged" SelectedIndex="0">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
+                            <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
+                            <asp:BoundField DataField="IDAdministrador" HeaderText="IDAdministrador" SortExpression="IDAdministrador" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                            <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
+                            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+                        </Columns>
+                    </asp:GridView>
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>

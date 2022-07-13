@@ -81,7 +81,7 @@ body{
 
 .formFrame {
     width: 500px;
-    height: 589px;
+    height: 85vh !important;
 }
 
 .btnCancel {

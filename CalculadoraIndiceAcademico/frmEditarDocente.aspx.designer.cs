@@ -11,7 +11,7 @@ namespace CalculadoraIndiceAcademico
 {
 
 
-    public partial class frmCrearDocente
+    public partial class frmEditarDocente
     {
 
         /// <summary>
@@ -49,6 +49,15 @@ namespace CalculadoraIndiceAcademico
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+
+        /// <summary>
+        /// txtContra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContra;
 
         /// <summary>
         /// btnGuardar control.

@@ -32,7 +32,7 @@ as
 insert into tblUsuarios (IDRol, Contraseña) values (2, @Contra)
 Declare @CurrIDUser int = (select IDENT_CURRENT('tblUsuarios'))
 insert into tblDocentes (IDUsuario, Nombre, Apellido, Correo, FechaModificacion)
-				values  (@CurrIDUser, @Nombre, @Apellido, @Contra, GETDATE())
+				values  (@CurrIDUser, @Nombre, @Apellido, @Correo, GETDATE())
 
 
 

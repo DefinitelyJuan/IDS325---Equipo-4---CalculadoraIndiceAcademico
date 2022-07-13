@@ -6,29 +6,64 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Drawing;
+using CalculadoraIndiceAcademico.Models;
+
 namespace CalculadoraIndiceAcademico
 {
     public partial class frmMantemientoUsuarios : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            gridMantenimiento.DataSourceID = "ObjectDataSource1";
-            gridMantenimiento.DataBind();
-        }
+            ddlTipoUsuario.DataBind();
+            string rol = ddlTipoUsuario.SelectedValue.ToString();
+            switch (rol)
+            {
+                case "Estudiante":
+                    gridMantenimientoEst.DataBind();
+                    iframe1.Src = "frmEstudiante.aspx";
+                    gridMantenimientoDoc.Visible = false;
+                    gridMantenimientoEst.Visible = true;
+                    gridMantenimientoAdmin.Visible = false;
+                    btnCreate.Disabled = false;
+                    btnDelete.Enabled = true;
+                    btnUpdate.Disabled = false;
 
-        protected void Create(object sender, EventArgs e)
-        {
-        }
-        
-        protected void Update(object sender, EventArgs e)
-        {
-            int selectedIndex = gridMantenimiento.SelectedIndex;
-            string a = gridMantenimiento.Rows[0].Cells[1].Text;
-            Response.Write($"<script>alert('{a}');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
-        }
+                    int selectedIndex;
+                    break;
+                case "Docente":
+                    gridMantenimientoDoc.DataBind();
+                    iframe1.Src = "frmCrearDocente.aspx";
+                    gridMantenimientoDoc.Visible = true;
+                    gridMantenimientoEst.Visible = false;
+                    gridMantenimientoAdmin.Visible = false;
+                    btnCreate.Disabled = false;
+                    btnDelete.Enabled = true;
+                    btnUpdate.Disabled = false;
 
-        protected void Delete(object sender, EventArgs e)
-        {
+                    docenteData docente = new docenteData();
+                    selectedIndex = gridMantenimientoDoc.SelectedIndex;
+
+                    docente.IdUsuario = int.Parse(gridMantenimientoDoc.Rows[selectedIndex].Cells[1].Text);
+                    docente.Contra = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[2].Text);
+                    docente.IdDocente = int.Parse(gridMantenimientoDoc.Rows[selectedIndex].Cells[3].Text);
+                    docente.Nombre = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[4].Text);
+                    docente.Apellido = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[5].Text);
+                    docente.Correo = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[6].Text);
+
+                    Session["docenteData"] = docente;
+                    break;
+                case "Administrador":
+                    gridMantenimientoEst.DataBind();
+                    iframe1.Src = "frmCrearAdministrador.aspx";
+                    gridMantenimientoDoc.Visible = false;
+                    gridMantenimientoEst.Visible = false;
+                    gridMantenimientoAdmin.Visible = true;
+                    btnCreate.Disabled = true;
+                    btnDelete.Enabled = false;
+                    btnUpdate.Disabled = true;
+                    break;
+            }
         }
 
         protected void lbtnHome_Click(object sender, EventArgs e)
@@ -44,23 +79,37 @@ namespace CalculadoraIndiceAcademico
         protected void ddlTipoUsuario_TextChanged(object sender, EventArgs e)
         {
             string rol = ddlTipoUsuario.SelectedValue.ToString();
-            ppMostrarUsuariosTableAdapter user = new ppMostrarUsuariosTableAdapter();
             switch(rol)
             {
                 case "Estudiante":
                     iframe1.Src = "frmEstudiante.aspx";
-                    gridMantenimiento.DataSourceID = "ObjectDataSource1";
-                    gridMantenimiento.DataBind();
+                    iframe2.Src = "";
+                    gridMantenimientoDoc.Visible = false;
+                    gridMantenimientoEst.Visible = true;
+                    gridMantenimientoAdmin.Visible = false;
+                    btnCreate.Disabled = false;
+                    btnDelete.Enabled = true;
+                    btnUpdate.Disabled = false;
                     break;
                 case "Docente":
                     iframe1.Src = "frmCrearDocente.aspx";
-                    gridMantenimiento.DataSourceID = "ObjectDataSource2";
-                    gridMantenimiento.DataBind();
+                    iframe2.Src = "frmEditarDocente.aspx";
+                    gridMantenimientoDoc.Visible = true;
+                    gridMantenimientoEst.Visible = false;
+                    gridMantenimientoAdmin.Visible = false;
+                    btnCreate.Disabled = false;
+                    btnDelete.Enabled = true;
+                    btnUpdate.Disabled = false;
                     break;
                 case "Administrador":
                     iframe1.Src = "frmCrearAdministrador.aspx";
-                    gridMantenimiento.DataSourceID = "ObjectDataSource3";
-                    gridMantenimiento.DataBind();
+                    iframe2.Src = "";
+                    gridMantenimientoDoc.Visible = false;
+                    gridMantenimientoEst.Visible = false;
+                    gridMantenimientoAdmin.Visible = true;
+                    btnCreate.Disabled = true;
+                    btnDelete.Enabled = false;
+                    btnUpdate.Disabled = true;
                     break;
             }
         }
@@ -78,6 +127,54 @@ namespace CalculadoraIndiceAcademico
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmReporteAdministrador.aspx");
+        }
+
+        protected void gridMantenimientoEst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+        }
+
+        protected void gridMantenimientoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+
+            docenteData docente = new docenteData();
+            int selectedIndex = gridMantenimientoDoc.SelectedIndex;
+            docente.IdUsuario = int.Parse(gridMantenimientoDoc.Rows[selectedIndex].Cells[1].Text);
+            docente.Contra = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[2].Text);
+            docente.IdDocente = int.Parse(gridMantenimientoDoc.Rows[selectedIndex].Cells[3].Text);
+            docente.Nombre = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[4].Text);
+            docente.Apellido = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[5].Text);
+            docente.Correo = HttpUtility.HtmlDecode(gridMantenimientoDoc.Rows[selectedIndex].Cells[6].Text);
+            Session["docenteData"] = docente;
+        }
+
+        protected void gridMantenimientoAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridMantenimientoAdmin.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string rol = ddlTipoUsuario.SelectedValue.ToString();
+            switch (rol)
+            {
+                case "Estudiante":
+                    break;
+
+                case "Docente":
+                    if (gridMantenimientoDoc.SelectedIndex != -1)
+                    {
+                        tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
+                        docentes.ppDesactivarDoc(int.Parse(gridMantenimientoDoc.SelectedRow.Cells[3].Text), int.Parse(gridMantenimientoDoc.SelectedRow.Cells[1].Text));
+                        Response.Write("<script>alert('Docente desactivado satisfactoriamente.');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
+                    }
+                    else
+                        Response.Write("<script>alert('Para eliminar un docente, seleccione una fila primero.');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -60,6 +60,42 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.HtmlControls.HtmlIframe iframe1;
 
         /// <summary>
+        /// frmPopUp1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender frmPopUp1;
+
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+
+        /// <summary>
+        /// btnCancel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel1;
+
+        /// <summary>
+        /// iframe2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe iframe2;
+
+        /// <summary>
         /// lbtnHome control.
         /// </summary>
         /// <remarks>
@@ -147,16 +183,16 @@ namespace CalculadoraIndiceAcademico
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
 
         /// <summary>
-        /// gridMantenimiento control.
+        /// gridMantenimientoEst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMantenimiento;
+        protected global::System.Web.UI.WebControls.GridView gridMantenimientoEst;
 
         /// <summary>
         /// ObjectDataSource1 control.
@@ -177,6 +213,15 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
 
         /// <summary>
+        /// gridMantenimientoDoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridMantenimientoDoc;
+
+        /// <summary>
         /// ObjectDataSource3 control.
         /// </summary>
         /// <remarks>
@@ -184,6 +229,15 @@ namespace CalculadoraIndiceAcademico
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource3;
+
+        /// <summary>
+        /// gridMantenimientoAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridMantenimientoAdmin;
 
         /// <summary>
         /// ScriptManager1 control.

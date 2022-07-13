@@ -22,7 +22,7 @@ namespace CalculadoraIndiceAcademico
             if (validarCampos())
             {
                 docentes.ppInsertarDocente(txtNombres.Text, txtApellidos.Text, txtCorreo.Text, GenerarClave(7));
-                Response.Write("Usuario Creado");
+                Response.Write("<script>alert('Registro insertado correctamente');window.location = 'frmCrearDocente.aspx';</script>");
             }
         }
 
@@ -38,7 +38,7 @@ namespace CalculadoraIndiceAcademico
 
         public bool validarCampos()
         {
-            if (txtNombres.Text == "" || txtApellidos.Text == "" || txtCorreo.Text == "" || txtNumeroTelefono.Text == "")
+            if (txtNombres.Text == "" || txtApellidos.Text == "" || txtCorreo.Text == "")
                 return false;
             else
                 return true;
