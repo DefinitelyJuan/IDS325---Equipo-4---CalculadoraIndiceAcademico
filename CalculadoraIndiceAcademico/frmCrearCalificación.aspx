@@ -29,7 +29,7 @@
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Asignatura:</h5>
                 <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Calificación Numérica:</h5>
-                <asp:TextBox ID="txtCalificacionNumerica" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCalificacionNumerica" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">ID Estudiante:</h5>
                 <asp:TextBox ID="txtIDEstudiante" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>

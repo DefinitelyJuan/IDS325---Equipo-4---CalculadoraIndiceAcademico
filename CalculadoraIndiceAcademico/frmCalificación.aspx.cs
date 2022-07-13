@@ -26,9 +26,9 @@ namespace CalculadoraIndiceAcademico
             
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[0].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[0].Cells[2].Text);
-            calData.Nombre = gridMantenimiento.Rows[0].Cells[3].Text;
+            calData.Nombre = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[3].Text);
             calData.codigoAsignatura = gridMantenimiento.Rows[0].Cells[4].Text;
-            calData.NombreAsignatura = gridMantenimiento.Rows[0].Cells[5].Text;
+            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[5].Text);
             calData.CalificacionNum = int.Parse(gridMantenimiento.Rows[0].Cells[6].Text);
             calData.CalificacionLiteral = gridMantenimiento.Rows[0].Cells[7].Text;
             Session["dataCalificacion"] = calData;
