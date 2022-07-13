@@ -35,32 +35,26 @@
 
            <%-- <%-- Columna izquiera --%>
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
-                <%--<asp:button id="btnHome" runat="server" text="Inicio" cssclass="btn mt-auto selectedButton" />--%>
                 <asp:LinkButton 
                     ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
-                <%--<asp:button id="btnmantenimiento" runat="server" text="Mantenimiento" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
                     ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click">
                     <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento
                 </asp:LinkButton>
-                <%--<asp:button id="btncalificaciones" runat="server" text="Calificaciones" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
                     ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
-                <%--<asp:button id="asignaturas" runat="server" text="Asignaturas" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton">
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
-                <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton
-                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
                 </asp:LinkButton> 
-                <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
                 <asp:LinkButton
                     ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton">
                     <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión
@@ -70,16 +64,12 @@
             <%-- Contenedor derecha --%>
             <div class="col-md-10 p-0">
                 <%-- Row 1 --%>
-                <div class="row h-25 <%--bg-danger--%> m-0">
-                    <%-- Row admin --%>
+                <div class="row h-25 m-0">
                     <div class="mt-3 d-flex flex-row justify-content-end align-items-center">
                         <h3 class="m-0 hAdministrador">Administrador&nbsp</h3>
                         <i class="fa fa-light fa-circle-user fa-2x"></i>
                     </div>
-                    <%-- Row text --%>
-                    <%--<div class="row" style="padding-bottom: 0%">
-                        <h3>MANTENIMIENTO</h3>
-                    </div>--%>
+
                     <%-- Row controls --%>
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
@@ -90,12 +80,6 @@
                                   <asp:DropDownList ID="ddlAsignaturas" runat="server" CssClass="cmb">
                                     <asp:ListItem CssClass="dropdown-item">Asignatura</asp:ListItem>
                                 </asp:DropDownList>
-                                </div>
-                                <div class="col-md-3 ms-3">
-                                     <asp:DropDownList ID="ddlSeccion" runat="server" CssClass="cmb">
-                                    <asp:ListItem CssClass="dropdown-item">Seccion</asp:ListItem>
-                                </asp:DropDownList>
-
                                 </div>
                             </div>
 
@@ -110,7 +94,7 @@
                 </div>
 
                 <%-- Row 2 --%>
-                <div class="row h-75 <%--bg-success--%> m-0">
+                <div class="row h-75 m-0">
                     <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDAsignatura" DataSourceID="dsAsignaturas" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
                             <asp:BoundField DataField="IDAsignatura" HeaderText="IDAsignatura" ReadOnly="True" SortExpression="IDAsignatura" InsertVisible="False" />

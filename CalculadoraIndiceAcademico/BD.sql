@@ -123,7 +123,7 @@ begin
 end
 
 update tblCalificaciones set CalificacionNumerica = @CalificacionNumerica, CalificacionLiteral = @CalificacionLiteral, FechaModificacion = GETDATE()
-where IDEstudiante = @IDEstudiante and IDAsignatura = @IDAsignatura
+where IDEstudiante = @IDEstudiante and IDAsignatura = @IDAsignatura and Trimestre = dbo.ObtenerTrimestreActual()
 
 go
 
@@ -254,7 +254,7 @@ inner join tblAsignaturas asig on asig.IDAsignatura = ca.IDAsignatura
 inner join tblDocentes_Asignaturas da on da.IDAsignatura = asig.IDAsignatura
 inner join tblDocentes doc on doc.IDDocente = da.IDDocente
 inner join tblEstudiantes est on est.IDEstudiante = ca.IDEstudiante
-where da.IDDocente = @IDDocente and asig.Codigo = @CodigoAsignatura
+where da.IDDocente = @IDDocente and asig.Codigo = @CodigoAsignatura and ca.Trimestre = dbo.ObtenerTrimestreActual()
 
 go
 create or alter proc ppObtenerDataDocente

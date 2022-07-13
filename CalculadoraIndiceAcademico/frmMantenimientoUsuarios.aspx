@@ -55,7 +55,7 @@
                 </asp:LinkButton>
                 <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>
                 <asp:LinkButton
-                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
                 </asp:LinkButton> 
                 <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>

@@ -74,5 +74,10 @@ namespace CalculadoraIndiceAcademico
         {
             Response.Redirect("frmAsignaturasAdministrador.aspx");
         }
+
+        protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmReporteAdministrador.aspx");
+        }
     }
 }

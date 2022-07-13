@@ -44,10 +44,10 @@
                     ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
-                <asp:LinkButton
+                <%--<asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
-                </asp:LinkButton> 
+                </asp:LinkButton> --%>
                 <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
                 <asp:LinkButton
                     ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton">
