@@ -29,7 +29,19 @@ namespace CalculadoraIndiceAcademico
                     btnDelete.Enabled = true;
                     btnUpdate.Disabled = false;
 
-                    int selectedIndex;
+                    estudianteData estudiante = new estudianteData();
+                    int selectedIndex = gridMantenimientoEst.SelectedIndex;
+
+                    estudiante.IdUsuario = int.Parse(gridMantenimientoEst.Rows[selectedIndex].Cells[1].Text);
+                    estudiante.Contra = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[2].Text);
+                    estudiante.IdEst = int.Parse(gridMantenimientoEst.Rows[selectedIndex].Cells[3].Text);
+                    estudiante.Nombre = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[4].Text);
+                    estudiante.Apellido = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[5].Text);
+                    estudiante.Correo = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[6].Text);
+                    estudiante.Telefono = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[7].Text);
+                    estudiante.Programa = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[8].Text);
+                    Session["estudianteData"] = estudiante;
+
                     break;
                 case "Docente":
                     gridMantenimientoDoc.DataBind();
@@ -54,7 +66,7 @@ namespace CalculadoraIndiceAcademico
                     Session["docenteData"] = docente;
                     break;
                 case "Administrador":
-                    gridMantenimientoEst.DataBind();
+                    gridMantenimientoAdmin.DataBind();
                     iframe1.Src = "frmCrearAdministrador.aspx";
                     gridMantenimientoDoc.Visible = false;
                     gridMantenimientoEst.Visible = false;
@@ -83,7 +95,7 @@ namespace CalculadoraIndiceAcademico
             {
                 case "Estudiante":
                     iframe1.Src = "frmEstudiante.aspx";
-                    iframe2.Src = "";
+                    iframe2.Src = "frmEditarEstudiante.aspx";
                     gridMantenimientoDoc.Visible = false;
                     gridMantenimientoEst.Visible = true;
                     gridMantenimientoAdmin.Visible = false;
@@ -93,7 +105,7 @@ namespace CalculadoraIndiceAcademico
                     break;
                 case "Docente":
                     iframe1.Src = "frmCrearDocente.aspx";
-                    iframe2.Src = "frmEditarDocente.aspx";
+                    iframe2.Src = "frmEditarEstudiante.aspx";
                     gridMantenimientoDoc.Visible = true;
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = false;
@@ -132,6 +144,19 @@ namespace CalculadoraIndiceAcademico
         protected void gridMantenimientoEst_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+
+            estudianteData estudiante = new estudianteData();
+            int selectedIndex = gridMantenimientoEst.SelectedIndex;
+
+            estudiante.IdUsuario = int.Parse(gridMantenimientoEst.Rows[selectedIndex].Cells[1].Text);
+            estudiante.Contra = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[2].Text);
+            estudiante.IdEst = int.Parse(gridMantenimientoEst.Rows[selectedIndex].Cells[3].Text);
+            estudiante.Nombre = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[4].Text);
+            estudiante.Apellido = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[5].Text);
+            estudiante.Correo = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[6].Text);
+            estudiante.Telefono = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[7].Text);
+            estudiante.Programa = HttpUtility.HtmlDecode(gridMantenimientoEst.Rows[selectedIndex].Cells[8].Text);
+            Session["estudianteData"] = estudiante;
         }
 
         protected void gridMantenimientoDoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,6 +185,14 @@ namespace CalculadoraIndiceAcademico
             switch (rol)
             {
                 case "Estudiante":
+                    if (gridMantenimientoEst.SelectedIndex != -1)
+                    {
+                        tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
+                        estudiantes.ppDesactivarEst(int.Parse(gridMantenimientoEst.SelectedRow.Cells[3].Text), int.Parse(gridMantenimientoEst.SelectedRow.Cells[1].Text));
+                        Response.Write("<script>alert('Estudiante desactivado satisfactoriamente.');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
+                    }
+                    else
+                        Response.Write("<script>alert('Para eliminar un estudiante, seleccione una fila primero.');window.location = 'frmMantenimientoUsuarios.aspx';</script>");
                     break;
 
                 case "Docente":

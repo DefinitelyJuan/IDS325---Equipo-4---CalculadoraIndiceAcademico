@@ -25,7 +25,7 @@
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame" style="height: 85vh"></iframe>     
+                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame" style="height: 85vh!important"></iframe>     
 
             </asp:Panel>
 
@@ -37,7 +37,7 @@
                     ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe2" src="frmEstudiante.aspx" runat="server" class="formFrame" style="height: 85vh"></iframe>     
+                <iframe id="iframe2" src="frmEditarEstudiante.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
 
             </asp:Panel>
 

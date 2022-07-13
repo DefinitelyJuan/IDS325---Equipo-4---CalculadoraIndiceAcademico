@@ -436,6 +436,133 @@ begin
 	from CalculoIndice
 end
 
+go
+
+create or alter proc ppInsertarRol
+@Nombre nvarchar(25)
+as
+insert into tblRoles (Nombre) values (@Nombre)
+go
 
 
-select * from tblUsuarios
+create or alter proc ppDesactivarRol
+@IDRol int
+as
+update tblRoles set Estado = 0 where IDRol = @IDRol
+
+go
+
+create or alter proc ppEditarRol
+@IDRol int,
+@Nombre nvarchar(25)
+as
+update tblRoles set Nombre = @Nombre where IDRol = @IDRol
+
+go
+
+create or alter proc ppDesactivarArea
+@Id int
+as
+update tblAreasAcademicas set Estado = 0 where IDArea = @Id
+
+exec ppDesactivarArea 4
+
+select * from tblCalificaciones
+
+go
+
+create or alter proc ppEditarArea
+@Id int,
+@Nombre varchar(40)
+as
+update tblAreasAcademicas set Nombre = @Nombre where IDArea = @Id
+
+
+go
+
+create or alter proc ppDesactivarPrograma
+@id int
+as
+update tblProgramasAcademicos set Estado = 0 where IDPrograma = @id
+
+go
+
+create or alter proc ppEditarPrograma
+@Id int,
+@Nombre varchar(70),
+@Version varchar(15),
+@Creditos int
+as
+update tblProgramasAcademicos set Nombre = @Nombre, Version = @Version, Creditos = @Creditos where IDPrograma = @Id
+
+go
+
+create or alter proc ppMostrarUsuarioEstudiante
+as
+select  
+u.IDUsuario Usuario, u.Contraseña Contraseña, e.IDEstudiante, e.Nombre 'Nombre Estudiante', e.Apellido, e.Correo, e.NumTelefonico 'Teléfono', p.Nombre 'Programa' 
+
+from tblEstudiantes e inner join tblUsuarios u on e.IDUsuario = u.IDUsuario
+inner join tblEstudiantes_Programas ep on e.IDEstudiante = ep.IDEstudiante
+inner join tblProgramasAcademicos p on ep.IDPrograma = p.IDPrograma
+where u.IDRol = 1 and e.Estado = 1
+
+go
+create or alter proc ppMostrarUsuarioDocente
+as
+select u.IDUsuario Usuario, u.Contraseña Contraseña, d.IDDocente, d.Nombre, d.Apellido, d.Correo
+from tblDocentes d inner join tblUsuarios u on d.IDUsuario = u.IDUsuario
+where u.IDRol = 2 and d.Estado = 1
+
+go
+
+create or alter proc ppMostrarUsuarioAdmin
+as
+select
+u.IDUsuario, u.Contraseña, a.IDAdministrador, a.Nombre, a.Apellido, a.Correo
+from tblAdministradores a inner join tblUsuarios u on a.IDUsuario = u.IDUsuario
+
+go
+
+create or alter proc ppEditarEstudiante
+@IdUsuario int,
+@IdEstudiante int,
+@Contra varchar(16),
+@Nombre varchar(25),
+@Apellido varchar(25),
+@Correo varchar(150),
+@Telefono varchar(12)
+as
+update tblUsuarios set Contraseña = @Contra where IDUsuario = @IdUsuario
+update tblEstudiantes set Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo, NumTelefonico = @Telefono, FechaModificacion = GETDATE() where IDEstudiante = @IdEstudiante
+
+go
+create or alter proc ppEditarDocente
+@IdUs int,
+@IdDoc int,
+@Contra varchar(16),
+@Nombre varchar(25), 
+@Apellido varchar(25),
+@Correo varchar(150)
+as
+update tblUsuarios set Contraseña = @Contra where IDUsuario = @IdUs 
+update tblDocentes set Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo, FechaModificacion = GETDATE() 
+where IDDocente = @IdDoc
+
+go
+create or alter proc ppDesactivarEst
+@IdEst int,
+@IdUs int
+as
+update tblUsuarios set Estado = 0 where IDUsuario = @IdUs
+update tblEstudiantes set Estado = 0 where IDEstudiante = @IdEst
+
+select * from tblEstudiantes
+
+go
+create or alter proc ppDesactivarDoc
+@IdDoc int,
+@IdUs int
+as
+update tblUsuarios set Estado = 0 where IDUsuario = @IdUs
+update tblDocentes set Estado = 0 where IDDocente = @IdDoc

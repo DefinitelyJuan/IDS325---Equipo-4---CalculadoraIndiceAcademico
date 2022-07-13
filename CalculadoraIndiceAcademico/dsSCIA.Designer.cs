@@ -13453,6 +13453,7 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Apellido", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Correo", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefono", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13736,7 +13737,7 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int ppEditarEstudiante(global::System.Nullable<int> IdUsuario, global::System.Nullable<int> IdEstudiante, string Contra, string Nombre, string Apellido, string Correo) {
+        public virtual int ppEditarEstudiante(global::System.Nullable<int> IdUsuario, global::System.Nullable<int> IdEstudiante, string Contra, string Nombre, string Apellido, string Correo, string Telefono) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((IdUsuario.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(IdUsuario.Value));
@@ -13773,6 +13774,12 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             }
             else {
                 command.Parameters[6].Value = ((string)(Correo));
+            }
+            if ((Telefono == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Telefono));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
