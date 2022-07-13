@@ -47,32 +47,32 @@
 
            <%-- <%-- Columna izquiera --%>
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
-                <%--<asp:button id="btnHome" runat="server" text="Inicio" cssclass="btn mt-auto selectedButton" />--%>
+
                 <asp:LinkButton 
                     ID="lbtnHome" runat="server" CssClass="btn mt-auto selectedButton">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
-                <%--<asp:button id="btnmantenimiento" runat="server" text="Mantenimiento" cssclass="btn btn-outline-primary secondaryButton"/>--%>
+
                 <asp:LinkButton 
                     ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click">
                     <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento
                 </asp:LinkButton>
-                <%--<asp:button id="btncalificaciones" runat="server" text="Calificaciones" cssclass="btn btn-outline-primary secondaryButton"/>--%>
+
                 <asp:LinkButton 
                     ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
-                <%--<asp:button id="asignaturas" runat="server" text="Asignaturas" cssclass="btn btn-outline-primary secondaryButton"/>--%>
+
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignaturas_Click">
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
-                <%--<asp:button id="btngenerarindice" runat="server" text="Generar Índice" cssclass="btn btn-outline-primary secondaryButton"/>--%>
+
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
                 </asp:LinkButton> 
-                <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
+
                 <asp:LinkButton
                     ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton" OnClick="lbtnCerrarSesion_Click">
                     <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión
