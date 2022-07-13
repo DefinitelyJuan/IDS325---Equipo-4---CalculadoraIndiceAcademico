@@ -13,12 +13,11 @@ namespace CalculadoraIndiceAcademico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-                calificacionData data = (calificacionData)Session["dataCalificacion"];
-                txtCodigo.Text = data.codigoAsignatura;
-                txtEstudiante.Text = data.Nombre;
-                txtIDEstudiante.Text = data.IDEstudiante.ToString();
-                txtNombreAsignatura.Text = data.NombreAsignatura;
+            calificacionData data = (calificacionData)Session["dataCalificacion"];
+            txtCodigo.Text = data.codigoAsignatura;
+            txtEstudiante.Text = data.Nombre;
+            txtIDEstudiante.Text = data.IDEstudiante.ToString();
+            txtNombreAsignatura.Text = data.NombreAsignatura;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

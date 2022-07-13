@@ -18,18 +18,31 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <%-- Modal crear --%>
         <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground">
                     </cc1:ModalPopupExtender>
 
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
-                    <i class="fa fa-thin fa-cancel"></i>
+                    <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
 
-            </asp:Panel>  
+            </asp:Panel>
 
+        <%-- Modal editar --%>
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel2" TargetControlID="btnUpdate" ID="frmPopUp2" BackgroundCssClass="puBackground">
+                    </cc1:ModalPopupExtender>
+
+                <asp:Panel ID="Panel2" runat="server">
+                <asp:LinkButton 
+                    ID="btnCancel2" runat="server" CssClass="btn btn-danger btnCancel">
+                    <i class="fa-solid fa-xmark"></i>
+                </asp:LinkButton>
+                <iframe id="iframe2" src="frmEditarRol.aspx" runat="server" class="formFrame"></iframe>     
+
+            </asp:Panel>
 
         <div class="row m-0">
 
@@ -92,15 +105,15 @@
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
-                            <button runat="server" onserverclick="Update" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
-                            <button runat="server" onserverclick="Delete" id="btnDelete" class="fa btn btn-outline-secondary"><i class="fa-light fa-trash-can fa-lg"></i></button>
+                            <button runat="server" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
+                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="btnDelete" runat="server" cssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"><i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1">
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" ReadOnly="True" SortExpression="IDRol" />
@@ -119,7 +132,7 @@
                             <asp:Parameter Name="Original_IDRol" Type="Byte" />
                         </UpdateParameters>
                     </asp:ObjectDataSource>
-                    <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma">
+                    <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma" OnSelectedIndexChanged="gridMantenimientoPrograma_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDPrograma" HeaderText="IDPrograma" InsertVisible="False" ReadOnly="True" SortExpression="IDPrograma" />
@@ -153,7 +166,7 @@
                             <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
                         </UpdateParameters>
                     </asp:ObjectDataSource>
-                    <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea">
+                    <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea" OnSelectedIndexChanged="gridMantenimientoArea_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDArea" HeaderText="IDArea" InsertVisible="False" ReadOnly="True" SortExpression="IDArea" />

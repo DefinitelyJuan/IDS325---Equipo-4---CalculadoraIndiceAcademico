@@ -16,7 +16,7 @@ namespace CalculadoraIndiceAcademico
             if (validarCampos())
             {
                 ProgramaAcademico.ppInsertarPrograma(txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
-                Response.Write("Programa académico insertado");
+                Response.Write("<script>alert('Programa académico insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
             }
             else Response.Write("Error al insertar programa académico.");
         }
