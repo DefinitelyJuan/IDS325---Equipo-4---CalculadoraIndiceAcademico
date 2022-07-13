@@ -64,27 +64,27 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.90695in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.90695in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.90695in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.325in</Width>
+                  <Width>2.23195in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.90695in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.90695in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.28333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -96,7 +96,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Codigo</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -126,7 +128,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Nombre</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -156,7 +160,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Créditos</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -186,7 +192,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Calificación Literal</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -216,7 +224,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Trimestre</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -246,7 +256,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Puntos</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -269,7 +281,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.28333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -284,7 +296,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Codigo</rd:DefaultName>
@@ -314,7 +328,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Nombre</rd:DefaultName>
@@ -344,7 +360,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>NumCreditos</rd:DefaultName>
@@ -374,7 +392,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CalificacionLiteral</rd:DefaultName>
@@ -404,7 +424,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Trimestre</rd:DefaultName>
@@ -434,7 +456,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Puntos</rd:DefaultName>
@@ -476,14 +500,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsReporteEstudiante</DataSetName>
-            <Top>0.48833in</Top>
-            <Left>0.97999in</Left>
-            <Height>0.5in</Height>
-            <Width>6.325in</Width>
+            <Top>0.355in</Top>
+            <Left>0.44666in</Left>
+            <Height>0.56667in</Height>
+            <Width>11.76668in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <FontFamily>Century Gothic</FontFamily>
             </Style>
           </Tablix>
           <Rectangle Name="Rectangle4">
@@ -495,10 +520,10 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>índice</Value>
+                        <Value>Índice:</Value>
                         <Style>
-                          <FontSize>15pt</FontSize>
-                          <TextDecoration>None</TextDecoration>
+                          <FontFamily>Century Gothic</FontFamily>
+                          <FontSize>16pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -506,18 +531,14 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox2</rd:DefaultName>
-                <Top>0.30278in</Top>
-                <Left>0.14167in</Left>
-                <Height>0.16389in</Height>
-                <Width>0.66111in</Width>
+                <Top>0.11667in</Top>
+                <Left>0.15in</Left>
+                <Height>0.30833in</Height>
+                <Width>0.80555in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
               <Textbox Name="Indice">
@@ -529,7 +550,8 @@
                       <TextRun>
                         <Value>=Last(Fields!Indice.Value, "dsReporteEstudiante")</Value>
                         <Style>
-                          <FontSize>13pt</FontSize>
+                          <FontFamily>Century Gothic</FontFamily>
+                          <FontSize>16pt</FontSize>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -537,27 +559,23 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Indice</rd:DefaultName>
-                <Top>0.31111in</Top>
-                <Left>0.81667in</Left>
-                <Height>0.15556in</Height>
-                <Width>0.33333in</Width>
+                <Top>0.11667in</Top>
+                <Left>0.76111in</Left>
+                <Height>0.30833in</Height>
+                <Width>0.70833in</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>1.24667in</Top>
-            <Left>5.15499in</Left>
-            <Height>0.46667in</Height>
-            <Width>1.42499in</Width>
+            <Top>2.34389in</Top>
+            <Left>5.3911in</Left>
+            <Height>0.53889in</Height>
+            <Width>1.72499in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -577,7 +595,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>1.855in</Height>
+        <Height>3.07444in</Height>
         <Style>
           <Border>
             <Color>SteelBlue</Color>
@@ -585,86 +603,128 @@
           </Border>
         </Style>
       </Body>
-      <Width>8.505in</Width>
+      <Width>12.63833in</Width>
       <Page>
         <PageHeader>
           <Height>0.75833in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Rectangle Name="Rectangle1">
-              <ReportItems>
-                <Textbox Name="Textbox1">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Calificación</Value>
-                          <Style>
-                            <FontSize>20pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.19667in</Top>
-                  <Left>3.58in</Left>
-                  <Height>0.35in</Height>
-                  <Width>1.49166in</Width>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-              </ReportItems>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
-              <Height>0.725in</Height>
-              <Width>8.505in</Width>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Calificación</Value>
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>20pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.23in</Top>
+              <Left>5.3911in</Left>
+              <Height>0.35in</Height>
+              <Width>1.72499in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <BackgroundColor>Cornsilk</BackgroundColor>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
-            </Rectangle>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <BackgroundColor>Cornsilk</BackgroundColor>
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.56111in</Height>
+          <Height>0.90278in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Rectangle Name="Rectangle2">
+            <Textbox Name="ExecutionTime">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
-              <Top>0.03528cm</Top>
-              <Height>0.52222in</Height>
-              <Width>8.505in</Width>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>16pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <Top>0.45833in</Top>
+              <Left>3.96887in</Left>
+              <Height>0.30833in</Height>
+              <Width>4.58613in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <BackgroundColor>Cornsilk</BackgroundColor>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
-            </Rectangle>
+            </Textbox>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Consultado en</Value>
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>16pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.12223in</Top>
+              <Left>5.3911in</Left>
+              <Height>0.30833in</Height>
+              <Width>1.75555in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <BackgroundColor>Cornsilk</BackgroundColor>
           </Style>
         </PageFooter>
         <LeftMargin>1in</LeftMargin>

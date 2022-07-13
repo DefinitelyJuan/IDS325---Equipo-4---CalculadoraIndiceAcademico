@@ -125,6 +125,8 @@
     <Content Include="frmCrearDocente.aspx" />
     <Content Include="frmCrearPrograma.aspx" />
     <Content Include="frmCrearRoles.aspx" />
+    <Content Include="frmEditarArea.aspx" />
+    <Content Include="frmEditarPrograma.aspx" />
     <Content Include="frmEditarRol.aspx" />
     <Content Include="frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
@@ -162,6 +164,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dsSCIA.cs">
+      <DependentUpon>dsSCIA.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsSCIA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,6 +227,20 @@
     </Compile>
     <Compile Include="frmCrearRoles.aspx.designer.cs">
       <DependentUpon>frmCrearRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarArea.aspx.cs">
+      <DependentUpon>frmEditarArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEditarArea.aspx.designer.cs">
+      <DependentUpon>frmEditarArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarPrograma.aspx.cs">
+      <DependentUpon>frmEditarPrograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEditarPrograma.aspx.designer.cs">
+      <DependentUpon>frmEditarPrograma.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmEditarRol.aspx.cs">
       <DependentUpon>frmEditarRol.aspx</DependentUpon>
@@ -289,7 +308,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\areaData.cs" />
     <Compile Include="Models\calificacionData.cs" />
+    <Compile Include="Models\programaData.cs" />
     <Compile Include="Models\rolData.cs" />
     <Compile Include="Models\userData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

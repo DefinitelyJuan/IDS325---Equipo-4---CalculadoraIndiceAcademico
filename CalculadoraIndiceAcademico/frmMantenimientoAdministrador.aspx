@@ -20,29 +20,28 @@
     <form id="form1" runat="server">
         <%-- Modal crear --%>
         <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground">
-                    </cc1:ModalPopupExtender>
-
-                <asp:Panel ID="Panel1" runat="server">
-                <asp:LinkButton 
-                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
-                    <i class="fa-solid fa-xmark"></i>
-                </asp:LinkButton>
-                <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
-
-            </asp:Panel>
+        </cc1:ModalPopupExtender>
+        <asp:Panel ID="Panel1" runat="server">
+            <asp:LinkButton 
+                ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
+                <i class="fa-solid fa-xmark"></i>
+            </asp:LinkButton>
+            <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
+         </asp:Panel>
 
         <%-- Modal editar --%>
         <cc1:ModalPopupExtender runat="server" PopupControlID="Panel2" TargetControlID="btnUpdate" ID="frmPopUp2" BackgroundCssClass="puBackground">
-                    </cc1:ModalPopupExtender>
+        </cc1:ModalPopupExtender>
+        <asp:Panel ID="Panel2" runat="server">
+        <asp:LinkButton 
+            ID="btnCancel2" runat="server" CssClass="btn btn-danger btnCancel">
+            <i class="fa-solid fa-xmark"></i>
+        </asp:LinkButton>
+        <iframe id="iframe2" src="frmEditarRol.aspx" runat="server" class="formFrame"></iframe>                                      
+        </asp:Panel>
 
-                <asp:Panel ID="Panel2" runat="server">
-                <asp:LinkButton 
-                    ID="btnCancel2" runat="server" CssClass="btn btn-danger btnCancel">
-                    <i class="fa-solid fa-xmark"></i>
-                </asp:LinkButton>
-                <iframe id="iframe2" src="frmEditarRol.aspx" runat="server" class="formFrame"></iframe>     
 
-            </asp:Panel>
+
 
         <div class="row m-0">
 
@@ -132,7 +131,7 @@
                             <asp:Parameter Name="Original_IDRol" Type="Byte" />
                         </UpdateParameters>
                     </asp:ObjectDataSource>
-                    <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma" OnSelectedIndexChanged="gridMantenimientoPrograma_SelectedIndexChanged">
+                    <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma" OnSelectedIndexChanged="gridMantenimientoPrograma_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDPrograma" HeaderText="IDPrograma" InsertVisible="False" ReadOnly="True" SortExpression="IDPrograma" />
@@ -141,32 +140,14 @@
                             <asp:BoundField DataField="Creditos" HeaderText="Creditos" SortExpression="Creditos" />
                             <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />
                             <asp:BoundField DataField="FechaModificacion" HeaderText="FechaModificacion" SortExpression="FechaModificacion" />
-                            <asp:CheckBoxField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="programaSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblProgramasAcademicosTableAdapter" UpdateMethod="Update">
+                    <asp:ObjectDataSource ID="programaSource" runat="server" DeleteMethod="Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblProgramasAcademicosTableAdapter">
                         <DeleteParameters>
                             <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
                         </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="Nombre" Type="String" />
-                            <asp:Parameter Name="Version" Type="String" />
-                            <asp:Parameter Name="Creditos" Type="Int32" />
-                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Nombre" Type="String" />
-                            <asp:Parameter Name="Version" Type="String" />
-                            <asp:Parameter Name="Creditos" Type="Int32" />
-                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                            <asp:Parameter Name="Estado" Type="Boolean" />
-                            <asp:Parameter Name="Original_IDPrograma" Type="Int32" />
-                        </UpdateParameters>
                     </asp:ObjectDataSource>
-                    <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea" OnSelectedIndexChanged="gridMantenimientoArea_SelectedIndexChanged">
+                    <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea" OnSelectedIndexChanged="gridMantenimientoArea_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDArea" HeaderText="IDArea" InsertVisible="False" ReadOnly="True" SortExpression="IDArea" />
