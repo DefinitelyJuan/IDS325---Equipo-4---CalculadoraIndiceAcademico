@@ -13,7 +13,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SCIA | Asignar Asignatura</title>
+    <title>SCIA | Calificaciones</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,7 +25,7 @@
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe1" src="frmCrearAsignaturaDocente.aspx" runat="server" class="formFrame"></iframe>     
+                <iframe id="iframe1" src="frmAsignarCalificación.aspx" runat="server" class="formFrame"></iframe>     
 
             </asp:Panel>  
 
@@ -37,7 +37,7 @@
                     ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe2" src="frmEditarAsignaturaDocente.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
+                <iframe id="iframe2" src="frmEditarCalificación.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
 
             </asp:Panel>
 
@@ -52,11 +52,11 @@
                 <asp:LinkButton 
                     ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click"> <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignarAsignatura_Click"  >
+                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignarAsignatura_Click"  >
                     <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -78,12 +78,35 @@
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
-                            <h3>Asignar Asignatura:</h3>
+                            <h3>Calificaciones:</h3>
                             <div class="row">
                                 <div class="col-md-3">
-                                  <asp:DropDownList ID="ddlAsignaturas" runat="server" CssClass="cmb">
-                                    <asp:ListItem CssClass="dropdown-item">Asignatura</asp:ListItem>
+                                  <asp:DropDownList ID="ddlAsignaturas" runat="server" CssClass="cmb" AutoPostBack="True" DataSourceID="ObjectDataSource2" DataTextField="IDUsuario" DataValueField="IDDocente" OnSelectedIndexChanged="ddlAsignaturas_SelectedIndexChanged">
                                 </asp:DropDownList>
+                                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblDocentesTableAdapter" UpdateMethod="Update">
+                                        <DeleteParameters>
+                                            <asp:Parameter Name="Original_IDDocente" Type="Int32" />
+                                        </DeleteParameters>
+                                        <InsertParameters>
+                                            <asp:Parameter Name="IDUsuario" Type="Int32" />
+                                            <asp:Parameter Name="Nombre" Type="String" />
+                                            <asp:Parameter Name="Apellido" Type="String" />
+                                            <asp:Parameter Name="Correo" Type="String" />
+                                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                                            <asp:Parameter Name="Estado" Type="Boolean" />
+                                        </InsertParameters>
+                                        <UpdateParameters>
+                                            <asp:Parameter Name="IDUsuario" Type="Int32" />
+                                            <asp:Parameter Name="Nombre" Type="String" />
+                                            <asp:Parameter Name="Apellido" Type="String" />
+                                            <asp:Parameter Name="Correo" Type="String" />
+                                            <asp:Parameter Name="FechaCreacion" Type="DateTime" />
+                                            <asp:Parameter Name="FechaModificacion" Type="DateTime" />
+                                            <asp:Parameter Name="Estado" Type="Boolean" />
+                                            <asp:Parameter Name="Original_IDDocente" Type="Int32" />
+                                        </UpdateParameters>
+                                    </asp:ObjectDataSource>
                                 </div>
                             </div>
 
@@ -103,15 +126,20 @@
                             <asp:CommandField ButtonType="Button" ShowSelectButton="True">
                             <ControlStyle CssClass="btn btnSeleccionar" />
                             </asp:CommandField>
-                            <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" ReadOnly="True" SortExpression="ID Asignatura" InsertVisible="False" />
-                            <asp:BoundField DataField="Código" HeaderText="Código" SortExpression="Código" />
                             <asp:BoundField DataField="Asignatura" HeaderText="Asignatura" SortExpression="Asignatura" />
-                            <asp:BoundField DataField="ID Docente" HeaderText="ID Docente" SortExpression="ID Docente" InsertVisible="False" ReadOnly="True" />
-                            <asp:BoundField DataField="Docente " HeaderText="Docente " SortExpression="Docente " />
-                            <asp:BoundField DataField="Trimestre" HeaderText="Trimestre" SortExpression="Trimestre" />
+                            <asp:BoundField DataField="Código" HeaderText="Código" SortExpression="Código" />
+                            <asp:BoundField DataField="ID del Docente " HeaderText="ID del Docente " SortExpression="ID del Docente " />
+                            <asp:BoundField DataField="Docente" HeaderText="Docente" SortExpression="Docente" ReadOnly="True" />
+                            <asp:BoundField DataField="Estudiante" HeaderText="Estudiante" SortExpression="Estudiante" ReadOnly="True" />
+                            <asp:BoundField DataField="ID del estudiante" HeaderText="ID del estudiante" SortExpression="ID del estudiante" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Trimeste" HeaderText="Trimeste" SortExpression="Trimeste" />
                         </Columns>
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarAsignaturasxDocenteTableAdapter"></asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarCalxDocenteAdminTableAdapter">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlAsignaturas" Name="IDDocente" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </div>

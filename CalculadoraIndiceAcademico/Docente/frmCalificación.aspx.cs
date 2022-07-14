@@ -91,5 +91,13 @@ namespace CalculadoraIndiceAcademico
         {
             //Response.Redirect("frmCalificación.aspx");
         }
+
+        protected void ddlCodigo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ppEstudiantesxDocenteTableAdapter ppEstudiantesxDocente = new ppEstudiantesxDocenteTableAdapter();
+            int idDocente = (int)Session["idDocente"];
+            gridMantenimiento.DataSource = ppEstudiantesxDocente.GetData(idDocente, ddlCodigo.Text);
+            gridMantenimiento.DataBind();
+        }
     }
 }

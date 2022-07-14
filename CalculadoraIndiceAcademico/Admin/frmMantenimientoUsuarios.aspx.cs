@@ -62,6 +62,7 @@ namespace CalculadoraIndiceAcademico
                 case "Docente":
                     gridMantenimientoDoc.DataBind();
                     iframe1.Src = "frmCrearDocente.aspx";
+                    iframe2.Src = "frmEditarDocente.aspx";
                     gridMantenimientoDoc.Visible = true;
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = false;

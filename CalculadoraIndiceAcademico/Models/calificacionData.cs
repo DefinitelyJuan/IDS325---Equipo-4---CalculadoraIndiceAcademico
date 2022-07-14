@@ -13,6 +13,7 @@ namespace CalculadoraIndiceAcademico.Models
         public string Nombre { get; set; }
         public string NombreAsignatura { get; set; }
         public int CalificacionNum { get; set; }
+        public int IDDocente { get; set; }
         public string CalificacionLiteral { get; set; }
 
     }

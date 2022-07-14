@@ -31,12 +31,13 @@ namespace CalculadoraIndiceAcademico.Admin
             gridMantenimiento.DataBind();
             if (!this.IsPostBack)
             {
+                ddlAsignaturas.DataBind();
                 gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
             }
-            Models.asignaturaDocData adocData = new Models.asignaturaDocData();
-            adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
-            adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
-            Session["AsigDocData"] = adocData;
+            //Models.asignaturaDocData adocData = new Models.asignaturaDocData();
+            //adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+            //adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+            //Session["AsigDocData"] = adocData;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -75,16 +76,19 @@ namespace CalculadoraIndiceAcademico.Admin
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
-            Models.asignaturaDocData adocData = new Models.asignaturaDocData();
-            adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
-            adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
-            Session["AsigDocData"] = adocData;
+            Models.calificacionData calData = new Models.calificacionData();
+
         }
 
         protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmAsignarAsignatura.aspx");
 
+        }
+
+        protected void ddlAsignaturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridMantenimiento.DataBind();
         }
     }
 }

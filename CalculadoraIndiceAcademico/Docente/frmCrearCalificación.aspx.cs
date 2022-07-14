@@ -36,10 +36,11 @@ namespace CalculadoraIndiceAcademico
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
-        {
+        {            
+            userData usrdata = (userData)Session["userData"];
             calificacionData data = (calificacionData)Session["dataCalificacion"];
             tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
-            calificaciones.ppAsignarCalificacion(data.IDAsignatura, double.Parse(txtCalificacionNumerica.Text),int.Parse(txtIDEstudiante.Text));
+            calificaciones.ppAsignarCalificacion(data.IDAsignatura, double.Parse(txtCalificacionNumerica.Text),int.Parse(txtIDEstudiante.Text),usrdata.IDEntidad);
             Response.Write("<script>alert('Calificación asignada satisfactoriamente.');window.location = 'frmCrearCalificación.aspx';</script>");
         }
     }
