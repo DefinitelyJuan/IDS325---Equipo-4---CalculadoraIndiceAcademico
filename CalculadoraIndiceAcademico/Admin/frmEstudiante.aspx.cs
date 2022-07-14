@@ -45,6 +45,8 @@ namespace CalculadoraIndiceAcademico
                     estudiantes.ppCrearEstudiante(nombres, apellidos, correo, programa, GenerarClave(7), telefono);
                     Response.Write("<script>alert('Estudiante insertado satisfactoriamente.');window.location = 'frmEstudiante.aspx';</script>");
                 }
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmEstudiante.aspx';</script>");
             }
             catch(Exception ex)
             {

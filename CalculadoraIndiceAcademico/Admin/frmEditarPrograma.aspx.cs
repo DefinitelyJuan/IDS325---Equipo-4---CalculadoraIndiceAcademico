@@ -57,6 +57,8 @@ namespace CalculadoraIndiceAcademico
                     programas.ppEditarPrograma(programa.Id, txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
                     Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarPrograma.aspx';</script>");
                 }
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmEditarPrograma.aspx';</script>");
             }
             catch (Exception ex)
             {

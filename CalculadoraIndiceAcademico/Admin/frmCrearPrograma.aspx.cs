@@ -20,7 +20,8 @@ namespace CalculadoraIndiceAcademico
                     ProgramaAcademico.ppInsertarPrograma(txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
                     Response.Write("<script>alert('Programa académico insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
                 }
-                else Response.Write("Error al insertar programa académico.");
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearPrograma.aspx';</script>");
             }
             catch(Exception ex)
             {

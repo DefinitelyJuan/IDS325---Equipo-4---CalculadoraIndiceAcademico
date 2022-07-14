@@ -43,17 +43,29 @@ namespace CalculadoraIndiceAcademico
                 txtCorreo.Text = estudiante.Correo;
                 ddlProgramaEstudio.SelectedItem.Text = estudiante.Programa;
             }
+        }
 
+        private bool ValidarCampos()
+        {
+            if (txtApellidos.Text.Trim() == "" || txtCorreo.Text.Trim() == "" || txtNombres.Text.Trim() == "" || txtNumeroTelefono.Text.Trim() == "")
+                return false;
+            else
+                return true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                estudianteData estudiante = (estudianteData)Session["estudianteData"];
-                tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-                estudiantes.ppEditarEstudiante(estudiante.IdUsuario,estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
-                Response.Write("<script>alert('Estudiante actualizado correctamente');window.location = 'frmEditarEstudiante.aspx';</script>");
+                if (ValidarCampos() == true)
+                {
+                    estudianteData estudiante = (estudianteData)Session["estudianteData"];
+                    tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
+                    estudiantes.ppEditarEstudiante(estudiante.IdUsuario,estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
+                    Response.Write("<script>alert('Estudiante actualizado correctamente');window.location = 'frmEditarEstudiante.aspx';</script>");
+                }
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmEditarEstudiante.aspx';</script>");
             }
             catch (Exception ex)
             {

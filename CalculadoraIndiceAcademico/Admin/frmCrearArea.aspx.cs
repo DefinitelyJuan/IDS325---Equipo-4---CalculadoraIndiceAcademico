@@ -20,7 +20,8 @@ namespace CalculadoraIndiceAcademico
                     AreasAcademicas.ppInsertarAreaAcademica(txtNombre.Text);
                     Response.Write("<script>alert('Área académica insertada satisfactoriamente.');window.location = 'frmCrearArea.aspx';</script>");
                 }
-                else Response.Write("Error al insertar área académica.");
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearArea.aspx';</script>");
             }
             catch(Exception ex)
             {
