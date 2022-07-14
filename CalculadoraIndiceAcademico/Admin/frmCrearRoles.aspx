@@ -26,7 +26,7 @@
                 <h4 class="mainHeading">INGRESAR ROL</h4>
                 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
-                <asp:TextBox ID="txtRol" runat="server" CssClass="txt" Enabled="True"></asp:TextBox>
+                <asp:TextBox ID="txtRol" runat="server" CssClass="txt" Enabled="True" MaxLength="25"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>

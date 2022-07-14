@@ -25,13 +25,13 @@
                 <h4 class="mainHeading text-center">INGRESAR PROGRAMA <br /> ACADÉMICO</h4>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
-                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt" MaxLength="70"></asp:TextBox>
                 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Versión:</h5>
-                <asp:TextBox ID="txtVersion" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtVersion" runat="server" CssClass="txt" MaxLength="15"></asp:TextBox>
 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
-                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" MaxLength="1" TextMode="Number"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>
