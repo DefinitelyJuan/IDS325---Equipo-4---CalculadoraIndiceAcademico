@@ -48,10 +48,17 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            estudianteData estudiante = (estudianteData)Session["estudianteData"];
-            tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-            estudiantes.ppEditarEstudiante(estudiante.IdUsuario,estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
-            Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarEstudiante.aspx';</script>");
+            try
+            {
+                estudianteData estudiante = (estudianteData)Session["estudianteData"];
+                tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
+                estudiantes.ppEditarEstudiante(estudiante.IdUsuario,estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
+                Response.Write("<script>alert('Estudiante actualizado correctamente');window.location = 'frmEditarEstudiante.aspx';</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
         }
     }
 }

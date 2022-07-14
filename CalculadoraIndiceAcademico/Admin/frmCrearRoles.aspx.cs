@@ -32,9 +32,16 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            tblRolesTableAdapter roles = new tblRolesTableAdapter();
-            roles.Insert(txtRol.Text);
-            Response.Write("<script>alert('Rol insertado satisfactoriamente.');window.location = 'frmCrearRoles.aspx';</script>");
+            try
+            {
+                tblRolesTableAdapter roles = new tblRolesTableAdapter();
+                roles.Insert(txtRol.Text);
+                Response.Write("<script>alert('Rol insertado satisfactoriamente.');window.location = 'frmCrearRoles.aspx';</script>");
+            }
+            catch(Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
         }
     }
 }

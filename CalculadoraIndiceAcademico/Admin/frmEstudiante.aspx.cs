@@ -32,16 +32,23 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nombres = txtNombres.Text;
-            string apellidos = txtApellidos.Text;
-            string correo = txtCorreo.Text;
-            string telefono = txtNumeroTelefono.Text;
-            int programa = int.Parse(ddlProgramaEstudio.SelectedValue);
-            tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-            if(validarCampos())
+            try
             {
-                estudiantes.ppCrearEstudiante(nombres, apellidos, correo, programa, GenerarClave(7), telefono);
-                Response.Write("Usuario Creado");
+                string nombres = txtNombres.Text;
+                string apellidos = txtApellidos.Text;
+                string correo = txtCorreo.Text;
+                string telefono = txtNumeroTelefono.Text;
+                int programa = int.Parse(ddlProgramaEstudio.SelectedValue);
+                tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
+                if(validarCampos())
+                {
+                    estudiantes.ppCrearEstudiante(nombres, apellidos, correo, programa, GenerarClave(7), telefono);
+                    Response.Write("<script>alert('Estudiante insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
             }
 
         }

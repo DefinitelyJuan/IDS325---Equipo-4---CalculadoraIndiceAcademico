@@ -37,7 +37,7 @@
                 <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt" MaxLength="150" TextMode="Email"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Número de teléfono:</h5>
-                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt" MaxLength="12" TextMode="Phone"></asp:TextBox>
+                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt" MaxLength="10" TextMode="Number"></asp:TextBox>
 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Contraseña:</h5>
                 <asp:TextBox ID="txtContra" runat="server" CssClass="txt" TextMode = "Password"></asp:TextBox>

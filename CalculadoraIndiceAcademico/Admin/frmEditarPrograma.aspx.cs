@@ -40,10 +40,17 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            programaData programa = (programaData)Session["programaData"];
-            tblProgramasAcademicosTableAdapter programas = new tblProgramasAcademicosTableAdapter();
-            programas.ppEditarPrograma(programa.Id, txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
-            Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarPrograma.aspx';</script>");
+            try
+            {
+                programaData programa = (programaData)Session["programaData"];
+                tblProgramasAcademicosTableAdapter programas = new tblProgramasAcademicosTableAdapter();
+                programas.ppEditarPrograma(programa.Id, txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
+                Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarPrograma.aspx';</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
 
         }
     }

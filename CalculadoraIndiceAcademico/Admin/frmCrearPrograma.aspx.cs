@@ -12,13 +12,20 @@ namespace CalculadoraIndiceAcademico
     {
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            tblProgramasAcademicosTableAdapter ProgramaAcademico = new tblProgramasAcademicosTableAdapter();
-            if (validarCampos())
+            try
             {
-                ProgramaAcademico.ppInsertarPrograma(txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
-                Response.Write("<script>alert('Programa académico insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
+                tblProgramasAcademicosTableAdapter ProgramaAcademico = new tblProgramasAcademicosTableAdapter();
+                if (validarCampos())
+                {
+                    ProgramaAcademico.ppInsertarPrograma(txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
+                    Response.Write("<script>alert('Programa académico insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
+                }
+                else Response.Write("Error al insertar programa académico.");
             }
-            else Response.Write("Error al insertar programa académico.");
+            catch(Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
         }
 
 
