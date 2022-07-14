@@ -186,15 +186,6 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.HtmlControls.HtmlButton btnUpdate;
 
         /// <summary>
-        /// Control botonDelete.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton botonDelete;
-
-        /// <summary>
         /// Control gridMantenimiento.
         /// </summary>
         /// <remarks>

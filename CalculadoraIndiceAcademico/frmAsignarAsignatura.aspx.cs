@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,14 @@ namespace CalculadoraIndiceAcademico
         protected void Page_Load(object sender, EventArgs e)
         {
             gridMantenimiento.DataBind();
+            if(!this.IsPostBack)
+            {
+                gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            }
+            Models.asignaturaDocData adocData = new Models.asignaturaDocData();
+            adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+            adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+            Session["AsigDocData"] = adocData;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -46,14 +55,14 @@ namespace CalculadoraIndiceAcademico
 
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            Models.asignaturaDocData adocData = new Models.asignaturaDocData();
+            adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+            adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+            Session["AsigDocData"] = adocData;
         }
 
         protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)

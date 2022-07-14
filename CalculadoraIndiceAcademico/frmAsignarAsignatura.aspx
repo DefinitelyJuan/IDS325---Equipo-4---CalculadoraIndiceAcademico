@@ -93,8 +93,6 @@
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
                             <button runat="server" type="button" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
-                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="botonDelete" runat="server" CssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"> <i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
-
                         </div>
                     </div>
                 </div>
@@ -103,6 +101,9 @@
                 <div class="row h-75 m-0">
                     <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CssClass="table" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged" SelectedIndex="0"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
+                            <asp:CommandField ButtonType="Button" ShowSelectButton="True">
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" ReadOnly="True" SortExpression="ID Asignatura" InsertVisible="False" />
                             <asp:BoundField DataField="Código" HeaderText="Código" SortExpression="Código" />
                             <asp:BoundField DataField="Asignatura" HeaderText="Asignatura" SortExpression="Asignatura" />

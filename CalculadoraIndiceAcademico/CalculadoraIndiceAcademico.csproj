@@ -129,6 +129,7 @@
     <Content Include="frmCrearRoles.aspx" />
     <Content Include="frmEditarArea.aspx" />
     <Content Include="frmEditarAsignatura.aspx" />
+    <Content Include="frmEditarAsignaturaDocente.aspx" />
     <Content Include="frmEditarDocente.aspx" />
     <Content Include="frmEditarEstudiante.aspx" />
     <Content Include="frmEditarPrograma.aspx" />
@@ -262,6 +263,13 @@
     <Compile Include="frmEditarAsignatura.aspx.designer.cs">
       <DependentUpon>frmEditarAsignatura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarAsignaturaDocente.aspx.cs">
+      <DependentUpon>frmEditarAsignaturaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEditarAsignaturaDocente.aspx.designer.cs">
+      <DependentUpon>frmEditarAsignaturaDocente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarDocente.aspx.cs">
       <DependentUpon>frmEditarDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +359,7 @@
     </Compile>
     <Compile Include="Models\areaData.cs" />
     <Compile Include="Models\asignaturaData.cs" />
+    <Compile Include="Models\asignaturaDocData.cs" />
     <Compile Include="Models\calificacionData.cs" />
     <Compile Include="Models\docenteData.cs" />
     <Compile Include="Models\estudianteData.cs" />

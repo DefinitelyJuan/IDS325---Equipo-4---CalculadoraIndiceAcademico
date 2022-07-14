@@ -14112,15 +14112,15 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDDocente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDDocente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblDocentes_Asignaturas] SET [IDAsignatura] = @IDAsignatura, [IDDoc" +
-                "ente] = @IDDocente, [Trimestre] = @Trimestre WHERE (([IDAsignatura] = @Original_" +
-                "IDAsignatura) AND ([IDDocente] = @Original_IDDocente))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       tblDocentes_Asignaturas\r\nSET                IDAsignatura = @IDAsigna" +
+                "tura, IDDocente = @IDDocente, Trimestre = dbo.ObtenerTrimestreActual()\r\nWHERE   " +
+                "     (IDAsignatura = @Original_IDAsignatura) AND (IDDocente = @Original_IDDocent" +
+                "e)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDAsignatura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDAsignatura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDDocente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDDocente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trimestre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trimestre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDAsignatura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDAsignatura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDDocente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDDocente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDAsignatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDAsignatura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDDocente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDDocente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDAsignatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDAsignatura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDDocente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDDocente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14243,17 +14243,11 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IDAsignatura, int IDDocente, string Trimestre, int Original_IDAsignatura, int Original_IDDocente) {
+        public virtual int Update(int IDAsignatura, int IDDocente, int Original_IDAsignatura, int Original_IDDocente) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDAsignatura));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IDDocente));
-            if ((Trimestre == null)) {
-                throw new global::System.ArgumentNullException("Trimestre");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Trimestre));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_IDAsignatura));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_IDDocente));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_IDAsignatura));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_IDDocente));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14274,8 +14268,8 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Trimestre, int Original_IDAsignatura, int Original_IDDocente) {
-            return this.Update(Original_IDAsignatura, Original_IDDocente, Trimestre, Original_IDAsignatura, Original_IDDocente);
+        public virtual int Update(int Original_IDAsignatura, int Original_IDDocente) {
+            return this.Update(Original_IDAsignatura, Original_IDDocente, Original_IDAsignatura, Original_IDDocente);
         }
     }
     
