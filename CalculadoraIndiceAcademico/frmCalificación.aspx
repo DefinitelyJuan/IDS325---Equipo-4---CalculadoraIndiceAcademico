@@ -68,7 +68,7 @@
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
-                            <h3>Calificaciones:</h3>
+                            <h3>Asignaturas:</h3>
                             <asp:DropDownList ID="ddlCodigo" runat="server" CssClass="cmb" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="Codigo" DataValueField="Codigo">
                             </asp:DropDownList>
                             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppObtenerAsignaturasDocentesTableAdapter">

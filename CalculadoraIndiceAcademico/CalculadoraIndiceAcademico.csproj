@@ -117,10 +117,12 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="frmAsignarAsignatura.aspx" />
     <Content Include="frmAsignaturasAdministrador.aspx" />
     <Content Include="frmCalificación.aspx" />
     <Content Include="frmCrearArea.aspx" />
     <Content Include="frmCrearAsignatura.aspx" />
+    <Content Include="frmCrearAsignaturaDocente.aspx" />
     <Content Include="frmCrearCalificación.aspx" />
     <Content Include="frmCrearDocente.aspx" />
     <Content Include="frmCrearPrograma.aspx" />
@@ -176,6 +178,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSCIA.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAsignarAsignatura.aspx.cs">
+      <DependentUpon>frmAsignarAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAsignarAsignatura.aspx.designer.cs">
+      <DependentUpon>frmAsignarAsignatura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignaturasAdministrador.aspx.cs">
       <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +212,13 @@
     </Compile>
     <Compile Include="frmCrearAsignatura.aspx.designer.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCrearAsignaturaDocente.aspx.cs">
+      <DependentUpon>frmCrearAsignaturaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCrearAsignaturaDocente.aspx.designer.cs">
+      <DependentUpon>frmCrearAsignaturaDocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmCrearCalificación.aspx.cs">
       <DependentUpon>frmCrearCalificación.aspx</DependentUpon>

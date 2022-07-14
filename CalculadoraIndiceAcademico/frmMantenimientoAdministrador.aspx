@@ -68,6 +68,11 @@
                     <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
                 </asp:LinkButton>
 
+                <asp:LinkButton 
+                    ID="LinkButton1" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="LinkButton1_Click" >
+                    <i class="fa fa-solid fa-file-pen"></i>&nbspAsignarAsignaturas
+                </asp:LinkButton>
+
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice

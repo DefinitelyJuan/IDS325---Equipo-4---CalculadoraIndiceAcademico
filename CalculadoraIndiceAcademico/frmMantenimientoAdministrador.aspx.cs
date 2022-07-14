@@ -189,5 +189,10 @@ namespace CalculadoraIndiceAcademico
                     Response.Write("<script>alert('Para eliminar un programa, seleccione una fila primero.');window.location = 'frmMantenimientoAdministrador.aspx';</script>");
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignarAsignatura.aspx");
+        }
     }
 }

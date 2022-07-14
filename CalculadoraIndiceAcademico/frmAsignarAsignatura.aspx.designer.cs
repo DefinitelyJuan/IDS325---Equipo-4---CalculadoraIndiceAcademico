@@ -11,7 +11,7 @@ namespace CalculadoraIndiceAcademico
 {
 
 
-    public partial class frmMantenimientoAdministrador
+    public partial class frmAsignarAsignatura
     {
 
         /// <summary>
@@ -60,13 +60,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.HtmlControls.HtmlIframe iframe1;
 
         /// <summary>
-        /// Control frmPopUp2.
+        /// Control frmPopUp1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender frmPopUp2;
+        protected global::AjaxControlToolkit.ModalPopupExtender frmPopUp1;
 
         /// <summary>
         /// Control Panel2.
@@ -78,13 +78,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.Panel Panel2;
 
         /// <summary>
-        /// Control btnCancel2.
+        /// Control btnCancel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancel2;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel1;
 
         /// <summary>
         /// Control iframe2.
@@ -132,15 +132,6 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnAsignaturas;
 
         /// <summary>
-        /// Control LinkButton1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-
-        /// <summary>
         /// Control lbtnGenerarIndice.
         /// </summary>
         /// <remarks>
@@ -159,13 +150,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnCerrarSesion;
 
         /// <summary>
-        /// Control ddlTipoMantenimiento.
+        /// Control ddlAsignaturas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoMantenimiento;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignaturas;
 
         /// <summary>
         /// Control btnCreate.
@@ -186,13 +177,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.HtmlControls.HtmlButton btnUpdate;
 
         /// <summary>
-        /// Control btnDelete.
+        /// Control botonDelete.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton botonDelete;
 
         /// <summary>
         /// Control gridMantenimiento.
@@ -211,42 +202,6 @@ namespace CalculadoraIndiceAcademico
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
-
-        /// <summary>
-        /// Control gridMantenimientoPrograma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMantenimientoPrograma;
-
-        /// <summary>
-        /// Control programaSource.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource programaSource;
-
-        /// <summary>
-        /// Control gridMantenimientoArea.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridMantenimientoArea;
-
-        /// <summary>
-        /// Control areaSource.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource areaSource;
 
         /// <summary>
         /// Control ScriptManager1.
