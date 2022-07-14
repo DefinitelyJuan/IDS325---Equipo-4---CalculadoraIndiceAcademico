@@ -36,8 +36,15 @@ namespace CalculadoraIndiceAcademico
             tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
             if (validarCampos())
             {
-                docentes.ppInsertarDocente(txtNombres.Text, txtApellidos.Text, txtCorreo.Text, GenerarClave(7));
-                Response.Write("<script>alert('Registro insertado correctamente');window.location = 'frmCrearDocente.aspx';</script>");
+                try
+                {
+                    docentes.ppInsertarDocente(txtNombres.Text, txtApellidos.Text, txtCorreo.Text, GenerarClave(7));
+                    Response.Write("<script>alert('Registro insertado correctamente');window.location = 'frmCrearDocente.aspx';</script>");
+                }
+                catch(Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
             }
         }
 

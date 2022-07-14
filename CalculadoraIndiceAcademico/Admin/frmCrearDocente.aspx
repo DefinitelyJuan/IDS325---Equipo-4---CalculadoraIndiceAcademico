@@ -25,13 +25,13 @@
                 <h4 class="mainHeading">INGRESAR DOCENTE</h4>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombres:</h5>
-                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Apellidos:</h5>
-                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Correo electrónico:</h5>
-                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt"></asp:TextBox>                
+                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt" MaxLength="150" TextMode="Email"></asp:TextBox>                
 
             </div>
             

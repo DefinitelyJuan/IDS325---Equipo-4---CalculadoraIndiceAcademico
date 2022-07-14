@@ -25,13 +25,13 @@
                 <h4 class="mainHeading">EDITAR DOCENTE</h4>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombres:</h5>
-                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Apellidos:</h5>
-                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Correo electrónico:</h5>
-                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt" MaxLength="150" TextMode="Email"></asp:TextBox>
                 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Contraseña:</h5>
                 <asp:TextBox ID="txtContra" runat="server" CssClass="txt" TextMode = "Password"></asp:TextBox>   
@@ -40,7 +40,7 @@
             
             <%-- Botón guardar --%>
             <div class="d-flex justify-content-center">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return confirm('¿Está seguro de que quiere insertar el registro?');" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return confirm('¿Está seguro de que quiere editar el registro?');" />
             </div>
 
         </div>
