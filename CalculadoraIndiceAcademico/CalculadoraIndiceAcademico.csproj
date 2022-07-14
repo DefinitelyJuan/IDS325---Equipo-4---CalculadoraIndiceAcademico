@@ -117,31 +117,31 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="frmAsignarAsignatura.aspx" />
-    <Content Include="frmAsignaturasAdministrador.aspx" />
-    <Content Include="frmCalificación.aspx" />
-    <Content Include="frmCrearArea.aspx" />
-    <Content Include="frmCrearAsignatura.aspx" />
-    <Content Include="frmCrearAsignaturaDocente.aspx" />
-    <Content Include="frmCrearCalificación.aspx" />
-    <Content Include="frmCrearDocente.aspx" />
-    <Content Include="frmCrearPrograma.aspx" />
-    <Content Include="frmCrearRoles.aspx" />
-    <Content Include="frmEditarArea.aspx" />
-    <Content Include="frmEditarAsignatura.aspx" />
-    <Content Include="frmEditarAsignaturaDocente.aspx" />
-    <Content Include="frmEditarDocente.aspx" />
-    <Content Include="frmEditarEstudiante.aspx" />
-    <Content Include="frmEditarPrograma.aspx" />
-    <Content Include="frmEditarRol.aspx" />
-    <Content Include="frmEstudiante.aspx" />
+    <Content Include="Admin\frmAsignarAsignatura.aspx" />
+    <Content Include="Admin\frmAsignaturasAdministrador.aspx" />
+    <Content Include="Docente\frmCalificación.aspx" />
+    <Content Include="Admin\frmCrearArea.aspx" />
+    <Content Include="Admin\frmCrearAsignatura.aspx" />
+    <Content Include="Admin\frmCrearAsignaturaDocente.aspx" />
+    <Content Include="Docente\frmCrearCalificación.aspx" />
+    <Content Include="Admin\frmCrearDocente.aspx" />
+    <Content Include="Admin\frmCrearPrograma.aspx" />
+    <Content Include="Admin\frmCrearRoles.aspx" />
+    <Content Include="Admin\frmEditarArea.aspx" />
+    <Content Include="Admin\frmEditarAsignatura.aspx" />
+    <Content Include="Admin\frmEditarAsignaturaDocente.aspx" />
+    <Content Include="Admin\frmEditarDocente.aspx" />
+    <Content Include="Admin\frmEditarEstudiante.aspx" />
+    <Content Include="Admin\frmEditarPrograma.aspx" />
+    <Content Include="Admin\frmEditarRol.aspx" />
+    <Content Include="Admin\frmEstudiante.aspx" />
     <Content Include="frmLogin.aspx" />
-    <Content Include="frmMantenimientoUsuarios.aspx" />
-    <Content Include="frmMantenimientoAdministrador.aspx" />
-    <Content Include="frmPerfilDocente.aspx" />
-    <Content Include="frmPerfilEstudiante.aspx" />
-    <Content Include="frmReporteAdministrador.aspx" />
-    <Content Include="frmReporteEstudiante.aspx" />
+    <Content Include="Admin\frmMantenimientoUsuarios.aspx" />
+    <Content Include="Admin\frmMantenimientoAdministrador.aspx" />
+    <Content Include="Docente\frmPerfilDocente.aspx" />
+    <Content Include="Estudiante\frmPerfilEstudiante.aspx" />
+    <Content Include="Admin\frmReporteAdministrador.aspx" />
+    <Content Include="Estudiante\frmReporteEstudiante.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\login.css" />
     <Content Include="Resources\CSS\CRUD.css" />
@@ -179,130 +179,130 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSCIA.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmAsignarAsignatura.aspx.cs">
+    <Compile Include="Admin\frmAsignarAsignatura.aspx.cs">
       <DependentUpon>frmAsignarAsignatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmAsignarAsignatura.aspx.designer.cs">
+    <Compile Include="Admin\frmAsignarAsignatura.aspx.designer.cs">
       <DependentUpon>frmAsignarAsignatura.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmAsignaturasAdministrador.aspx.cs">
+    <Compile Include="Admin\frmAsignaturasAdministrador.aspx.cs">
       <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmAsignaturasAdministrador.aspx.designer.cs">
+    <Compile Include="Admin\frmAsignaturasAdministrador.aspx.designer.cs">
       <DependentUpon>frmAsignaturasAdministrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCalificación.aspx.cs">
+    <Compile Include="Docente\frmCalificación.aspx.cs">
       <DependentUpon>frmCalificación.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCalificación.aspx.designer.cs">
+    <Compile Include="Docente\frmCalificación.aspx.designer.cs">
       <DependentUpon>frmCalificación.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearArea.aspx.cs">
+    <Compile Include="Admin\frmCrearArea.aspx.cs">
       <DependentUpon>frmCrearArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearArea.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearArea.aspx.designer.cs">
       <DependentUpon>frmCrearArea.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearAsignatura.aspx.cs">
+    <Compile Include="Admin\frmCrearAsignatura.aspx.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearAsignatura.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearAsignatura.aspx.designer.cs">
       <DependentUpon>frmCrearAsignatura.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearAsignaturaDocente.aspx.cs">
+    <Compile Include="Admin\frmCrearAsignaturaDocente.aspx.cs">
       <DependentUpon>frmCrearAsignaturaDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearAsignaturaDocente.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearAsignaturaDocente.aspx.designer.cs">
       <DependentUpon>frmCrearAsignaturaDocente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearCalificación.aspx.cs">
+    <Compile Include="Docente\frmCrearCalificación.aspx.cs">
       <DependentUpon>frmCrearCalificación.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearCalificación.aspx.designer.cs">
+    <Compile Include="Docente\frmCrearCalificación.aspx.designer.cs">
       <DependentUpon>frmCrearCalificación.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearDocente.aspx.cs">
+    <Compile Include="Admin\frmCrearDocente.aspx.cs">
       <DependentUpon>frmCrearDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearDocente.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearDocente.aspx.designer.cs">
       <DependentUpon>frmCrearDocente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearPrograma.aspx.cs">
+    <Compile Include="Admin\frmCrearPrograma.aspx.cs">
       <DependentUpon>frmCrearPrograma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearPrograma.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearPrograma.aspx.designer.cs">
       <DependentUpon>frmCrearPrograma.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearRoles.aspx.cs">
+    <Compile Include="Admin\frmCrearRoles.aspx.cs">
       <DependentUpon>frmCrearRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmCrearRoles.aspx.designer.cs">
+    <Compile Include="Admin\frmCrearRoles.aspx.designer.cs">
       <DependentUpon>frmCrearRoles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarArea.aspx.cs">
+    <Compile Include="Admin\frmEditarArea.aspx.cs">
       <DependentUpon>frmEditarArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarArea.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarArea.aspx.designer.cs">
       <DependentUpon>frmEditarArea.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarAsignatura.aspx.cs">
+    <Compile Include="Admin\frmEditarAsignatura.aspx.cs">
       <DependentUpon>frmEditarAsignatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarAsignatura.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarAsignatura.aspx.designer.cs">
       <DependentUpon>frmEditarAsignatura.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarAsignaturaDocente.aspx.cs">
+    <Compile Include="Admin\frmEditarAsignaturaDocente.aspx.cs">
       <DependentUpon>frmEditarAsignaturaDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarAsignaturaDocente.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarAsignaturaDocente.aspx.designer.cs">
       <DependentUpon>frmEditarAsignaturaDocente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarDocente.aspx.cs">
+    <Compile Include="Admin\frmEditarDocente.aspx.cs">
       <DependentUpon>frmEditarDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarDocente.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarDocente.aspx.designer.cs">
       <DependentUpon>frmEditarDocente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarEstudiante.aspx.cs">
+    <Compile Include="Admin\frmEditarEstudiante.aspx.cs">
       <DependentUpon>frmEditarEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarEstudiante.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarEstudiante.aspx.designer.cs">
       <DependentUpon>frmEditarEstudiante.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarPrograma.aspx.cs">
+    <Compile Include="Admin\frmEditarPrograma.aspx.cs">
       <DependentUpon>frmEditarPrograma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarPrograma.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarPrograma.aspx.designer.cs">
       <DependentUpon>frmEditarPrograma.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarRol.aspx.cs">
+    <Compile Include="Admin\frmEditarRol.aspx.cs">
       <DependentUpon>frmEditarRol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEditarRol.aspx.designer.cs">
+    <Compile Include="Admin\frmEditarRol.aspx.designer.cs">
       <DependentUpon>frmEditarRol.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEstudiante.aspx.cs">
+    <Compile Include="Admin\frmEstudiante.aspx.cs">
       <DependentUpon>frmEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEstudiante.aspx.designer.cs">
+    <Compile Include="Admin\frmEstudiante.aspx.designer.cs">
       <DependentUpon>frmEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.aspx.cs">
@@ -312,46 +312,46 @@
     <Compile Include="frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmMantenimientoUsuarios.aspx.cs">
+    <Compile Include="Admin\frmMantenimientoUsuarios.aspx.cs">
       <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmMantenimientoUsuarios.aspx.designer.cs">
+    <Compile Include="Admin\frmMantenimientoUsuarios.aspx.designer.cs">
       <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmMantenimientoAdministrador.aspx.cs">
+    <Compile Include="Admin\frmMantenimientoAdministrador.aspx.cs">
       <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmMantenimientoAdministrador.aspx.designer.cs">
+    <Compile Include="Admin\frmMantenimientoAdministrador.aspx.designer.cs">
       <DependentUpon>frmMantenimientoAdministrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmPerfilDocente.aspx.cs">
+    <Compile Include="Docente\frmPerfilDocente.aspx.cs">
       <DependentUpon>frmPerfilDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmPerfilDocente.aspx.designer.cs">
+    <Compile Include="Docente\frmPerfilDocente.aspx.designer.cs">
       <DependentUpon>frmPerfilDocente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmPerfilEstudiante.aspx.cs">
+    <Compile Include="Estudiante\frmPerfilEstudiante.aspx.cs">
       <DependentUpon>frmPerfilEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmPerfilEstudiante.aspx.designer.cs">
+    <Compile Include="Estudiante\frmPerfilEstudiante.aspx.designer.cs">
       <DependentUpon>frmPerfilEstudiante.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmReporteAdministrador.aspx.cs">
+    <Compile Include="Admin\frmReporteAdministrador.aspx.cs">
       <DependentUpon>frmReporteAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmReporteAdministrador.aspx.designer.cs">
+    <Compile Include="Admin\frmReporteAdministrador.aspx.designer.cs">
       <DependentUpon>frmReporteAdministrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmReporteEstudiante.aspx.cs">
+    <Compile Include="Estudiante\frmReporteEstudiante.aspx.cs">
       <DependentUpon>frmReporteEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmReporteEstudiante.aspx.designer.cs">
+    <Compile Include="Estudiante\frmReporteEstudiante.aspx.designer.cs">
       <DependentUpon>frmReporteEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

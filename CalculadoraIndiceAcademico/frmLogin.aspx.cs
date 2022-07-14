@@ -2,9 +2,11 @@
 using CalculadoraIndiceAcademico.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 namespace CalculadoraIndiceAcademico
@@ -24,7 +26,7 @@ namespace CalculadoraIndiceAcademico
             DataTable ds = usuario.GetDataByLogin(txtUsuario.Text, txtContraseña.Text);
             string rol = ds.Rows[0][2].ToString();
             string id = ds.Rows[0][0].ToString();
-
+            Session["authRol"] = rol;
             if (ds.Rows.Count == 1)
             {
                 switch (rol)
@@ -38,7 +40,7 @@ namespace CalculadoraIndiceAcademico
                         data.Programa = usrData.Rows[0][3].ToString();
                         Session["userData"] = data;
                         Session["idEstudiante"] = data.IDEntidad;
-                        Response.Redirect("/frmPerfilEstudiante.aspx");
+                        Response.Redirect("Estudiante/frmPerfilEstudiante.aspx");
                         break;
                     case "2":
                         DataTable docData = obtenerDataDoc.GetData(int.Parse(id));
@@ -48,11 +50,11 @@ namespace CalculadoraIndiceAcademico
                         uData.Nombre = docData.Rows[0][2].ToString();
                         Session["userData"] = uData;
                         Session["idDocente"] = uData.IDEntidad;
-                        Response.Redirect("/frmPerfilDocente.aspx");
+                        Response.Redirect("Docente/frmPerfilDocente.aspx");
 
                         break;
                     case "3":
-                        Response.Redirect("/frmMantenimientoAdministrador.aspx");
+                        Response.Redirect("Admin/frmMantenimientoAdministrador.aspx");
                         break; 
                 }
             }
