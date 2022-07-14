@@ -25,7 +25,7 @@
                 <h4 class="mainHeading">EDITAR ÁREA ACADÉMICA</h4>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
-                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt" MaxLength="40"></asp:TextBox>
 
             </div>
             
