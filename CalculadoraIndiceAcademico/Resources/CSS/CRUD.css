@@ -102,3 +102,12 @@ body{
     background-color: var(--defaultBlue) !important;
     color: var(--defaultWhite) !important;
 }
+
+.logoImg {
+    position: absolute;
+    top: 0%;
+    left: 3.9%;
+    height: 12%;
+    text-align: center;
+    width:9vw;
+}

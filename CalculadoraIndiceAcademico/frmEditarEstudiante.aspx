@@ -40,7 +40,7 @@
                 <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt"></asp:TextBox>
 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Contraseña:</h5>
-                <asp:TextBox ID="txtContra" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtContra" runat="server" CssClass="txt" TextMode = "Password"></asp:TextBox>
             
                 <h5 class="mt-4  lbl  d-flex-column align-self-start">Programa de estudio:</h5>
                 <asp:DropDownList ID="ddlProgramaEstudio" runat="server" CssClass="cmb" DataSourceID="dllPrograma" DataTextField="Nombre" DataValueField="IDPrograma">

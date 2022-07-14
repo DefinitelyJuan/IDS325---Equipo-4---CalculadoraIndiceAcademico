@@ -19,8 +19,8 @@
             <div class ="row loginRow">
 
                 <%-- Panel izquierdo LOGO --%>
-              <div class="col-md-5 LOGO">
-                  LOGO
+              <div class="col-md-5 d-flex align-items-center LOGO">
+                  <img class="img-fluid" src="Resources/Imagenes/sciaLogo.png"/>
               </div>
                 <%-- Panel con campos --%>
               <div class="col-md-7 LoginPanel">

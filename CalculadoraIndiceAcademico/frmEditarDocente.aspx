@@ -34,7 +34,7 @@
                 <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt"></asp:TextBox>
                 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Contraseña:</h5>
-                <asp:TextBox ID="txtContra" runat="server" CssClass="txt"></asp:TextBox>   
+                <asp:TextBox ID="txtContra" runat="server" CssClass="txt" TextMode = "Password"></asp:TextBox>   
 
             </div>
             

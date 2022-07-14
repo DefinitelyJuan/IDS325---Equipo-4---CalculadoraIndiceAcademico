@@ -31,7 +31,7 @@
 
            <%-- <%-- Columna izquiera --%>
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
-                <%--<asp:button id="btnHome" runat="server" text="Inicio" cssclass="btn mt-auto selectedButton" />--%>
+                <img class="logoImg" src="Resources/Imagenes/sciaLogo.png" />
                 <asp:LinkButton 
                     ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
