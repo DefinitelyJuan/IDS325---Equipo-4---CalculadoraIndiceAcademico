@@ -114,7 +114,9 @@
                 <div class="row h-75 <%--bg-success--%> m-0">
                     <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="IDRol" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="IDRol" HeaderText="IDRol" ReadOnly="True" SortExpression="IDRol" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                         </Columns>
@@ -133,7 +135,9 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoPrograma" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="programaSource" DataKeyNames="IDPrograma" OnSelectedIndexChanged="gridMantenimientoPrograma_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="IDPrograma" HeaderText="IDPrograma" InsertVisible="False" ReadOnly="True" SortExpression="IDPrograma" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                             <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
@@ -149,7 +153,9 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoArea" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="areaSource" DataKeyNames="IDArea" OnSelectedIndexChanged="gridMantenimientoArea_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="IDArea" HeaderText="IDArea" InsertVisible="False" ReadOnly="True" SortExpression="IDArea" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                             <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />

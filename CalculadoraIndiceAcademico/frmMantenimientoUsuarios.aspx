@@ -114,7 +114,9 @@
                     <asp:GridView ID="gridMantenimientoEst" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CssClass="table" OnSelectedIndexChanged="gridMantenimientoEst_SelectedIndexChanged" SelectedIndex="0">
                         <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="Usuario" HeaderText="Usuario" InsertVisible="False" ReadOnly="True" SortExpression="Usuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                             <asp:BoundField DataField="IDEstudiante" HeaderText="IDEstudiante" SortExpression="IDEstudiante" InsertVisible="False" ReadOnly="True" />
@@ -131,7 +133,9 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoDoc" runat="server" AutoGenerateColumns="False" DataKeyNames="Usuario,IDDocente" DataSourceID="ObjectDataSource2" CssClass="table" OnSelectedIndexChanged="gridMantenimientoDoc_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="Usuario" HeaderText="Usuario" InsertVisible="False" ReadOnly="True" SortExpression="Usuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                             <asp:BoundField DataField="IDDocente" HeaderText="IDDocente" SortExpression="IDDocente" InsertVisible="False" ReadOnly="True" />
@@ -144,7 +148,9 @@
                     </asp:ObjectDataSource>
                     <asp:GridView ID="gridMantenimientoAdmin" runat="server" AutoGenerateColumns="False" DataKeyNames="IDUsuario,IDAdministrador" DataSourceID="ObjectDataSource3" CssClass="table" OnSelectedIndexChanged="gridMantenimientoAdmin_SelectedIndexChanged" SelectedIndex="0">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" ButtonType="Button" >
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
                             <asp:BoundField DataField="IDUsuario" HeaderText="IDUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IDUsuario" />
                             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                             <asp:BoundField DataField="IDAdministrador" HeaderText="IDAdministrador" SortExpression="IDAdministrador" InsertVisible="False" ReadOnly="True" />
