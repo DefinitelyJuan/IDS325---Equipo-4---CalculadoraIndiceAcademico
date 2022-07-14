@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" href="./Resources/CSS/PopUp.css"/>
+    <link rel="stylesheet" href="../Resources/CSS/PopUp.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap" rel="stylesheet"/>
@@ -28,16 +28,16 @@
                 <asp:TextBox ID="txtID" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombres:</h5>
-                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Apellidos:</h5>
-                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Correo electrónico:</h5>
-                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt" MaxLength="150" TextMode="Email"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Número de teléfono:</h5>
-                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt" MaxLength="10" TextMode="Phone"></asp:TextBox>
             
                 <h5 class="mt-4  lbl  d-flex-column align-self-start">Programa de estudio:</h5>
                 <asp:DropDownList ID="ddlProgramaEstudio" runat="server" CssClass="cmb" DataSourceID="dllPrograma" DataTextField="Nombre" DataValueField="IDPrograma">

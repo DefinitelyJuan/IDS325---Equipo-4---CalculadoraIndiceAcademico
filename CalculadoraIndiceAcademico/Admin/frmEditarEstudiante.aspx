@@ -28,16 +28,16 @@
                 <asp:TextBox ID="txtID" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombres:</h5>
-                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombres" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Apellidos:</h5>
-                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtApellidos" runat="server" CssClass="txt" MaxLength="25"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Correo electrónico:</h5>
-                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCorreo" runat="server" CssClass="txt" MaxLength="150" TextMode="Email"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Número de teléfono:</h5>
-                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNumeroTelefono" runat="server" CssClass="txt" MaxLength="12" TextMode="Phone"></asp:TextBox>
 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Contraseña:</h5>
                 <asp:TextBox ID="txtContra" runat="server" CssClass="txt" TextMode = "Password"></asp:TextBox>
