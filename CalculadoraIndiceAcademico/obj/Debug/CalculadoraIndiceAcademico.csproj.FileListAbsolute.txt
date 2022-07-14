@@ -617,10 +617,10 @@ C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\Calcula
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.AssemblyReference.cache
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\RdlCompile.cache
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\RdlCompile.compiled
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.CoreCompileInputs.cache
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.CopyComplete
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.dll
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.pdb
+C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.AssemblyReference.cache

@@ -18,17 +18,29 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" CancelControlID="btnCancel" ID="frmPopUp" BackgroundCssClass="puBackground">
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel1" TargetControlID="btnCreate" ID="frmPopUp" BackgroundCssClass="puBackground">
                     </cc1:ModalPopupExtender>
 
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click" onserverClick="cancel">
+                    ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
                 <iframe id="iframe1" src="frmCrearAsignatura.aspx" runat="server" class="formFrame"></iframe>     
 
             </asp:Panel>  
+
+        <%--Modal editar--%>
+        <cc1:ModalPopupExtender runat="server" PopupControlID="Panel2" TargetControlID="btnUpdate" ID="frmPopUp1" BackgroundCssClass="puBackground">
+        </cc1:ModalPopupExtender>
+            <asp:Panel ID="Panel2" runat="server">
+                <asp:LinkButton 
+                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
+                    <i class="fa fa-thin fa-cancel"></i>
+                </asp:LinkButton>
+                <iframe id="iframe2" src="frmEditarAsignatura.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
+
+            </asp:Panel>
 
 
         <div class="row m-0">
@@ -37,29 +49,17 @@
             <div class="col-md-2 panelContainer d-flex justify-content-center flex-column">
                 <img class="logoImg" src="Resources/Imagenes/sciaLogo.png" />
                 <asp:LinkButton 
-                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click">
-                    <i class="fa fa-thin fa-house"></i>&nbspInicio
-                </asp:LinkButton>
+                    ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click"> <i class="fa fa-thin fa-house"></i>&nbspInicio </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click">
-                    <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento
-                </asp:LinkButton>
+                    ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click"> <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton">
-                    <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
-                </asp:LinkButton>
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton">
-                    <i class="fa fa-solid fa-book"></i>&nbspAsignaturas
-                </asp:LinkButton>
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
                 <asp:LinkButton
-                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
-                    <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
-                </asp:LinkButton> 
+                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click"> <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice </asp:LinkButton> 
                 <asp:LinkButton
-                    ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton">
-                    <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión
-                </asp:LinkButton> 
+                    ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"> <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión </asp:LinkButton> 
             </div>
 
             <%-- Contenedor derecha --%>
@@ -88,25 +88,31 @@
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
-                            <button runat="server" onserverclick="Update" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
-                            <button runat="server" onserverclick="Delete" id="btnDelete" class="fa btn btn-outline-secondary"><i class="fa-light fa-trash-can fa-lg"></i></button>
+                            <button runat="server" type="button" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
+                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="botonDelete" runat="server" CssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"> <i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
+
                         </div>
                     </div>
                 </div>
 
                 <%-- Row 2 --%>
                 <div class="row h-75 m-0">
-                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="IDAsignatura" DataSourceID="dsAsignaturas" CssClass="table"> <%--Cambiar Data Source a la tabla correspondiente--%>
+                    <asp:GridView ID="gridMantenimiento" runat="server" AutoGenerateColumns="False" DataKeyNames="ID Asignatura" DataSourceID="ObjectDataSource2" CssClass="table" OnSelectedIndexChanged="gridMantenimiento_SelectedIndexChanged" SelectedIndex="0"> <%--Cambiar Data Source a la tabla correspondiente--%>
                         <Columns>
-                            <asp:BoundField DataField="IDAsignatura" HeaderText="IDAsignatura" ReadOnly="True" SortExpression="IDAsignatura" InsertVisible="False" />
-                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
-                            <asp:BoundField DataField="IDAreaAcademica" HeaderText="IDAreaAcademica" SortExpression="IDAreaAcademica" />
+                            <asp:CommandField ButtonType="Button" ShowSelectButton="True">
+                            <ControlStyle CssClass="btn btnSeleccionar" />
+                            </asp:CommandField>
+                            <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" ReadOnly="True" SortExpression="ID Asignatura" InsertVisible="False" />
+                            <asp:BoundField DataField="Código" HeaderText="Código" SortExpression="Código" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-                            <asp:BoundField DataField="NumCreditos" HeaderText="NumCreditos" SortExpression="NumCreditos" />
-                            <asp:BoundField DataField="FechaCreacion" HeaderText="FechaCreacion" SortExpression="FechaCreacion" />
-                            <asp:BoundField DataField="FechaModificacion" HeaderText="FechaModificacion" SortExpression="FechaModificacion" />
+                            <asp:BoundField DataField="Créditos" HeaderText="Créditos" SortExpression="Créditos" />
+                            <asp:BoundField DataField="Área Académica" HeaderText="Área Académica" SortExpression="Área Académica" />
+                            <asp:BoundField DataField="Fecha Creación" HeaderText="Fecha Creación" SortExpression="Fecha Creación" />
+                            <asp:BoundField DataField="Fecha Modificación" HeaderText="Fecha Modificación" SortExpression="Fecha Modificación" />
                         </Columns>
                     </asp:GridView>
+                    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarAsignaturaTableAdapter"></asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
                     <asp:ObjectDataSource ID="dsAsignaturas" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblAsignaturasTableAdapter" UpdateMethod="Update">
                         <DeleteParameters>
                             <asp:Parameter Name="Original_IDAsignatura" Type="Int32" />
