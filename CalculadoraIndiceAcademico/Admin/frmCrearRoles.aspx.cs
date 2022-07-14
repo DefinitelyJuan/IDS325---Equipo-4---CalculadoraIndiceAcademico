@@ -29,14 +29,26 @@ namespace CalculadoraIndiceAcademico
                 }
             }
         }
+        private bool ValidarCampos()
+        {
+            if (txtRol.Text.Trim() == "")
+                return false;
+            else
+                return true;
+        }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                tblRolesTableAdapter roles = new tblRolesTableAdapter();
-                roles.Insert(txtRol.Text);
-                Response.Write("<script>alert('Rol insertado satisfactoriamente.');window.location = 'frmCrearRoles.aspx';</script>");
+                if (ValidarCampos() == true)
+                {
+                    tblRolesTableAdapter roles = new tblRolesTableAdapter();
+                    roles.Insert(txtRol.Text);
+                    Response.Write("<script>alert('Rol insertado satisfactoriamente.');window.location = 'frmCrearRoles.aspx';</script>");
+                }
+                else
+                    Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearRoles.aspx';</script>");
             }
             catch(Exception ex)
             {

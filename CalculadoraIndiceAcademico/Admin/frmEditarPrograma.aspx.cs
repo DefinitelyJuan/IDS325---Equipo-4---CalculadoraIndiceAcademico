@@ -38,14 +38,25 @@ namespace CalculadoraIndiceAcademico
             }
         }
 
+        private bool ValidarCampos()
+        {
+            if (txtNombre.Text.Trim() == "" || txtVersion.Text.Trim() == "" || txtCreditos.Text.Trim() == "" || int.Parse(txtCreditos.Text.Trim()) > 425)
+                return false;
+            else
+                return true;
+        }
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                programaData programa = (programaData)Session["programaData"];
-                tblProgramasAcademicosTableAdapter programas = new tblProgramasAcademicosTableAdapter();
-                programas.ppEditarPrograma(programa.Id, txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
-                Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarPrograma.aspx';</script>");
+                if (ValidarCampos() == true)
+                {
+                    programaData programa = (programaData)Session["programaData"];
+                    tblProgramasAcademicosTableAdapter programas = new tblProgramasAcademicosTableAdapter();
+                    programas.ppEditarPrograma(programa.Id, txtNombre.Text, txtVersion.Text, int.Parse(txtCreditos.Text));
+                    Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarPrograma.aspx';</script>");
+                }
             }
             catch (Exception ex)
             {

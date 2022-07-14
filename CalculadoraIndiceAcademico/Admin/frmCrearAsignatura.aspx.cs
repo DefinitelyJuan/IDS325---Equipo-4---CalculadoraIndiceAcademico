@@ -36,8 +36,15 @@ namespace CalculadoraIndiceAcademico
             tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
             if (validarCampos())
             {
-                asignaturas.ppInsertarAsignatura(txtClave.Text, int.Parse(ddlArea.SelectedValue.ToString()), txtNombre.Text, byte.Parse(txtCreditos.Text));
-                Response.Write("Asignatura insertada");
+                try
+                {
+                    asignaturas.ppInsertarAsignatura(txtClave.Text, int.Parse(ddlArea.SelectedValue.ToString()), txtNombre.Text, byte.Parse(txtCreditos.Text));
+                    Response.Write("<script>alert('Asignatura insertada satisfactoriamente.');window.location = 'frmCrearAsignatura.aspx';</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
             }
             else Response.Write("Error al insertar asignatura.");
         }

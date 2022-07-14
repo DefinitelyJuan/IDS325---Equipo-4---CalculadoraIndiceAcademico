@@ -43,7 +43,7 @@ namespace CalculadoraIndiceAcademico
                 if(validarCampos())
                 {
                     estudiantes.ppCrearEstudiante(nombres, apellidos, correo, programa, GenerarClave(7), telefono);
-                    Response.Write("<script>alert('Estudiante insertado satisfactoriamente.');window.location = 'frmCrearPrograma.aspx';</script>");
+                    Response.Write("<script>alert('Estudiante insertado satisfactoriamente.');window.location = 'frmEstudiante.aspx';</script>");
                 }
             }
             catch(Exception ex)

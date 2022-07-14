@@ -31,7 +31,7 @@ namespace CalculadoraIndiceAcademico
 
         public bool validarCampos()
         {
-            if (txtNombre.Text.Trim() == "" || txtVersion.Text.Trim() == "" || !(int.TryParse(txtCreditos.Text, out int i)) || txtCreditos.Text.Trim() == "" || int.Parse(txtCreditos.Text.Trim()) > 5)
+            if (txtNombre.Text.Trim() == "" || txtVersion.Text.Trim() == "" || !(int.TryParse(txtCreditos.Text, out int i)) || txtCreditos.Text.Trim() == "" || int.Parse(txtCreditos.Text.Trim()) > 425)
                 return false;
             else
                 return true;

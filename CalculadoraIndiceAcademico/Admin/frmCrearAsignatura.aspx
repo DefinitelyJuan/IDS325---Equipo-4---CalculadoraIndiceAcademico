@@ -25,16 +25,16 @@
                 <h4 class="mainHeading">INGRESAR ASIGNATURA</h4>
 
                 <h5 class="mt-4 lbl d-flex-column align-self-start">Clave:</h5>
-                <asp:TextBox ID="txtClave" runat="server" CssClass="txt" Enabled="True"></asp:TextBox>
+                <asp:TextBox ID="txtClave" runat="server" CssClass="txt" Enabled="True" MaxLength="7"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
-                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt" MaxLength="70"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Sección:</h5>
-                <asp:TextBox ID="txtSeccion" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtSeccion" runat="server" CssClass="txt" MaxLength="2" TextMode="Number"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
-                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" MaxLength="1" TextMode="Number"></asp:TextBox>
                         
                 <h5 class="mt-4  lbl  d-flex-column align-self-start">Programa de estudio:</h5>
                 <asp:DropDownList ID="ddlArea" runat="server" CssClass="cmb" DataSourceID="dsAreas" DataTextField="Nombre" DataValueField="IDArea">
