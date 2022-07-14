@@ -132,13 +132,13 @@ namespace CalculadoraIndiceAcademico
         protected global::System.Web.UI.WebControls.LinkButton lbtnAsignaturas;
 
         /// <summary>
-        /// Control LinkButton1.
+        /// Control lbtnAsignarAsignatura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnAsignarAsignatura;
 
         /// <summary>
         /// Control lbtnGenerarIndice.

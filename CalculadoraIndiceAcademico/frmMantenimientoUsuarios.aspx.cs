@@ -209,5 +209,10 @@ namespace CalculadoraIndiceAcademico
                     break;
             }
         }
+
+        protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignarAsignatura.aspx");
+        }
     }
 }

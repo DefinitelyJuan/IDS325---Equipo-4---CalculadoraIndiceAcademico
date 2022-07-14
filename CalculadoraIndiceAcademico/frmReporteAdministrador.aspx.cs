@@ -50,5 +50,10 @@ namespace CalculadoraIndiceAcademico
             ReportViewer1.LocalReport.DataSources.Add(dataSource);
             ReportViewer1.LocalReport.Refresh();
         }
+
+        protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignarAsignatura.aspx");
+        }
     }
 }

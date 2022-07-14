@@ -69,8 +69,8 @@
                 </asp:LinkButton>
 
                 <asp:LinkButton 
-                    ID="LinkButton1" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="LinkButton1_Click" >
-                    <i class="fa fa-solid fa-file-pen"></i>&nbspAsignarAsignaturas
+                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="LinkButton1_Click" >
+                    <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas
                 </asp:LinkButton>
 
                 <asp:LinkButton

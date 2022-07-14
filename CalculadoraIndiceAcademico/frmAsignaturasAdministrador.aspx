@@ -55,7 +55,11 @@
                 <asp:LinkButton 
                     ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignaturas_Click"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
+                <asp:LinkButton 
+                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignarAsignatura_Click">
+                    <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas
+                </asp:LinkButton>
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click"> <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice </asp:LinkButton> 
                 <asp:LinkButton

@@ -21,22 +21,24 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnHome_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("frmMantenimientoAdministrador.aspx");
         }
 
         protected void lbtnMantenimiento_Click(object sender, EventArgs e)
         {
+            Response.Redirect("frmMantenimientoUsuarios.aspx");
 
         }
 
         protected void lbtnAsignaturas_Click(object sender, EventArgs e)
         {
+            Response.Redirect("frmAsignaturasAdministrador.aspx");
 
         }
 
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("frmReporteAdministrador.aspx");
         }
 
         protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
@@ -51,6 +53,12 @@ namespace CalculadoraIndiceAcademico
 
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignarAsignatura.aspx");
 
         }
     }

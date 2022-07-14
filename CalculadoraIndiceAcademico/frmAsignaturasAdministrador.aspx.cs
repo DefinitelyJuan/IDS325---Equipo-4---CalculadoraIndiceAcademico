@@ -76,5 +76,15 @@ namespace CalculadoraIndiceAcademico
             asignaturas.ppDesactivarAsignatura(int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text));
             Response.Write("<script>alert('Asignatura desactivada satisfactoriamente.');window.location = 'frmAsignaturasAdministrador.aspx';</script>");
         }
+
+        protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignarAsignatura.aspx");
+        }
+
+        protected void lbtnAsignaturas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignaturasAdministrador.aspx");
+        }
     }
 }
