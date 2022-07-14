@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\frmCalificacionAdministrador.aspx" />
+    <Content Include="Admin\frmCrearCalificacion.aspx" />
     <Content Include="BD.sql" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="Admin\frmCalificacionAdministrador.aspx.designer.cs">
       <DependentUpon>frmCalificacionAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmCrearCalificacion.aspx.cs">
+      <DependentUpon>frmCrearCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\frmCrearCalificacion.aspx.designer.cs">
+      <DependentUpon>frmCrearCalificacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="dsSCIA.cs">
       <DependentUpon>dsSCIA.xsd</DependentUpon>

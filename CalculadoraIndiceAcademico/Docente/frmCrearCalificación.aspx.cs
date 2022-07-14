@@ -30,7 +30,7 @@ namespace CalculadoraIndiceAcademico
             }
             calificacionData data = (calificacionData)Session["dataCalificacion"];
             txtCodigo.Text = data.codigoAsignatura;
-            txtEstudiante.Text = data.Nombre;
+            txtEstudiante.Text = data.NombreEstudiante;
             txtIDEstudiante.Text = data.IDEstudiante.ToString();
             txtNombreAsignatura.Text = data.NombreAsignatura;
         }

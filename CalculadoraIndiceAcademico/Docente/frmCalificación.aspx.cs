@@ -41,7 +41,7 @@ namespace CalculadoraIndiceAcademico
             
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[0].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[0].Cells[2].Text);
-            calData.Nombre = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[3].Text);
+            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[3].Text);
             calData.codigoAsignatura = gridMantenimiento.Rows[0].Cells[4].Text;
             calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[5].Text);
             calData.CalificacionNum = int.Parse(gridMantenimiento.Rows[0].Cells[6].Text);
@@ -79,7 +79,7 @@ namespace CalculadoraIndiceAcademico
             calificacionData calData = new calificacionData();
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[2].Text);
-            calData.Nombre = HttpUtility.HtmlDecode(gridMantenimiento.Rows[selectedIndex].Cells[3].Text);
+            calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.Rows[selectedIndex].Cells[3].Text);
             calData.codigoAsignatura = gridMantenimiento.Rows[selectedIndex].Cells[4].Text;
             calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[selectedIndex].Cells[5].Text);
             calData.CalificacionNum = int.Parse(gridMantenimiento.Rows[selectedIndex].Cells[6].Text);

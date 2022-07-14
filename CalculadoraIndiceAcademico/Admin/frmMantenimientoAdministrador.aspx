@@ -59,7 +59,7 @@
                 </asp:LinkButton>
 
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton">
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
 

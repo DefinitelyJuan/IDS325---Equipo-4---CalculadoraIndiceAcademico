@@ -25,7 +25,7 @@
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click">
                     <i class="fa fa-thin fa-cancel"></i>
                 </asp:LinkButton>
-                <iframe id="iframe1" src="frmAsignarCalificación.aspx" runat="server" class="formFrame"></iframe>     
+                <iframe id="iframe1" src="frmCrearCalificacion.aspx" runat="server" class="formFrame"></iframe>     
 
             </asp:Panel>  
 
@@ -52,7 +52,7 @@
                 <asp:LinkButton 
                     ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click"> <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton" OnClick="lbtnCalificaciones_Click"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
                 <asp:LinkButton 
@@ -126,6 +126,7 @@
                             <asp:CommandField ButtonType="Button" ShowSelectButton="True">
                             <ControlStyle CssClass="btn btnSeleccionar" />
                             </asp:CommandField>
+                            <asp:BoundField DataField="ID Asignatura" HeaderText="ID Asignatura" SortExpression="ID Asignatura" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="Asignatura" HeaderText="Asignatura" SortExpression="Asignatura" />
                             <asp:BoundField DataField="Código" HeaderText="Código" SortExpression="Código" />
                             <asp:BoundField DataField="ID del Docente " HeaderText="ID del Docente " SortExpression="ID del Docente " />

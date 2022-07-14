@@ -68,7 +68,6 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
         {
-
         }
 
 
@@ -85,6 +84,11 @@ namespace CalculadoraIndiceAcademico
         {
             Response.Redirect("frmAsignarAsignatura.aspx");
 
+        }
+
+        protected void lbtnCalificaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmCalificacionAdministrador.aspx");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculadoraIndiceAcademico.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -32,12 +33,20 @@ namespace CalculadoraIndiceAcademico.Admin
             if (!this.IsPostBack)
             {
                 ddlAsignaturas.DataBind();
+                gridMantenimiento.DataBind();
                 gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
             }
-            //Models.asignaturaDocData adocData = new Models.asignaturaDocData();
-            //adocData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
-            //adocData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
-            //Session["AsigDocData"] = adocData;
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            calificacionData calData = new calificacionData();
+            calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
+            calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
+            calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+            calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
+            calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
+            calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
+            calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+            Session["calAdminData"] = calData;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -76,8 +85,16 @@ namespace CalculadoraIndiceAcademico.Admin
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
-            Models.calificacionData calData = new Models.calificacionData();
-
+            calificacionData calData = new calificacionData();
+            calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
+            calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
+            calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+            calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
+            calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
+            calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
+            calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+            Session["calAdminData"] = calData;
         }
 
         protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
@@ -89,6 +106,11 @@ namespace CalculadoraIndiceAcademico.Admin
         protected void ddlAsignaturas_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridMantenimiento.DataBind();
+        }
+
+        protected void lbtnCalificaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmCalificacionAdministrador.aspx");
         }
     }
 }

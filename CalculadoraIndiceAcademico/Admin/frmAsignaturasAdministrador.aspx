@@ -53,7 +53,7 @@
                 <asp:LinkButton 
                     ID="lbtnMantenimiento" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnMantenimiento_Click"> <i class="fa fa-solid fa-gear"></i>&nbspMantenimiento </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
+                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignaturas_Click"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
                 <asp:LinkButton 

@@ -145,7 +145,7 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmCalificacionesAdministrador.aspx");
+            Response.Redirect("frmCalificacionAdministrador.aspx");
         }
 
         protected void lbtnAsignaturas_Click(object sender, EventArgs e)
