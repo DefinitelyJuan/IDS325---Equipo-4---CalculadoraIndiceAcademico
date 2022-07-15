@@ -1,11 +1,5 @@
 ﻿using CalculadoraIndiceAcademico.dsSCIATableAdapters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CalculadoraIndiceAcademico
 {
@@ -31,10 +25,19 @@ namespace CalculadoraIndiceAcademico
             }
         }
 
+        private bool ValidarCampos()
+        {
+            if (txtClave.Text.Trim() == "" || txtCreditos.Text.Trim() == "" || txtNombre.Text.Trim() == "" || txtSeccion.Text.Trim() == "" || int.Parse(txtCreditos.Text.Trim()) > 5)
+                return false;
+            else
+                return true;
+        }
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
-            if (validarCampos())
+
+            if (ValidarCampos() == true)
             {
                 try
                 {
@@ -46,16 +49,9 @@ namespace CalculadoraIndiceAcademico
                     Response.Write($"<script>alert({ex})</script>");
                 }
             }
-            else Response.Write("Error al insertar asignatura.");
-        }
-
-
-        public bool validarCampos()
-        {
-            if (txtNombre.Text == "" || txtSeccion.Text == "" || (txtClave.Text == "" || int.TryParse(txtClave.Text.ToString(), out int i)))
-                return false;
             else
-                return true;
+                Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearAsignatura.aspx';</script>");
         }
+
     }
 }

@@ -28,13 +28,13 @@
                 <asp:TextBox ID="txtID" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre:</h5>
-                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="txt" MaxLength="70"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Código:</h5>
-                <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt" MaxLength="7"></asp:TextBox>
             
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
-                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" textmode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" textmode="Number" MaxLength="1"></asp:TextBox>
             
                 <h5 class="mt-4  lbl  d-flex-column align-self-start">Área Académica:</h5>
                 <asp:DropDownList ID="ddlArea" runat="server" CssClass="cmb" DataSourceID="ObjectDataSource1" DataTextField="Nombre" DataValueField="IDArea">

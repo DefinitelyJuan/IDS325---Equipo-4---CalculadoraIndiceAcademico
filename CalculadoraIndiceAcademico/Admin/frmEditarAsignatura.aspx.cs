@@ -44,9 +44,29 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
-            asignaturas.ppEditarAsignatura(int.Parse(txtID.Text),txtCodigo.Text,txtNombre.Text,byte.Parse(txtCreditos.Text),int.Parse(ddlArea.SelectedValue));
-            Response.Write("<script>alert('Asignatura editada satisfactoriamente.');window.location = 'frmEditarAsignatura.aspx';</script>");
+            if (ValidarCampos() == true)
+            {
+                try
+                {
+                    tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
+                    asignaturas.ppEditarAsignatura(int.Parse(txtID.Text), txtCodigo.Text, txtNombre.Text, byte.Parse(txtCreditos.Text), int.Parse(ddlArea.SelectedValue));
+                    Response.Write("<script>alert('Asignatura editada satisfactoriamente.');window.location = 'frmEditarAsignatura.aspx';</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
+            }
+            else
+                Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmEditarAsignatura.aspx';</script>");
+        }
+
+        private bool ValidarCampos()
+        {
+            if (txtCodigo.Text.Trim() == "" || txtCreditos.Text.Trim() == "" || txtNombre.Text.Trim() == "" || int.Parse(txtCreditos.Text.Trim()) > 5)
+                return false;
+            else
+                return true;
         }
     }
 }
