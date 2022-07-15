@@ -24,95 +24,22 @@
             <div class="d-flex align-items-center flex-column p-3">
                 <h4 class="mainHeading">Asignar Asignatura</h4>
                 
-                <h5 class="mt-4  lbl  d-flex-column align-self-start">Docente:</h5>
-                <asp:DropDownList ID="ddlDocente" runat="server" CssClass="cmb" DataSourceID="ObjectDataSource1" DataTextField="IDUsuario" DataValueField="IDDocente" AutoPostBack="True" OnSelectedIndexChanged="ddlDocente_SelectedIndexChanged">
-                    <asp:ListItem CssClass="dropdown-item"></asp:ListItem>
-                    <asp:ListItem CssClass="dropdown-item">Ingeniería de Software (IDS 2020)</asp:ListItem>
-                    <asp:ListItem CssClass="dropdown-item">Ingeniería de Sistemas (SIS 2020)</asp:ListItem>
-                    <asp:ListItem CssClass="dropdown-item">Ingeniería de Ciberseguridad (ICS 2020)</asp:ListItem>
-                </asp:DropDownList>
+                <h5 class="mt-4 lbl  d-flex-column align-self-start">Asignatura:</h5>
+                <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
 
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblDocentesTableAdapter" UpdateMethod="Update">
-                    <DeleteParameters>
-                        <asp:Parameter Name="Original_IDDocente" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="IDUsuario" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="Apellido" Type="String" />
-                        <asp:Parameter Name="Correo" Type="String" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="IDUsuario" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="Apellido" Type="String" />
-                        <asp:Parameter Name="Correo" Type="String" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                        <asp:Parameter Name="Original_IDDocente" Type="Int32" />
-                    </UpdateParameters>
-                </asp:ObjectDataSource>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre del Docente:</h5>
+                <h5 class="mt-4  lbl  d-flex-column align-self-start">ID Docente:</h5>
+                <asp:TextBox ID="txtIdDocente" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
+
+                <h5 class="mt-4 lbl  d-flex-column align-self-start">Nombre del Docente:</h5>
                 <asp:TextBox ID="txtNombreDocente" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
 
-                <asp:DropDownList ID="ddlAsignatura" runat="server" CssClass ="cmb mt-4" DataSourceID="ObjectDataSource2" DataTextField="Codigo" DataValueField="IDAsignatura" AutoPostBack="True" OnSelectedIndexChanged="ddlAsignatura_SelectedIndexChanged"></asp:DropDownList>
-                <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblAsignaturasTableAdapter" UpdateMethod="Update">
-                    <DeleteParameters>
-                        <asp:Parameter Name="Original_IDAsignatura" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="Codigo" Type="String" />
-                        <asp:Parameter Name="IDAreaAcademica" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="NumCreditos" Type="Byte" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="Codigo" Type="String" />
-                        <asp:Parameter Name="IDAreaAcademica" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="NumCreditos" Type="Byte" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                        <asp:Parameter Name="Original_IDAsignatura" Type="Int32" />
-                    </UpdateParameters>
-                </asp:ObjectDataSource>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Asignatura:</h5>
-                <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
-                <asp:DropDownList ID="ddlEstudiante" runat="server" CssClass ="cmb mt-4" DataSourceID="ObjectDataSource3" DataTextField="IDUsuario" DataValueField="IDEstudiante" AutoPostBack="True" OnSelectedIndexChanged="ddlEstudiante_SelectedIndexChanged"></asp:DropDownList>
+                <h5 class="mt-4 lbl  d-flex-column align-self-start">Calificación Numérica:</h5>
+                <asp:TextBox ID="txtCalificacion" runat="server" CssClass="txt"></asp:TextBox>
 
-                <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.tblEstudiantesTableAdapter" UpdateMethod="Update">
-                    <DeleteParameters>
-                        <asp:Parameter Name="Original_IDEstudiante" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="IDUsuario" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="Apellido" Type="String" />
-                        <asp:Parameter Name="Correo" Type="String" />
-                        <asp:Parameter Name="Trimestre" Type="String" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                        <asp:Parameter Name="Estado" Type="Boolean" />
-                        <asp:Parameter Name="NumTelefonico" Type="String" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="IDUsuario" Type="Int32" />
-                        <asp:Parameter Name="Nombre" Type="String" />
-                        <asp:Parameter Name="Apellido" Type="String" />
-                        <asp:Parameter Name="Correo" Type="String" />
-                        <asp:Parameter Name="Trimestre" Type="String" />
-                        <asp:Parameter Name="FechaCreacion" Type="DateTime" />
-                        <asp:Parameter Name="FechaModificacion" Type="DateTime" />
-                        <asp:Parameter Name="Estado" Type="Boolean" />
-                        <asp:Parameter Name="NumTelefonico" Type="String" />
-                        <asp:Parameter Name="Original_IDEstudiante" Type="Int32" />
-                    </UpdateParameters>
-                </asp:ObjectDataSource>
-                <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre del Estudiante:</h5>
+                <h5 class="mt-4 lbl  d-flex-column align-self-start">ID del Estudiante:</h5>
+                <asp:TextBox ID="txtIdEstudiante" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
+
+                <h5 class="mt-4 lbl  d-flex-column align-self-start">Nombre del Estudiante:</h5>
                 <asp:TextBox ID="txtNombreEstudiante" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
             </div>
             

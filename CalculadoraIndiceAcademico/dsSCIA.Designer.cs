@@ -9931,6 +9931,10 @@ namespace CalculadoraIndiceAcademico {
             
             private global::System.Data.DataColumn columnTrimeste;
             
+            private global::System.Data.DataColumn columnCalificacion_Literal;
+            
+            private global::System.Data.DataColumn columnCalificacion_Numérica;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ppMostrarCalxDocenteAdminDataTable() {
@@ -10030,6 +10034,22 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Calificacion_LiteralColumn {
+                get {
+                    return this.columnCalificacion_Literal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Calificacion_NuméricaColumn {
+                get {
+                    return this.columnCalificacion_Numérica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -10065,7 +10085,7 @@ namespace CalculadoraIndiceAcademico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ppMostrarCalxDocenteAdminRow AddppMostrarCalxDocenteAdminRow(string Asignatura, string Código, int ID_del_Docente_, string Docente, string Estudiante, string Trimeste) {
+            public ppMostrarCalxDocenteAdminRow AddppMostrarCalxDocenteAdminRow(string Asignatura, string Código, int ID_del_Docente_, string Docente, string Estudiante, string Trimeste, string Calificacion_Literal, double Calificacion_Numérica) {
                 ppMostrarCalxDocenteAdminRow rowppMostrarCalxDocenteAdminRow = ((ppMostrarCalxDocenteAdminRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -10075,7 +10095,9 @@ namespace CalculadoraIndiceAcademico {
                         Docente,
                         Estudiante,
                         null,
-                        Trimeste};
+                        Trimeste,
+                        Calificacion_Literal,
+                        Calificacion_Numérica};
                 rowppMostrarCalxDocenteAdminRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowppMostrarCalxDocenteAdminRow);
                 return rowppMostrarCalxDocenteAdminRow;
@@ -10106,6 +10128,8 @@ namespace CalculadoraIndiceAcademico {
                 this.columnEstudiante = base.Columns["Estudiante"];
                 this.columnID_del_estudiante = base.Columns["ID del estudiante"];
                 this.columnTrimeste = base.Columns["Trimeste"];
+                this.columnCalificacion_Literal = base.Columns["Calificacion Literal"];
+                this.columnCalificacion_Numérica = base.Columns["Calificacion Numérica"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10127,6 +10151,10 @@ namespace CalculadoraIndiceAcademico {
                 base.Columns.Add(this.columnID_del_estudiante);
                 this.columnTrimeste = new global::System.Data.DataColumn("Trimeste", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrimeste);
+                this.columnCalificacion_Literal = new global::System.Data.DataColumn("Calificacion Literal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCalificacion_Literal);
+                this.columnCalificacion_Numérica = new global::System.Data.DataColumn("Calificacion Numérica", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCalificacion_Numérica);
                 this.columnID_Asignatura.AutoIncrement = true;
                 this.columnID_Asignatura.AllowDBNull = false;
                 this.columnID_Asignatura.ReadOnly = true;
@@ -10144,6 +10172,9 @@ namespace CalculadoraIndiceAcademico {
                 this.columnID_del_estudiante.ReadOnly = true;
                 this.columnTrimeste.AllowDBNull = false;
                 this.columnTrimeste.MaxLength = 7;
+                this.columnCalificacion_Literal.AllowDBNull = false;
+                this.columnCalificacion_Literal.MaxLength = 2;
+                this.columnCalificacion_Numérica.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12686,6 +12717,28 @@ namespace CalculadoraIndiceAcademico {
                 }
                 set {
                     this[this.tableppMostrarCalxDocenteAdmin.TrimesteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Calificacion_Literal {
+                get {
+                    return ((string)(this[this.tableppMostrarCalxDocenteAdmin.Calificacion_LiteralColumn]));
+                }
+                set {
+                    this[this.tableppMostrarCalxDocenteAdmin.Calificacion_LiteralColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double Calificacion_Numérica {
+                get {
+                    return ((double)(this[this.tableppMostrarCalxDocenteAdmin.Calificacion_NuméricaColumn]));
+                }
+                set {
+                    this[this.tableppMostrarCalxDocenteAdmin.Calificacion_NuméricaColumn] = value;
                 }
             }
             
@@ -20944,12 +20997,12 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             this._commandCollection[3].CommandText = "dbo.ppEditarCalificacionAdmin";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdAsignaturaOld", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trimestre", global::System.Data.SqlDbType.VarChar, 7, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdEstudianteOld", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdAsignaturaNew", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdEstudianteNew", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdDocenteNew", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDDocente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDAsignatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDEstudiante", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trimestre", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CalificacionNumerica", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CalificacionLiteral", global::System.Data.SqlDbType.VarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21217,43 +21270,43 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int ppEditarCalificacionAdmin(global::System.Nullable<int> IdAsignaturaOld, string Trimestre, global::System.Nullable<int> IdEstudianteOld, global::System.Nullable<int> IdAsignaturaNew, global::System.Nullable<int> IdEstudianteNew, global::System.Nullable<int> IdDocenteNew) {
+        public virtual int ppEditarCalificacionAdmin(global::System.Nullable<int> IDDocente, global::System.Nullable<int> IDAsignatura, global::System.Nullable<int> IDEstudiante, string Trimestre, global::System.Nullable<int> CalificacionNumerica, string CalificacionLiteral) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            if ((IdAsignaturaOld.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(IdAsignaturaOld.Value));
+            if ((IDDocente.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(IDDocente.Value));
             }
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Trimestre == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
+            if ((IDAsignatura.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(IDAsignatura.Value));
             }
             else {
-                command.Parameters[2].Value = ((string)(Trimestre));
+                command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((IdEstudianteOld.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(IdEstudianteOld.Value));
+            if ((IDEstudiante.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(IDEstudiante.Value));
             }
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((IdAsignaturaNew.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(IdAsignaturaNew.Value));
-            }
-            else {
+            if ((Trimestre == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((IdEstudianteNew.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(IdEstudianteNew.Value));
+            else {
+                command.Parameters[4].Value = ((string)(Trimestre));
+            }
+            if ((CalificacionNumerica.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(CalificacionNumerica.Value));
             }
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((IdDocenteNew.HasValue == true)) {
-                command.Parameters[6].Value = ((int)(IdDocenteNew.Value));
+            if ((CalificacionLiteral == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = global::System.DBNull.Value;
+                command.Parameters[6].Value = ((string)(CalificacionLiteral));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -21602,6 +21655,8 @@ namespace CalculadoraIndiceAcademico.dsSCIATableAdapters {
             tableMapping.ColumnMappings.Add("Estudiante", "Estudiante");
             tableMapping.ColumnMappings.Add("ID del estudiante", "ID del estudiante");
             tableMapping.ColumnMappings.Add("Trimeste", "Trimeste");
+            tableMapping.ColumnMappings.Add("Calificacion Literal", "Calificacion Literal");
+            tableMapping.ColumnMappings.Add("Calificacion Numérica", "Calificacion Numérica");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

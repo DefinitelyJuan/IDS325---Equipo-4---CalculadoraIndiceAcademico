@@ -136,6 +136,8 @@
                             <asp:BoundField DataField="Estudiante" HeaderText="Estudiante" SortExpression="Estudiante" ReadOnly="True" />
                             <asp:BoundField DataField="ID del estudiante" HeaderText="ID del estudiante" SortExpression="ID del estudiante" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="Trimeste" HeaderText="Trimeste" SortExpression="Trimeste" />
+                            <asp:BoundField DataField="Calificacion Literal" HeaderText="Calificacion Literal" SortExpression="Calificacion Literal" />
+                            <asp:BoundField DataField="Calificacion Numérica" HeaderText="Calificacion Numérica" SortExpression="Calificacion Numérica" />
                         </Columns>
                     </asp:GridView>
                     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.ppMostrarCalxDocenteAdminTableAdapter">

@@ -32,31 +32,12 @@ namespace CalculadoraIndiceAcademico.Admin
             if (!this.IsPostBack)
             {
                 calificacionData calificacion = (calificacionData)Session["calAdminData"];
-                ddlAsignatura.SelectedValue = calificacion.IDAsignatura.ToString();
-                ddlDocente.SelectedValue = calificacion.IDDocente.ToString();
-                ddlEstudiante.SelectedValue = calificacion.IDEstudiante.ToString();
                 txtNombreAsignatura.Text = calificacion.NombreAsignatura;
+                txtIdDocente.Text = calificacion.IDDocente.ToString();
                 txtNombreDocente.Text = calificacion.NombreDocente;
+                txtIdEstudiante.Text = calificacion.IDEstudiante.ToString();
                 txtNombreEstudiante.Text = calificacion.NombreEstudiante;
             }
-        }
-
-        protected void ddlDocente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
-            txtNombreDocente.Text = (string)docentes.ppObtenerDocentexId(int.Parse(ddlDocente.SelectedValue));
-        }
-
-        protected void ddlAsignatura_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
-            txtNombreAsignatura.Text = (string)asignaturas.ppObtenerAsignaturaxID(int.Parse(ddlAsignatura.SelectedValue));
-        }
-
-        protected void ddlEstudiante_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-            txtNombreEstudiante.Text = (string)estudiantes.ppObtenerEstudiantexId(int.Parse(ddlEstudiante.SelectedValue));
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -64,14 +45,31 @@ namespace CalculadoraIndiceAcademico.Admin
             try
             {
                 calificacionData calificacion = (calificacionData)Session["calAdminData"];
+                string trimestre = calificacion.trimeste;
+                string califLiteral = ConvertirCalificacionLiteral(int.Parse(txtCalificacion.Text));
                 tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
-                calificaciones.ppEditarCalificacionAdmin(calificacion.IDAsignatura, calificacion.trimeste, calificacion.IDEstudiante, int.Parse(ddlAsignatura.SelectedValue), int.Parse(ddlEstudiante.SelectedValue), int.Parse(ddlDocente.SelectedValue));
+                calificaciones.ppEditarCalificacionAdmin(calificacion.IDDocente, calificacion.IDAsignatura, calificacion.IDEstudiante, trimestre, int.Parse(txtCalificacion.Text), califLiteral);
+
                 Response.Write("<script>alert('Registro editado correctamente');window.location = 'frmEditarCalificación.aspx';</script>");
             }
             catch
             {
                 Response.Write("<script>alert('No es posile editar el registro, verifique los cambios');window.location = 'frmEditarCalificación.aspx';</script>");
             }
+        }
+
+        public string ConvertirCalificacionLiteral(int numerica)
+        {
+            if (numerica >= 90)
+                return "A";
+            else if (numerica >= 80)
+                return "B";
+            else if (numerica >= 70)
+                return "C";
+            else if (numerica >= 60)
+                return "D";
+            else
+                return "F";
         }
     }
 }

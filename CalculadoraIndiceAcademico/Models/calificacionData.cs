@@ -18,6 +18,5 @@ namespace CalculadoraIndiceAcademico.Models
         public string CalificacionLiteral { get; set; }
         public string trimeste { get; set; }
 
-
     }
 }

@@ -49,6 +49,8 @@ namespace CalculadoraIndiceAcademico.Admin
             calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
             calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+            calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
+            calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
             Session["calAdminData"] = calData;
         }
 
@@ -96,6 +98,8 @@ namespace CalculadoraIndiceAcademico.Admin
             calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
             calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+            calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
+            calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
             Session["calAdminData"] = calData;
         }
 

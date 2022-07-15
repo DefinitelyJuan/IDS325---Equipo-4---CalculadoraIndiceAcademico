@@ -24,22 +24,22 @@ namespace CalculadoraIndiceAcademico.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ddlDocente control.
+        /// txtNombreAsignatura control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDocente;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreAsignatura;
 
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// txtIdDocente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.WebControls.TextBox txtIdDocente;
 
         /// <summary>
         /// txtNombreDocente control.
@@ -51,49 +51,22 @@ namespace CalculadoraIndiceAcademico.Admin
         protected global::System.Web.UI.WebControls.TextBox txtNombreDocente;
 
         /// <summary>
-        /// ddlAsignatura control.
+        /// txtCalificacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAsignatura;
+        protected global::System.Web.UI.WebControls.TextBox txtCalificacion;
 
         /// <summary>
-        /// ObjectDataSource2 control.
+        /// txtIdEstudiante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
-
-        /// <summary>
-        /// txtNombreAsignatura control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreAsignatura;
-
-        /// <summary>
-        /// ddlEstudiante control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstudiante;
-
-        /// <summary>
-        /// ObjectDataSource3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource3;
+        protected global::System.Web.UI.WebControls.TextBox txtIdEstudiante;
 
         /// <summary>
         /// txtNombreEstudiante control.
