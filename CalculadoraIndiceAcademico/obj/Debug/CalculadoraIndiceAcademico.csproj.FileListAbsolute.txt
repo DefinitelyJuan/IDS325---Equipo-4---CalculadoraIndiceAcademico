@@ -624,12 +624,6 @@ C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\Calcula
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.dll
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.pdb
 C:\Users\moroc\Desktop\UNIVERSIDAD\IDS325 Aseguramiento\Proyecto\TESTING\CalculadoraIndiceAcademico\obj\Debug\CalculadoraIndiceAcademico.csproj.AssemblyReference.cache
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\LEONEL\source\repos\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\Microsoft.MSXML.dll
 C:\Users\moroc\Desktop\Version PreTest\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\SqlServerTypes\x64\msvcr120.dll
 C:\Users\moroc\Desktop\Version PreTest\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\moroc\Desktop\Version PreTest\IDS325---Equipo-4---CalculadoraIndiceAcademico\CalculadoraIndiceAcademico\bin\SqlServerTypes\x86\msvcr120.dll

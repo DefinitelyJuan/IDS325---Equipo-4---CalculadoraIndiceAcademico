@@ -387,6 +387,7 @@
     <Compile Include="Models\calificacionData.cs" />
     <Compile Include="Models\docenteData.cs" />
     <Compile Include="Models\estudianteData.cs" />
+    <Compile Include="Models\Helper\Metodos.cs" />
     <Compile Include="Models\programaData.cs" />
     <Compile Include="Models\rolData.cs" />
     <Compile Include="Models\userData.cs" />
