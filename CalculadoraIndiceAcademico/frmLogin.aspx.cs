@@ -23,12 +23,17 @@ namespace CalculadoraIndiceAcademico
             tblUsuariosTableAdapter usuario = new tblUsuariosTableAdapter();
             ppGetUserDataTableAdapter ppgetdata = new ppGetUserDataTableAdapter();
             ppObtenerDataDocenteTableAdapter obtenerDataDoc = new ppObtenerDataDocenteTableAdapter();
-            DataTable ds = usuario.GetDataByLogin(txtUsuario.Text, txtContraseña.Text);
-            string rol = ds.Rows[0][2].ToString();
-            string id = ds.Rows[0][0].ToString();
-            Session["authRol"] = rol;
+            if (!int.TryParse(txtUsuario.Text,out int i))
+            {
+                Response.Write("<script>alert('Credenciales inválidas');window.location = 'frmLogin.aspx';</script>");
+                Response.Redirect("frmLogin.aspx");
+            }
+            DataTable ds = usuario.GetDataByLogin(txtUsuario.Text, txtContraseña.Text);        
             if (ds.Rows.Count == 1)
             {
+                string rol = ds.Rows[0][2].ToString();
+                string id = ds.Rows[0][0].ToString();
+                Session["authRol"] = rol;
                 switch (rol)
                 {
                     case "1":
@@ -60,7 +65,7 @@ namespace CalculadoraIndiceAcademico
             }
             else
             {
-                Response.Write("Inválido");
+                Response.Write("<script>alert('Credenciales inválidas');window.location = 'frmLogin.aspx';</script>");
             }
         }
     }
