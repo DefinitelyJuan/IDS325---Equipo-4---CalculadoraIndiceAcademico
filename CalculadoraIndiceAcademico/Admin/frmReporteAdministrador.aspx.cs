@@ -33,11 +33,18 @@ namespace CalculadoraIndiceAcademico
             ppMostrarCalificacionesAdminTableAdapter adapterAdmin = new ppMostrarCalificacionesAdminTableAdapter();
             if (!this.IsPostBack)
             {
-                DataTable dtAdmin = adapterAdmin.GetData(int.Parse(ddlTipoRank.SelectedValue));
-                ReportDataSource dataSource = new ReportDataSource("dsReporteAdministrador", dtAdmin);
-                ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.LocalReport.DataSources.Add(dataSource);
-                ReportViewer1.LocalReport.Refresh();
+                try
+                {
+                    DataTable dtAdmin = adapterAdmin.GetData(int.Parse(ddlTipoRank.SelectedValue));
+                    ReportDataSource dataSource = new ReportDataSource("dsReporteAdministrador", dtAdmin);
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.LocalReport.DataSources.Add(dataSource);
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
             }
         }
 
@@ -58,12 +65,19 @@ namespace CalculadoraIndiceAcademico
 
         protected void ddlTipoRank_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ppMostrarCalificacionesAdminTableAdapter adapterAdmin = new ppMostrarCalificacionesAdminTableAdapter();
-            DataTable dtAdmin = adapterAdmin.GetData(int.Parse(ddlTipoRank.SelectedValue));
-            ReportDataSource dataSource = new ReportDataSource("dsReporteAdministrador", dtAdmin);
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(dataSource);
-            ReportViewer1.LocalReport.Refresh();
+            try
+            {
+                ppMostrarCalificacionesAdminTableAdapter adapterAdmin = new ppMostrarCalificacionesAdminTableAdapter();
+                DataTable dtAdmin = adapterAdmin.GetData(int.Parse(ddlTipoRank.SelectedValue));
+                ReportDataSource dataSource = new ReportDataSource("dsReporteAdministrador", dtAdmin);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(dataSource);
+                ReportViewer1.LocalReport.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
         }
 
         protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)
