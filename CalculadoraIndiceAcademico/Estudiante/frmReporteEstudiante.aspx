@@ -34,8 +34,6 @@
                 <img class="logoImg" src="../Resources/Imagenes/sciaLogo.png" />
                 <asp:LinkButton 
                     ID="lbtnHome" runat="server" CssClass="btn mt-auto btn-outline-primary secondaryButton" OnClick="lbtnHome_Click"> <i class="fa fa-thin fa-house"></i>&nbspInicio </asp:LinkButton>
-                <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn selectedButton"> <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice </asp:LinkButton> 
                 <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>

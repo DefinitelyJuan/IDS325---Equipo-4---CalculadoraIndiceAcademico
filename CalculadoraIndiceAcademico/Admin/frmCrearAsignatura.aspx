@@ -36,7 +36,7 @@
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
                 <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" MaxLength="1" TextMode="Number"></asp:TextBox>
                         
-                <h5 class="mt-4  lbl  d-flex-column align-self-start">Programa de estudio:</h5>
+                <h5 class="mt-4  lbl  d-flex-column align-self-start">Área académica:</h5>
                 <asp:DropDownList ID="ddlArea" runat="server" CssClass="cmb" DataSourceID="dsAreas" DataTextField="Nombre" DataValueField="IDArea">
                     <asp:ListItem CssClass="dropdown-item"></asp:ListItem>
                     <asp:ListItem CssClass="dropdown-item">Ingeniería de Software (IDS 2020)</asp:ListItem>

@@ -45,7 +45,14 @@ namespace CalculadoraIndiceAcademico
             {
                 tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
                 docenteData docente = (docenteData)Session["docenteData"];
-                docentes.ppEditarDocente(docente.IdUsuario, docente.IdDocente, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text);
+                if(txtContra.Text.Length > 0)
+                {
+                    docentes.ppEditarDocente(docente.IdUsuario, docente.IdDocente, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text);
+                }
+                else
+                {
+                    docentes.ppEditarDocente(docente.IdUsuario, docente.IdDocente, docente.Contra, txtNombres.Text, txtApellidos.Text, txtCorreo.Text);
+                }
                 Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmEditarDocente.aspx';</script>");
             }
             catch (Exception ex)

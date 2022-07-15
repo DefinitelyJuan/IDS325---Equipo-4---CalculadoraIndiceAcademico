@@ -44,6 +44,8 @@ namespace CalculadoraIndiceAcademico
                     btnCreate.Disabled = false;
                     btnDelete.Enabled = true;
                     btnUpdate.Disabled = false;
+                    if(!this.IsPostBack)
+                        gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
 
                     estudianteData estudiante = new estudianteData();
                     int selectedIndex = gridMantenimientoEst.SelectedIndex;
@@ -69,6 +71,8 @@ namespace CalculadoraIndiceAcademico
                     btnCreate.Disabled = false;
                     btnDelete.Enabled = true;
                     btnUpdate.Disabled = false;
+                    if (!this.IsPostBack)
+                        gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
 
                     docenteData docente = new docenteData();
                     selectedIndex = gridMantenimientoDoc.SelectedIndex;
@@ -88,6 +92,8 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoDoc.Visible = false;
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = true;
+                    if (!this.IsPostBack)
+                        gridMantenimientoAdmin.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     btnCreate.Disabled = true;
                     btnDelete.Enabled = false;
                     btnUpdate.Disabled = true;
@@ -119,26 +125,28 @@ namespace CalculadoraIndiceAcademico
                     btnCreate.Disabled = false;
                     btnDelete.Enabled = true;
                     btnUpdate.Disabled = false;
+                    gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
                 case "Docente":
                     iframe1.Src = "frmCrearDocente.aspx";
-                    iframe2.Src = "frmEditarEstudiante.aspx";
+                    iframe2.Src = "frmEditarDocente.aspx";
                     gridMantenimientoDoc.Visible = true;
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = false;
                     btnCreate.Disabled = false;
                     btnDelete.Enabled = true;
                     btnUpdate.Disabled = false;
+                    gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
                 case "Administrador":
                     iframe1.Src = "frmCrearAdministrador.aspx";
-                    iframe2.Src = "";
                     gridMantenimientoDoc.Visible = false;
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = true;
                     btnCreate.Disabled = true;
                     btnDelete.Enabled = false;
                     btnUpdate.Disabled = true;
+                    gridMantenimientoAdmin.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
             }
         }
@@ -236,6 +244,18 @@ namespace CalculadoraIndiceAcademico
         {
             Session["authRol"] = "0";
             Response.Redirect("../frmLogin.aspx");
+        }
+
+        protected void btnCancel1_Click(object sender, EventArgs e)
+        {
+            gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+        }
+
+        protected void btnCancel_Click1(object sender, EventArgs e)
+        {
+            gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
         }
     }
 }

@@ -57,6 +57,7 @@ namespace CalculadoraIndiceAcademico.Admin
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             frmPopUp.Hide();
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
         }
 
         protected void lbtnHome_Click(object sender, EventArgs e)
@@ -123,6 +124,11 @@ namespace CalculadoraIndiceAcademico.Admin
         {
             Session["authRol"] = "0";
             Response.Redirect("../frmLogin.aspx");
+        }
+
+        protected void btnCancel1_Click(object sender, EventArgs e)
+        {
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
         }
     }
 }

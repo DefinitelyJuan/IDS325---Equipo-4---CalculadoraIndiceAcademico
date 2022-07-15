@@ -25,10 +25,6 @@
                     ID="lbtnHome" runat="server" CssClass="btn mt-auto selectedButton">
                     <i class="fa fa-thin fa-house"></i>&nbspInicio
                 </asp:LinkButton>
-                <asp:LinkButton 
-                    ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click">
-                    <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
-                </asp:LinkButton>
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click">
                     <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice

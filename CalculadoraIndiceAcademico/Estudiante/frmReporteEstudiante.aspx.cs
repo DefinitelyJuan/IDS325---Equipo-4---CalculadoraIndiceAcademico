@@ -71,10 +71,6 @@ namespace CalculadoraIndiceAcademico
             Response.Redirect("frmPerfilEstudiante.aspx");
         }
 
-        protected void lbtnCalificaciones_Click(object sender, EventArgs e)
-        {
-        }
-
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
 

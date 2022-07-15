@@ -112,6 +112,9 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoArea.Visible = false;
                     gridMantenimientoPrograma.Visible = false;
                     gridMantenimiento.Visible = true;
+                    gridMantenimientoArea.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimientoPrograma.SelectedRow.BackColor = Color.FromName("#fcfcd4");
 
                     break;
                 case "Programa Académico":
@@ -120,6 +123,9 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoArea.Visible = false;
                     gridMantenimientoPrograma.Visible = true;
                     gridMantenimiento.Visible = false;
+                    gridMantenimientoArea.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimientoPrograma.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
                 case "Area Académica":
                     iframe1.Src = "frmCrearArea.aspx";
@@ -127,6 +133,9 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoArea.Visible = true;
                     gridMantenimientoPrograma.Visible = false;
                     gridMantenimiento.Visible = false;
+                    gridMantenimientoArea.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                    gridMantenimientoPrograma.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
             }
         }
@@ -224,6 +233,21 @@ namespace CalculadoraIndiceAcademico
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmCalificacionAdministrador.aspx");
+        }
+
+        protected void btnCancel2_Click(object sender, EventArgs e)
+        {
+            gridMantenimientoArea.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimientoPrograma.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            gridMantenimientoArea.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+            gridMantenimientoPrograma.SelectedRow.BackColor = Color.FromName("#fcfcd4");
         }
     }
 }

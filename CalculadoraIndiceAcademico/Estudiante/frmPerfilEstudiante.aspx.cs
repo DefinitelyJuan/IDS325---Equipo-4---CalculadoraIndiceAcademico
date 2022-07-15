@@ -42,11 +42,6 @@ namespace CalculadoraIndiceAcademico
             
         }
 
-        protected void lbtnCalificaciones_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmReporteEstudiante.aspx");

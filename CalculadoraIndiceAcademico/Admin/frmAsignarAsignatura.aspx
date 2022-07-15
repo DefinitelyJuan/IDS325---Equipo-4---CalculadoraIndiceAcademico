@@ -35,7 +35,7 @@
         </cc1:ModalPopupExtender>
             <asp:Panel ID="Panel2" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
+                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" OnClick="btnCancel1_Click" >
                     <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe2" src="frmEditarAsignaturaDocente.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
@@ -57,9 +57,7 @@
                 <asp:LinkButton 
                     ID="lbtnAsignaturas" runat="server" CssClass="btn btn-outline-primary secondaryButton"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignarAsignatura_Click"  >
-                    <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas
-                </asp:LinkButton>
+                    ID="lbtnAsignarAsignatura" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignarAsignatura_Click"  > <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas </asp:LinkButton>
                 <asp:LinkButton
                     ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnGenerarIndice_Click"> <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice </asp:LinkButton> 
                 <asp:LinkButton

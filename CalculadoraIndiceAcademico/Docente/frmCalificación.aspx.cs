@@ -75,6 +75,7 @@ namespace CalculadoraIndiceAcademico
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             frmPopUp.Hide();
+            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
         }
 
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)

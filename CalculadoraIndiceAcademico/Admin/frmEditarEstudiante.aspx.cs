@@ -61,7 +61,14 @@ namespace CalculadoraIndiceAcademico
                 {
                     estudianteData estudiante = (estudianteData)Session["estudianteData"];
                     tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-                    estudiantes.ppEditarEstudiante(estudiante.IdUsuario,estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
+                    if (txtContra.Text.Length > 0)
+                    {
+                        estudiantes.ppEditarEstudiante(estudiante.IdUsuario, estudiante.IdEst, txtContra.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
+                    }
+                    else
+                    {
+                        estudiantes.ppEditarEstudiante(estudiante.IdUsuario, estudiante.IdEst, estudiante.Contra, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtNumeroTelefono.Text);
+                    }
                     Response.Write("<script>alert('Estudiante actualizado correctamente');window.location = 'frmEditarEstudiante.aspx';</script>");
                 }
                 else

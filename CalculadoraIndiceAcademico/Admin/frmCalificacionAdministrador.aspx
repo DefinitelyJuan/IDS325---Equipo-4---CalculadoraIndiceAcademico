@@ -34,7 +34,7 @@
         </cc1:ModalPopupExtender>
             <asp:Panel ID="Panel2" runat="server">
                 <asp:LinkButton 
-                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
+                    ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" OnClick="btnCancel1_Click" >
                     <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe2" src="frmEditarCalificación.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     

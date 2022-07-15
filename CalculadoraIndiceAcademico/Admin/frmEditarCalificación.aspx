@@ -34,7 +34,7 @@
                 <asp:TextBox ID="txtNombreDocente" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>
 
                 <h5 class="mt-4 lbl  d-flex-column align-self-start">Calificación Numérica:</h5>
-                <asp:TextBox ID="txtCalificacion" runat="server" CssClass="txt"></asp:TextBox>
+                <asp:TextBox ID="txtCalificacion" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox>
 
                 <h5 class="mt-4 lbl  d-flex-column align-self-start">ID del Estudiante:</h5>
                 <asp:TextBox ID="txtIdEstudiante" runat="server" CssClass="txt" Enabled ="false"></asp:TextBox>

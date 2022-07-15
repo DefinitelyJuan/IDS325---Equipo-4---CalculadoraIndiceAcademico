@@ -23,7 +23,7 @@
         </cc1:ModalPopupExtender>
         <asp:Panel ID="Panel1" runat="server">
             <asp:LinkButton 
-                ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel">
+                ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" OnClick="btnCancel_Click">
                 <i class="fa-solid fa-xmark"></i>
             </asp:LinkButton>
             <iframe id="iframe1" src="frmEstudiante.aspx" runat="server" class="formFrame"></iframe>     
@@ -34,7 +34,7 @@
         </cc1:ModalPopupExtender>
         <asp:Panel ID="Panel2" runat="server">
         <asp:LinkButton 
-            ID="btnCancel2" runat="server" CssClass="btn btn-danger btnCancel">
+            ID="btnCancel2" runat="server" CssClass="btn btn-danger btnCancel" OnClick="btnCancel2_Click">
             <i class="fa-solid fa-xmark"></i>
         </asp:LinkButton>
         <iframe id="iframe2" src="frmEditarRol.aspx" runat="server" class="formFrame"></iframe>                                      
