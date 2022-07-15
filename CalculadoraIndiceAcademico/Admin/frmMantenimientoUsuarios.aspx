@@ -77,7 +77,7 @@
                 </asp:LinkButton> 
                 <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
                 <asp:LinkButton
-                    ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton">
+                    ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton" OnClick="lbtnCerrarSesion_Click">
                     <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión
                 </asp:LinkButton> 
             </div>

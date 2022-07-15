@@ -99,5 +99,11 @@ namespace CalculadoraIndiceAcademico
             ReportViewer1.LocalReport.DataSources.Add(dataSource);
             ReportViewer1.LocalReport.Refresh();
         }
+
+        protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["authRol"] = "0";
+            Response.Redirect("../frmLogin.aspx");
+        }
     }
 }

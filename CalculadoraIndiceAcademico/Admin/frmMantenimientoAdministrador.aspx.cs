@@ -133,7 +133,8 @@ namespace CalculadoraIndiceAcademico
 
         protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
         {
-
+            Session["authRol"] = "0";
+            Response.Redirect("../frmLogin.aspx");
         }
 
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)

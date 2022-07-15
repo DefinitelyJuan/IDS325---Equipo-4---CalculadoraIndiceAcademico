@@ -31,14 +31,19 @@ namespace CalculadoraIndiceAcademico
                         break;
                 }
             }
+            if (!this.IsPostBack)
+                ddlCodigo.DataBind();
             ppEstudiantesxDocenteTableAdapter ppEstudiantesxDocente = new ppEstudiantesxDocenteTableAdapter();
             userData data = (userData)Session["userData"];
             int idDocente= (int)Session["idDocente"];
-            ddlCodigo.DataBind();
             gridMantenimiento.DataSource = ppEstudiantesxDocente.GetData(idDocente, ddlCodigo.Text);
             gridMantenimiento.DataBind();
+            if(!this.IsPostBack)
+                gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+
             calificacionData calData = new calificacionData();
-            
+
+
             calData.IDAsignatura = int.Parse(gridMantenimiento.Rows[0].Cells[1].Text);
             calData.IDEstudiante = int.Parse(gridMantenimiento.Rows[0].Cells[2].Text);
             calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.Rows[0].Cells[3].Text);
@@ -98,6 +103,12 @@ namespace CalculadoraIndiceAcademico
             int idDocente = (int)Session["idDocente"];
             gridMantenimiento.DataSource = ppEstudiantesxDocente.GetData(idDocente, ddlCodigo.Text);
             gridMantenimiento.DataBind();
+        }
+
+        protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["authRol"] = "0";
+            Response.Redirect("../frmLogin.aspx");
         }
     }
 }

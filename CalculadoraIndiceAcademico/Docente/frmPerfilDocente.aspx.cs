@@ -40,5 +40,11 @@ namespace CalculadoraIndiceAcademico
         {
 			Response.Redirect("frmCalificación.aspx");
         }
+
+        protected void lbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["authRol"] = "0";
+            Response.Redirect("../frmLogin.aspx");
+        }
     }
 }

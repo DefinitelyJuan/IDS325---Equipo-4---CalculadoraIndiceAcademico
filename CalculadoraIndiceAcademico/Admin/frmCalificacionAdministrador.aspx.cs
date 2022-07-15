@@ -118,5 +118,11 @@ namespace CalculadoraIndiceAcademico.Admin
         {
             Response.Redirect("frmCalificacionAdministrador.aspx");
         }
+
+        protected void lbtnCerrarSesion_Click1(object sender, EventArgs e)
+        {
+            Session["authRol"] = "0";
+            Response.Redirect("../frmLogin.aspx");
+        }
     }
 }
