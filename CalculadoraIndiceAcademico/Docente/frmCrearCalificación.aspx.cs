@@ -36,12 +36,33 @@ namespace CalculadoraIndiceAcademico
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
-        {            
-            userData usrdata = (userData)Session["userData"];
-            calificacionData data = (calificacionData)Session["dataCalificacion"];
-            tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
-            calificaciones.ppAsignarCalificacion(data.IDAsignatura, double.Parse(txtCalificacionNumerica.Text),int.Parse(txtIDEstudiante.Text),usrdata.IDEntidad);
-            Response.Write("<script>alert('Calificación asignada satisfactoriamente.');window.location = 'frmCrearCalificación.aspx';</script>");
+        {
+            if (ValidarCampos() == true)
+            {
+                try
+                {
+                    userData usrdata = (userData)Session["userData"];
+                    calificacionData data = (calificacionData)Session["dataCalificacion"];
+                    tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
+                    calificaciones.ppAsignarCalificacion(data.IDAsignatura, double.Parse(txtCalificacionNumerica.Text),int.Parse(txtIDEstudiante.Text),usrdata.IDEntidad);
+                    Response.Write("<script>alert('Calificación asignada satisfactoriamente.');window.location = 'frmCrearCalificación.aspx';</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
+            }
+            else
+                Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearCalificación.aspx';</script>");
         }
+
+        private bool ValidarCampos()
+        {
+            if (txtCodigo.Text.Trim() == "" || txtEstudiante.Text.Trim() == "" || txtIDEstudiante.Text.Trim() == "" || txtNombreAsignatura.Text.Trim() == "" || txtCalificacionNumerica.Text.Trim() == "" || int.Parse(txtCalificacionNumerica.Text.Trim()) > 100)
+                return false;
+            else
+                return true;
+        }
+
     }
 }

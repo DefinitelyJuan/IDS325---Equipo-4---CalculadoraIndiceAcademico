@@ -24,20 +24,17 @@
 
             <div class="d-flex align-items-center flex-column p-3">
                 <h4 class="mainHeading">INGRESAR CALIFICACIÓN</h4>
+                
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Código:</h5>
-                <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt" Enabled="False" MaxLength="7"></asp:TextBox>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Asignatura:</h5>
-                <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="txtNombreAsignatura" runat="server" CssClass="txt" Enabled="False" MaxLength="70"></asp:TextBox>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Calificación Numérica:</h5>
-                <asp:TextBox ID="txtCalificacionNumerica" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox>
-            
+                <asp:TextBox ID="txtCalificacionNumerica" runat="server" CssClass="txt" TextMode="Number" MaxLength="3"></asp:TextBox>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">ID Estudiante:</h5>
-                <asp:TextBox ID="txtIDEstudiante" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-            
+                <asp:TextBox ID="txtIDEstudiante" runat="server" CssClass="txt" Enabled="False" TextMode="Number"></asp:TextBox>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Estudiante:</h5>
-                <asp:TextBox ID="txtEstudiante" runat="server" CssClass="txt" Enabled="False"></asp:TextBox>
-                            
-
+                <asp:TextBox ID="txtEstudiante" runat="server" CssClass="txt" Enabled="False" MaxLength="70"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>

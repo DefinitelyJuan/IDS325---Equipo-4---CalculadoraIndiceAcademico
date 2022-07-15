@@ -24,7 +24,7 @@
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" onServerClick = "cancel" OnClick="btnCancel_Click" >
-                    <i class="fa fa-thin fa-cancel"></i>
+                    <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe1" src="frmCrearCalificación.aspx" runat="server" class="formFrame"></iframe>     
 
@@ -44,11 +44,6 @@
                     ID="lbtnCalificaciones" runat="server" CssClass="btn selectedButton">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones
                 </asp:LinkButton>
-                <%--<asp:LinkButton
-                    ID="lbtnGenerarIndice" runat="server" CssClass="btn btn-outline-primary secondaryButton">
-                    <i class="fa-solid fa-scroll"></i>&nbspGenerar Índice
-                </asp:LinkButton> --%>
-                <%--<asp:button id="btncerrarsesion" runat="server" text="Cerrar Sesión" cssclass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton"/>--%>
                 <asp:LinkButton
                     ID="lbtnCerrarSesion" runat="server" CssClass="btn btn-outline-primary btncerrarsesion mt-auto secondaryButton" OnClick="lbtnCerrarSesion_Click">
                     <i class="fa fa-solid fa-arrow-right-from-bracket"></i>&nbspCerrar Sesión

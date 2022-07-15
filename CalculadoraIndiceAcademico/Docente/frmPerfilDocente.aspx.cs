@@ -28,12 +28,20 @@ namespace CalculadoraIndiceAcademico
                         break;
                 }
             }
-            ppMostrarAsignaturasDocenteTableAdapter asignaturasDoc = new ppMostrarAsignaturasDocenteTableAdapter();
-            userData data = (userData)Session["userData"];
-            LabelID.Text = $"ID: {data.IDUsuario}";
-            LabelNombre.Text = $"Nombre: {data.Nombre}";
-            LabelRol.Text = "Rol: Docente";
             
+            try
+            {
+                ppMostrarAsignaturasDocenteTableAdapter asignaturasDoc = new ppMostrarAsignaturasDocenteTableAdapter();
+                userData data = (userData)Session["userData"];
+                LabelID.Text = $"ID: {data.IDUsuario}";
+                LabelNombre.Text = $"Nombre: {data.Nombre}";
+                LabelRol.Text = "Rol: Docente";
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert({ex})</script>");
+            }
+
         }
 
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
