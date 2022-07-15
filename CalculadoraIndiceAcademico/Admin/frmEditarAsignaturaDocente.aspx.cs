@@ -46,11 +46,23 @@ namespace CalculadoraIndiceAcademico
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Models.asignaturaDocData aDocData = new Models.asignaturaDocData();
-            aDocData = (Models.asignaturaDocData)Session["AsigDocData"];
-            tblDocentes_AsignaturasTableAdapter tblDocentes_Asignaturas = new tblDocentes_AsignaturasTableAdapter();
-            tblDocentes_Asignaturas.Update(int.Parse(ddlAsignaturas.SelectedValue), int.Parse(ddlProfesor.SelectedValue),aDocData.IDAsignatura,aDocData.IDDocente);
-            Response.Write("<script>alert('Registro actualizado correctamente');window.location = 'frmCrearAsignaturaDocente.aspx';</script>");
+            if (ValidarCampos() == true)
+            {
+                try
+                {
+                    Models.asignaturaDocData aDocData = new Models.asignaturaDocData();
+                    aDocData = (Models.asignaturaDocData)Session["AsigDocData"];
+                    tblDocentes_AsignaturasTableAdapter tblDocentes_Asignaturas = new tblDocentes_AsignaturasTableAdapter();
+                    tblDocentes_Asignaturas.Update(int.Parse(ddlAsignaturas.SelectedValue), int.Parse(ddlProfesor.SelectedValue),aDocData.IDAsignatura,aDocData.IDDocente);
+                    Response.Write("<script>alert('Registro actualizado correctamente.');window.location = 'frmCrearAsignaturaDocente.aspx';</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"<script>alert({ex})</script>");
+                }
+            }
+            else
+                Response.Write("<script>alert('Complete todos los campos.');window.location = 'frmCrearAsignaturaDocente.aspx';</script>");
         }
 
         protected void ddlProfesor_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +70,14 @@ namespace CalculadoraIndiceAcademico
             tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
             string resultado = (string)docentes.ppObtenerDocentexId(int.Parse(ddlProfesor.SelectedValue));
             txtNombreDocente.Text = resultado;
+        }
+
+        private bool ValidarCampos()
+        {
+            if (txtNombreDocente.Text.Trim() == "")
+                return false;
+            else
+                return true;
         }
     }
 }

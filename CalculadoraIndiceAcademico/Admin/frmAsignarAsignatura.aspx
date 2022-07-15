@@ -24,7 +24,7 @@
                 <asp:Panel ID="Panel1" runat="server">
                 <asp:LinkButton 
                     ID="btnCancel" runat="server" CssClass="btn btn-danger btnCancel" UseSubmitBehavior="false" OnClick="btnCancel_Click">
-                    <i class="fa fa-thin fa-cancel"></i>
+                    <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe1" src="frmCrearAsignaturaDocente.aspx" runat="server" class="formFrame"></iframe>     
 
@@ -36,7 +36,7 @@
             <asp:Panel ID="Panel2" runat="server">
                 <asp:LinkButton 
                     ID="btnCancel1" runat="server" CssClass="btn btn-danger btnCancel" >
-                    <i class="fa fa-thin fa-cancel"></i>
+                    <i class="fa-solid fa-xmark"></i>
                 </asp:LinkButton>
                 <iframe id="iframe2" src="frmEditarAsignaturaDocente.aspx" runat="server" class="formFrame" style="height: 95vh!important"></iframe>     
 

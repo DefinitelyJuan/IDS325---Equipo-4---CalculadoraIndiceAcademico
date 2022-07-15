@@ -62,7 +62,7 @@
                     </UpdateParameters>
                 </asp:ObjectDataSource>
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Nombre Docente:</h5>
-                <asp:TextBox ID="txtNombreDocente" runat="server" CssClass="txt" Enabled="false"></asp:TextBox>
+                <asp:TextBox ID="txtNombreDocente" runat="server" CssClass="txt" Enabled="false" MaxLength="55"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>

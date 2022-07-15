@@ -75,7 +75,7 @@
             
             <%-- Botón guardar --%>
             <div class="d-flex justify-content-center">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return confirm('¿Está seguro de que quiere editar el registro?');" />
             </div>
 
         </div>
