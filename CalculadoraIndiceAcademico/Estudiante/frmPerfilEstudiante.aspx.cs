@@ -39,13 +39,12 @@ namespace CalculadoraIndiceAcademico
             materias = asignaturas.GetData(data.IDEntidad);
             gridMaterias.DataSource = materias;
             gridMaterias.DataBind();
-            //estudiante.fillMaterias(materias); //Reemplazar con el pp que se cree
-            //gridMaterias.DataSource = materias;
+            
         }
 
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("frmEstudianteCalificaciones");
+
         }
 
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)
