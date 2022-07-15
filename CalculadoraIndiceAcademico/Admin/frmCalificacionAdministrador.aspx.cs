@@ -29,14 +29,17 @@ namespace CalculadoraIndiceAcademico.Admin
 
                 }
             }
-            gridMantenimiento.DataBind();
             if (!this.IsPostBack)
-            {
                 ddlAsignaturas.DataBind();
-                gridMantenimiento.DataBind();
+
+
+            gridMantenimiento.DataBind();
+
+            if (!this.IsPostBack)
                 gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
-            }
-            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+
+
+
             calificacionData calData = new calificacionData();
             calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
             calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);

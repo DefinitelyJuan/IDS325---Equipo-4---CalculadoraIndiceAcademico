@@ -5,10 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CalculadoraIndiceAcademico.Models;
 
 namespace CalculadoraIndiceAcademico.Admin
 {
-    public partial class frmCrearCalificacion : System.Web.UI.Page
+    public partial class frmCalificación : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,29 +31,13 @@ namespace CalculadoraIndiceAcademico.Admin
             }
             if (!this.IsPostBack)
             {
-                ddlAsignatura.DataBind();
-                ddlDocente.DataBind();
-                ddlEstudiante.DataBind();
-                tblDocentesTableAdapter docentes = new tblDocentesTableAdapter();
-                tblAsignaturasTableAdapter asignaturas = new tblAsignaturasTableAdapter();
-                tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
-                txtNombreAsignatura.Text = (string)asignaturas.ppObtenerAsignaturaxID(int.Parse(ddlAsignatura.SelectedValue));
-                txtNombreEstudiante.Text = (string)estudiantes.ppObtenerEstudiantexId(int.Parse(ddlEstudiante.SelectedValue));
-                txtNombreDocente.Text = (string)docentes.ppObtenerDocentexId(int.Parse(ddlDocente.SelectedValue));
-            }
-        }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
-                calificaciones.ppAsignarAsignatura(int.Parse(ddlAsignatura.SelectedValue), int.Parse(ddlEstudiante.SelectedValue), int.Parse(ddlDocente.SelectedValue));
-                Response.Write("<script>alert('Registro insertado correctamente');window.location = 'frmCrearCalificacion.aspx';</script>");
-            }
-            catch
-            {
-                Response.Write("<script>alert('Ya existe el registro que desea insertar');window.location = 'frmCrearCalificacion.aspx';</script>");
+                calificacionData calificacion = (calificacionData)Session["calAdminData"];
+                ddlAsignatura.SelectedValue = calificacion.IDAsignatura.ToString();
+                ddlDocente.SelectedValue = calificacion.IDDocente.ToString();
+                ddlEstudiante.SelectedValue = calificacion.IDEstudiante.ToString();
+                txtNombreAsignatura.Text = calificacion.NombreAsignatura;
+                txtNombreDocente.Text = calificacion.NombreDocente;
+                txtNombreEstudiante.Text = calificacion.NombreEstudiante;
             }
         }
 
@@ -72,6 +57,21 @@ namespace CalculadoraIndiceAcademico.Admin
         {
             tblEstudiantesTableAdapter estudiantes = new tblEstudiantesTableAdapter();
             txtNombreEstudiante.Text = (string)estudiantes.ppObtenerEstudiantexId(int.Parse(ddlEstudiante.SelectedValue));
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                calificacionData calificacion = (calificacionData)Session["calAdminData"];
+                tblCalificacionesTableAdapter calificaciones = new tblCalificacionesTableAdapter();
+                calificaciones.ppEditarCalificacionAdmin(calificacion.IDAsignatura, calificacion.trimeste, calificacion.IDEstudiante, int.Parse(ddlAsignatura.SelectedValue), int.Parse(ddlEstudiante.SelectedValue), int.Parse(ddlDocente.SelectedValue));
+                Response.Write("<script>alert('Registro editado correctamente');window.location = 'frmEditarCalificación.aspx';</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('No es posile editar el registro, verifique los cambios');window.location = 'frmEditarCalificación.aspx';</script>");
+            }
         }
     }
 }
