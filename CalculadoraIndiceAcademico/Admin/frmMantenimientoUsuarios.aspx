@@ -108,7 +108,7 @@
                         <div class="col-md-2 crudButtons">
                             <button runat="server" type="button"  id="btnCreate" class="fa btn btn-outline-secondary"><i class="fa-light fa-plus fa-lg"></i></button>
                             <button runat="server" id="btnUpdate" class="fa btn btn-outline-secondary"><i class="fa-light fa-pencil fa-lg"></i></button>
-                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="btnDelete" runat="server" CssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click"> <i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
+                            <asp:LinkButton OnClientClick="return confirm('¿Está seguro de que quiere desactivar el registro?');" ID="btnDelete" runat="server" CssClass="fa btn btn-outline-secondary" OnClick="btnDelete_Click" Enabled="false"> <i class="fa-light fa-trash-can fa-lg"></i></asp:LinkButton>
                         </div>
                     </div>
                 </div>

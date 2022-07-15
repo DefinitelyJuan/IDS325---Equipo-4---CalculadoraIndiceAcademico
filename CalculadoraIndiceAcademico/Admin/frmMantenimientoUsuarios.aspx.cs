@@ -123,7 +123,7 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoEst.Visible = true;
                     gridMantenimientoAdmin.Visible = false;
                     btnCreate.Disabled = false;
-                    btnDelete.Enabled = true;
+                    btnDelete.Visible = true;
                     btnUpdate.Disabled = false;
                     gridMantenimientoEst.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
@@ -134,7 +134,7 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = false;
                     btnCreate.Disabled = false;
-                    btnDelete.Enabled = true;
+                    btnDelete.Visible = true;
                     btnUpdate.Disabled = false;
                     gridMantenimientoDoc.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
@@ -144,7 +144,7 @@ namespace CalculadoraIndiceAcademico
                     gridMantenimientoEst.Visible = false;
                     gridMantenimientoAdmin.Visible = true;
                     btnCreate.Disabled = true;
-                    btnDelete.Enabled = false;
+                    btnDelete.Visible = false;
                     btnUpdate.Disabled = true;
                     gridMantenimientoAdmin.SelectedRow.BackColor = Color.FromName("#fcfcd4");
                     break;
