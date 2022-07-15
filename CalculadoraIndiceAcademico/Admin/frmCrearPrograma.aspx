@@ -31,7 +31,7 @@
                 <asp:TextBox ID="txtVersion" runat="server" CssClass="txt" MaxLength="15"></asp:TextBox>
 
                 <h5 class="mt-3 lbl  d-flex-column align-self-start">Créditos:</h5>
-                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" MaxLength="1" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtCreditos" runat="server" CssClass="txt" MaxLength="3" TextMode="Number"></asp:TextBox>
             </div>
             
             <%-- Botón guardar --%>
