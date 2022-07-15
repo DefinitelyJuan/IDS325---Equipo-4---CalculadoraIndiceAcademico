@@ -60,7 +60,6 @@ namespace CalculadoraIndiceAcademico
         protected void lbtnAsignaturas_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmAsignaturasAdministrador.aspx");
-
         }
 
         protected void lbtnGenerarIndice_Click(object sender, EventArgs e)

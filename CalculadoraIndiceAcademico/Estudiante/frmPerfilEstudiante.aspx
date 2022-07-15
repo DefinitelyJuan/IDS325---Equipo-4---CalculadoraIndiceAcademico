@@ -71,8 +71,9 @@
 
                 <%-- Row 2 --%>
                 <div class="row h-75 <%--bg-success--%> m-0">
-                    <asp:GridView ID="gridMaterias" runat="server" AutoGenerateColumns="False" CssClass="table">
+                    <asp:GridView ID="gridMaterias" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="ObjectDataSource1">
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                             <asp:BoundField DataField="Créditos" HeaderText="Créditos" SortExpression="Créditos" />
@@ -81,6 +82,11 @@
                             <asp:BoundField DataField="Calificación numérica" HeaderText="Calificación numérica" SortExpression="Calificación numérica" />
                         </Columns>
                     </asp:GridView>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="CalculadoraIndiceAcademico.dsSCIATableAdapters.MostrarAsignaturasActualesTableAdapter">
+                        <SelectParameters>
+                            <asp:SessionParameter DefaultValue="" Name="IDEstudiante" SessionField="idEstudiante" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>

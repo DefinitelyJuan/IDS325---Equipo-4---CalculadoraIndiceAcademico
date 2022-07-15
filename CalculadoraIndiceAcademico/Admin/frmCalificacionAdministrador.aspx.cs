@@ -41,17 +41,20 @@ namespace CalculadoraIndiceAcademico.Admin
 
 
             calificacionData calData = new calificacionData();
-            calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
-            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
-            calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
-            calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
-            calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
-            calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
-            calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
-            calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
-            calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
-            calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
-            Session["calAdminData"] = calData;
+            if (gridMantenimiento.Rows.Count > 0)
+            {
+                calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+                calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
+                calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
+                calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+                calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
+                calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
+                calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
+                calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+                calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
+                calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
+                Session["calAdminData"] = calData;
+            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -89,19 +92,22 @@ namespace CalculadoraIndiceAcademico.Admin
 
         protected void gridMantenimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
-            calificacionData calData = new calificacionData();
-            calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
-            calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
-            calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
-            calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
-            calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
-            calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
-            calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
-            calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
-            calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
-            calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
-            Session["calAdminData"] = calData;
+            if (gridMantenimiento.Rows.Count > 0)
+            {
+                gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+                calificacionData calData = new calificacionData();
+                calData.IDAsignatura = int.Parse(gridMantenimiento.SelectedRow.Cells[1].Text);
+                calData.NombreAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[2].Text);
+                calData.codigoAsignatura = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[3].Text);
+                calData.IDDocente = int.Parse(gridMantenimiento.SelectedRow.Cells[4].Text);
+                calData.NombreDocente = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[5].Text);
+                calData.NombreEstudiante = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[6].Text);
+                calData.IDEstudiante = int.Parse(gridMantenimiento.SelectedRow.Cells[7].Text);
+                calData.trimeste = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[8].Text);
+                calData.CalificacionLiteral = HttpUtility.HtmlDecode(gridMantenimiento.SelectedRow.Cells[9].Text);
+                calData.CalificacionNum = int.Parse(gridMantenimiento.SelectedRow.Cells[10].Text);
+                Session["calAdminData"] = calData;
+            }
         }
 
         protected void lbtnAsignarAsignatura_Click(object sender, EventArgs e)

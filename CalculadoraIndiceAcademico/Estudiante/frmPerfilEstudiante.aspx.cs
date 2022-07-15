@@ -35,10 +35,6 @@ namespace CalculadoraIndiceAcademico
             LabelNombre.Text = $"Nombre: {data.Nombre}";
             LabelPrograma.Text = $"Programa: {data.Programa}";
             LabelRol.Text = "Rol: Estudiante";
-            DataTable materias = new DataTable();
-            materias = asignaturas.GetData(data.IDEntidad);
-            gridMaterias.DataSource = materias;
-            gridMaterias.DataBind();
             
         }
 

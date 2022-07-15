@@ -99,11 +99,6 @@ namespace CalculadoraIndiceAcademico
             Response.Redirect("frmAsignarAsignatura.aspx");
         }
 
-        protected void lbtnAsignaturas_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("frmAsignaturasAdministrador.aspx");
-        }
-
         protected void lbtnCalificaciones_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmCalificacionAdministrador.aspx");
@@ -122,6 +117,11 @@ namespace CalculadoraIndiceAcademico
         protected void btnCancel1_Click(object sender, EventArgs e)
         {
             gridMantenimiento.SelectedRow.BackColor = Color.FromName("#fcfcd4");
+        }
+
+        protected void lbtnAsignaturas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAsignaturasAdministrador.aspx");
         }
     }
 }

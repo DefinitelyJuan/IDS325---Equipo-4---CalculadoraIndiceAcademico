@@ -55,7 +55,9 @@
                 <asp:LinkButton 
                     ID="lbtnCalificaciones" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnCalificaciones_Click"> <i class="fa fa-solid fa-file-pen"></i>&nbspCalificaciones </asp:LinkButton>
                 <asp:LinkButton 
-                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignaturas_Click"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas </asp:LinkButton>
+                    ID="lbtnAsignaturas" runat="server" CssClass="btn selectedButton" OnClick="lbtnAsignaturas_Click"> <i class="fa fa-solid fa-book"></i>&nbspAsignaturas 
+
+                </asp:LinkButton>
                 <asp:LinkButton 
                     ID="lbtnAsignarAsignatura" runat="server" CssClass="btn btn-outline-primary secondaryButton" OnClick="lbtnAsignarAsignatura_Click">
                     <i class="fa fa-solid fa-file-pen"></i>&nbspAsignar Asignaturas
@@ -79,15 +81,7 @@
                     <div class="row d-flex align-content-center">
                         <%-- Columna cmb--%>
                         <div class="col-md-10">
-                            <h3>Mantenimiento:</h3>
-                            <div class="row">
-                                <div class="col-md-3">
-                                  <asp:DropDownList ID="ddlAsignaturas" runat="server" CssClass="cmb">
-                                    <asp:ListItem CssClass="dropdown-item">Asignatura</asp:ListItem>
-                                </asp:DropDownList>
-                                </div>
-                            </div>
-
+                            <h3>Asignaturas:</h3>
                         </div>
                         <%-- Columna botones CRUD --%>
                         <div class="col-md-2 crudButtons">
